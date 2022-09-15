@@ -1,0 +1,154 @@
+---
+import { t } from "i18next";
+import { Icon } from "astro-icon";
+import Picture from "~/components/core/Picture.astro";
+
+const {} = Astro.props;
+
+const items = [
+  {
+    title: t("comparison.f01"),
+    opensource: 1,
+    commercial: 1,
+  },
+  {
+    title: t("comparison.f02"),
+    opensource: 0,
+    commercial: 1,
+  },
+  {
+    title: t("comparison.f03"),
+    opensource: 0,
+    commercial: 1,
+  },
+  {
+    title: t("comparison.f04"),
+    opensource: 0,
+    commercial: 1,
+  },
+  {
+    title: t("comparison.f05"),
+    opensource: 1,
+    commercial: 1,
+  },
+  {
+    title: t("comparison.f06"),
+    opensource: 1,
+    commercial: 1,
+  },
+  {
+    title: t("comparison.f07"),
+    opensource: 1,
+    commercial: 1,
+  },
+  {
+    title: t("comparison.f08"),
+    opensource: 1,
+    commercial: 1,
+  },
+  {
+    title: t("comparison.f09"),
+    opensource: 2,
+    commercial: 1,
+  },
+  {
+    title: t("comparison.f10"),
+    opensource: 1,
+    commercial: 1,
+  },
+  {
+    title: t("comparison.f11"),
+    opensource: 0,
+    commercial: 1,
+  },
+  {
+    title: t("comparison.f12"),
+    opensource: 0,
+    commercial: 1,
+  },
+  {
+    title: t("comparison.f13"),
+    opensource: 0,
+    commercial: 1,
+  },
+  {
+    title: t("comparison.f14"),
+    opensource: 1,
+    commercial: 1,
+  },
+  {
+    title: t("comparison.f15"),
+    opensource: 0,
+    commercial: 1,
+  },
+  {
+    title: t("comparison.f16"),
+    opensource: 1,
+    commercial: 1,
+  },
+  {
+    title: t("comparison.f17"),
+    opensource: 1,
+    commercial: 1,
+  },
+  {
+    title: t("comparison.f18"),
+    opensource: 1,
+    commercial: 1,
+  },
+];
+
+---
+
+<section class="relative" id="comparison">
+  
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="pb-12 md:pb-20 sm:text-center">
+      <p class="text-base text-primary-600 dark:text-primary-200 font-semibold tracking-wide uppercase">{t("comparison.comparison")}</p>
+      <h2 class="text-3xl lg:text-4xl font-bold leading-tighter tracking-tighter mb-4 font-heading">
+        <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-secondary-500 whitespace-nowrap">ZettaStor DBS</span>
+        {t("comparison.title")}
+      </h2>
+      <p class="max-w-3xl mx-auto text-gray-600 dark:text-slate-400">
+        {t("comparison.desc")}
+      </p>
+      <p class="max-w-3xl mx-auto sm:text-right text-gray-600 dark:text-slate-400">
+        <svg class="mx-1 w-5 h-5 text-blue-600 inline" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10"/></svg>{t("comparison.included")}
+        <svg class="mx-1 w-5 h-5 text-blue-600 inline" stroke="currentColor" fill="none" stroke-width="1" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="9"/></svg>{t("comparison.partial")}
+      </p>
+      <div class="max-w-3xl mx-auto p-6 rounded-md shadow-xl dark:shadow-none">
+
+
+        <div id="detailed-pricing" class="overflow-x-auto w-full">
+          <div class="overflow-hidden">
+              <div class="grid grid-cols-3 gap-x-16 p-4 text-sm font-medium text-start text-gray-900 bg-gray-100 border-t border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700 dark:text-white">
+                  <div>{t("comparison.feature")}</div>
+                  <div>{t("comparison.title1")}</div>
+                  <div>{t("comparison.title2")}</div>
+              </div>
+
+              {
+                items.map(({ title, opensource, commercial }) => (
+                <div class="grid grid-cols-3 gap-x-16 py-5 px-4 text-sm text-start border-b border-gray-200 dark:border-gray-700">
+                  <div>{title}</div>
+                  {
+                    opensource == 2 ? <svg class="w-5 h-5 text-blue-600" stroke="currentColor" fill="none" stroke-width="1" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="9"/></svg> : 
+                    opensource == 1 ? <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10"/></svg> : 
+                    <span />
+                  }
+                  {
+                    commercial == 2 ? <svg class="w-5 h-5 text-blue-600" stroke="currentColor" fill="none" stroke-width="1" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="9"/></svg> : 
+                    commercial == 1 ? <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10"/></svg> : 
+                    <span />
+                  }
+                </div>
+                ))
+              }
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,79 @@
+---
+import { t } from "i18next";
+const {} = Astro.props;
+
+const items = [
+  [
+    {
+      title: t("feature.title1"),
+      description:t("feature.desc1"),
+    },
+    {
+      title: t("feature.title3"),
+      description:t("feature.desc3"),
+    },
+    {
+      title: t("feature.title5"),
+      description:t("feature.desc5"),
+    },
+  ],
+  [
+    {
+      title: t("feature.title2"),
+      description:t("feature.desc2"),
+    },  
+    {
+      title: t("feature.title4"),
+      description:t("feature.desc4"),
+    },
+  ],
+];
+---
+
+<section class="scroll-mt-16" id="features">
+  <div class="px-4 py-16 mx-auto max-w-6xl lg:px-8 lg:py-20">
+    <div class="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
+      <p class="text-base text-primary-600 dark:text-primary-200 font-semibold tracking-wide uppercase">{t("feature.feature")}</p>
+      
+      <h2 class="text-3xl lg:text-4xl font-bold leading-tighter tracking-tighter mb-4 font-heading">
+        <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-secondary-500 whitespace-nowrap">ZettaStor DBS</span>
+        {t("feature.title")}
+      </h2>
+      <p class="max-w-3xl mx-auto sm:text-left text-xl text-gray-600 dark:text-slate-400">
+        {t("feature.desc")}
+      </p>
+    </div>
+    <div class="grid mx-auto space-y-6 md:grid-cols-2 md:space-y-0">
+      {
+        items.map((subitems) => (
+          <div class="space-y-8 sm:px-8">
+            {subitems.map(({ title, description }) => (
+              <div class="flex flex-row max-w-md">
+                <div class="mb-4 mr-4">
+                  <div class="flex items-center justify-center w-12 h-12 rounded-full bg-primary-500">
+                    <svg class="w-12 h-12 p-0.5" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                      <g fill="none" fill-rule="evenodd">
+                        <rect class="fill-current text-primary-600" width="64" height="64" rx="32" />
+                        <g stroke-linecap="square" stroke-width="2">
+                          <path class="stroke-current text-white" d="M20.571 20.571h13.714v17.143H20.571z" />
+                          <path
+                            class="stroke-current text-primary-300"
+                            d="M38.858 26.993l6.397 1.73-4.473 16.549-13.24-3.58"
+                          />
+                        </g>
+                      </g>
+                    </svg>
+                  </div>
+                </div>
+                <div>
+                  <h3 class="mb-3 text-xl font-bold">{title}</h3>
+                  <p>{description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

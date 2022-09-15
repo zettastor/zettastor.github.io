@@ -1,0 +1,23 @@
+---
+import { changeLanguage } from "i18next";
+import { SITE } from "~/config.mjs";
+import { getCanonical, getHomePermalink } from "~/utils/permalinks";
+import Layout from "~/layouts/PageLayout.astro";
+import Hero2 from "~/components/widgets/Hero2.astro";
+import Comparison from "~/components/widgets/Comparison.astro";
+import Features2 from "~/components/widgets/Features2.astro";
+
+changeLanguage("zh");
+
+const meta = {
+    title: SITE.title,
+    description: SITE.description,
+    canonical: getCanonical(getHomePermalink()),
+};
+---
+
+<Layout meta={meta}>
+  <Hero2 />
+  <Features2 />
+  <Comparison />
+</Layout>
