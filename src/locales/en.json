@@ -14,7 +14,7 @@
   "feature": {
     "titlebefore":"Technical Advantages of",
     "titleafter":"",
-    "desc":"ZettaStor DBS can be widely used in private clouds and data centers in various industries, such as telecommunications, finance, government, military, public security, media, medical care, education, scientific research, etc., and can seamlessly adapt to typical applications without any changes.",
+    "desc":"ZettaStor DBS is independently developed by Pengyun Network, since its initial release of version 1.0 in 2015, the product has been widely used in private clouds and data centers in various industries, such as telecommunications, finance, government, military, public security, media, medical care, education, scientific research, etc., and can seamlessly adapt to typical applications without any changes.",
     "title1": "Decentralized Architecture",
     "desc1": "A symmetric distributed architecture based on the decentralized blockchain network, eliminates traditional limitations and disadvantages on system scale, I/O performance, stability and reliability.",
     "title2": "Large-scale Node Deployment",
@@ -36,5 +36,9 @@
     "partial": "Partially included",
     "title1":"Community Edition",
     "title2":"Enterprise Edition"
+  },
+  "benefits": {
+    "titlebefore":"Customer Benefits of",
+    "titleafter":""
   }
 }
