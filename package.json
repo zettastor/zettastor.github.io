@@ -16,15 +16,16 @@
     "@astrojs/rss": "^1.0.0",
     "@astrojs/sitemap": "^1.0.0",
     "@astrojs/tailwind": "^1.0.1",
+    "@ernxst/subfont": "^0.1.4",
     "@fontsource/inter": "^4.5.12",
     "@tailwindcss/typography": "^0.5.4",
-    "astro": "^1.2.3",
+    "astro": "^1.2.6",
     "astro-i18next": "^1.0.0-beta.9",
     "astro-icon": "^0.7.3",
+    "glyphhanger": "^5.0.0",
     "i18next-fs-backend": "^1.1.5",
     "limax": "^v2.1.0",
-    "reading-time": "^1.5.0",
-    "subfont": "^6.9.0"
+    "reading-time": "^1.5.0"
   },
   "engines": {
     "node": ">=14"

@@ -2,9 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+	font-family: PMZD;
+	src: url("../fonts/pmzd-v3.ttf")
+}
+
+.pmzd {
+	font-family: "PMZD", sans-serif;
+}
+
 @layer components {
   .btn {
     @apply inline-flex items-center justify-center rounded border border-transparent font-medium text-center text-base leading-snug transition py-3 px-6 shadow-lg ease-in duration-200 focus:ring-blue-500 focus:ring-offset-blue-200 focus:ring-2 focus:ring-offset-2;
+  }
+
+  .pengyun-logo {
+    @apply content-[url(/assets/pengyun-logo-light.png)] max-h-8; 
+  }
+
+  .pengyun-logo-dark {
+    @apply content-[url(/assets/pengyun-logo.png)] max-h-8;
   }
 
   .hero {

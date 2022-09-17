@@ -1,7 +1,5 @@
 ---
 import { t } from "i18next";
-import { Icon } from "astro-icon";
-import Logo from "~/components/atoms/Logo.astro";
 import ToggleTheme from "~/components/core/ToggleTheme.astro";
 import ToggleMenu from "~/components/core/ToggleMenu.astro";
 import { LanguageSelector } from "astro-i18next/components";
@@ -22,8 +20,13 @@ const {} = Astro.props;
     class="py-3 px-3 mx-auto w-full md:flex md:justify-between max-w-6xl md:px-4"
   >
     <div class="flex justify-between">
+      <a class="flex items-center" href="https://www.pengyunnetwork.cn">
+        <img class="pengyun-logo dark:pengyun-logo-dark" alt="Pengyun Logo">
+      </a>
       <a class="flex items-center" href={getHomePermalink()}>
-        <Logo />
+        <span class="pmzd self-center ml-2 md:ml-4 text-2xl text-gray-600 whitespace-nowrap dark:text-white">
+          ZettaStor DBS
+        </span>
       </a>
       <div class="flex items-center md:hidden">
         <ToggleTheme />

@@ -8,7 +8,7 @@ import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
 import image from "@astrojs/image";
 import partytown from "@astrojs/partytown";
-
+import subfont from "@ernxst/subfont/astro";
 import { SITE } from "./src/config.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -30,6 +30,7 @@ export default defineConfig({
     }),
     sitemap(),
     image(),
+    subfont(),
 
     /* Disable this integration if you don't use Google Analytics (or other external script). */
     partytown({

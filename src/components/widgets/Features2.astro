@@ -1,29 +1,35 @@
 ---
 import { t } from "i18next";
+import { Icon } from "astro-icon";
 const {} = Astro.props;
 
 const items = [
   [
     {
       title: t("feature.title1"),
+      icon: "ph:share-network",
       description:t("feature.desc1"),
     },
     {
       title: t("feature.title3"),
+      icon: "ic:baseline-speed",
       description:t("feature.desc3"),
     },
     {
       title: t("feature.title5"),
+      icon: "ant-design:safety-certificate-outlined",
       description:t("feature.desc5"),
     },
   ],
   [
     {
       title: t("feature.title2"),
+      icon: "clarity:cloud-scale-line",
       description:t("feature.desc2"),
     },  
     {
       title: t("feature.title4"),
+      icon: "ic:round-settings-backup-restore",
       description:t("feature.desc4"),
     },
   ],
@@ -33,9 +39,9 @@ const items = [
 <section class="scroll-mt-16" id="features">
   <div class="px-4 py-16 mx-auto max-w-6xl lg:px-8 lg:py-20">
     <div class="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
-      <h2 class="text-3xl lg:text-4xl font-bold leading-tighter tracking-tighter mb-4 font-heading">
+      <h2 class="text-3xl lg:text-4xl mb-4 font-heading">
         {t("feature.titlebefore")}
-        <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-secondary-500 whitespace-nowrap">ZettaStor DBS</span>
+        <span class="pmzd bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-secondary-500 whitespace-nowrap">ZettaStor DBS</span>
         {t("feature.titleafter")}
       </h2>
       <p class="max-w-3xl mx-auto sm:text-left text-xl text-gray-600 dark:text-slate-400">
@@ -46,23 +52,12 @@ const items = [
       {
         items.map((subitems) => (
           <div class="space-y-8 sm:px-8">
-            {subitems.map(({ title, description }) => (
+            {subitems.map(({ title, icon, description }) => (
               <div class="flex flex-row max-w-md">
                 <div class="mb-4 mr-4">
-                  <div class="flex items-center justify-center w-12 h-12 rounded-full bg-primary-500">
-                    <svg class="w-12 h-12 p-0.5" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-                      <g fill="none" fill-rule="evenodd">
-                        <rect class="fill-current text-primary-600" width="64" height="64" rx="32" />
-                        <g stroke-linecap="square" stroke-width="2">
-                          <path class="stroke-current text-white" d="M20.571 20.571h13.714v17.143H20.571z" />
-                          <path
-                            class="stroke-current text-primary-300"
-                            d="M38.858 26.993l6.397 1.73-4.473 16.549-13.24-3.58"
-                          />
-                        </g>
-                      </g>
-                    </svg>
-                  </div>
+                  <div class="flex items-center justify-center w-12 h-12 rounded-full bg-primary-600 border-primary-500 border-2">
+                  <Icon name={icon} class="w-6 h-6 text-white dark:text-slate-200 icon-bold" />
+                </div>
                 </div>
                 <div>
                   <h3 class="mb-3 text-xl font-bold">{title}</h3>
