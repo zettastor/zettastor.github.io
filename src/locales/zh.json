@@ -2,7 +2,32 @@
   "hero": {
     "title": "分布式块存储系统",
     "desc": "ZettaStor DBS 由南京鹏云网络科技有限公司（简称“鹏云网络”）完全自主研发。该产品可为大规模虚拟化、私有云和容器环境，提供高可用、高性能、易扩展、易维护的企业级用户业务存储解决方案，成为核心应用上云的坚实数据底座。",
-    "button2": "技术优势" 
+    "button2": "技术优势"
+  },
+  "diagram": {
+    "title": "ZettaStor DBS 示意图",
+
+    "label-app-layer": "应用层",
+    "label-storage-layer": "存储层",
+    "label-device-layer": "设备层",
+
+    "label-cloud": "云计算/虚拟化",
+    "label-db": "数据库",
+    "label-virtual": "桌面虚拟化",
+    "label-backup": "备份系统",
+    "label-dev": "开发/测试",
+    "label-mass-storage": "海量文件存储",
+
+    "label-block-device": "块设备接口",
+    "label-unified-res": "统一存储资源池",
+
+    "label-console": "Web 控制台",
+    "label-storage-mgmt": "存储管理",
+    "label-cluster-mgmt": "节点管理",
+    "label-alarm-mgmt": "告警管理",
+    "label-performance-mgmt": "性能管理",
+    "label-user-mgmt": "用户管理",
+    "label-system-mgmt": "系统管理"
   },
   "menu": {
     "home": "首页",
@@ -13,7 +38,7 @@
   },
   "feature": {
     "titlebefore":"",
-    "titleafter":"的技术优势",
+    "titleafter":"技术优势",
     "desc":"ZettaStor DBS 分布式块存储系统，由鹏云网络完全自主研发，1.0 版本于 2015 年发布。ZettaStor DBS 可广泛适用于电信、金融、政府、军工、公安、媒体、企业、医疗、教育、科研等各个行业私有云和数据中心，可无缝对接各类典型应用系统，无需任何变更。",
     "title1": "去中心化架构",
     "desc1": "采用全对称分布式架构设计及基于类区块链的去中心化设计，消除了中心节点对系统规模、I/O 性能、稳定性和可靠性等方面的种种限制和不利因素。",
@@ -57,7 +82,7 @@
   },
   "benefits": {
     "titlebefore":"",
-    "titleafter":"的用户收益",
+    "titleafter":"用户收益",
     "title1": "IT 技术架构升级",
     "desc1": "采用软件定义技术，池化共享存储资源，支持多场景应用，避免竖井架构",
     "title2": "节约总体成本",

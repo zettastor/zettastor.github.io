@@ -7,7 +7,7 @@ const {} = Astro.props;
 ---
 
 <section class="px-4 py-16 sm:px-6 mx-auto lg:px-8 lg:py-20 max-w-6xl">
-  <h2 class="mb-8 text-3xl lg:text-4xl font-heading">
+  <h2 class="mb-8 text-3xl lg:text-4xl">
     {t("benefits.titlebefore")}
     <span class="pmzd bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-secondary-500 whitespace-nowrap">ZettaStor DBS</span>
     {t("benefits.titleafter")}
@@ -72,7 +72,7 @@ const {} = Astro.props;
         </div>
       </div>
     </div>
-    <div class="relative">
+    <div class="relative hidden md:block">
       <Picture
         class="inset-0 object-cover object-top w-full md:h-full rounded-md shadow-lg md:absolute bg-gray-400 dark:bg-slate-700"
         src={import("~/assets/images/benefits.jpg")}

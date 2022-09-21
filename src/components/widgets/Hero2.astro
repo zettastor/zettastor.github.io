@@ -1,23 +1,24 @@
 ---
 import { t } from "i18next";
+import i18next from "i18next";
 import { Icon } from "astro-icon";
+import Diagram from "~/components/widgets/Diagram.astro";
 
 const {} = Astro.props;
 ---
 
-<section class="px-4 py-16 sm:px-6 mx-auto lg:px-8 lg:py-20 max-w-6xl bg-primary-50 dark:bg-slate-800">
-  <div class="grid gap-6 row-gap-10 md:grid-cols-2 hero-sm md:hero">
+<section class="mx-auto max-w-6xl bg-primary-50 dark:bg-slate-800 hero-sm md:hero">
+  <div class="grid gap-6 row-gap-10 px-4 sm:px-6 lg:px-8 py-16 lg:py-20  justify-start">
     <div class="md:pb-6 md:pr-6">
 
-      <h2 class="text-3xl lg:text-4xl mb-4 font-heading">
+      <h2 class="text-3xl lg:text-4xl mb-4">
         <span class="pmzd bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-secondary-500 sm:whitespace-nowrap">ZettaStor DBS</span>
       </h2>
-
-      <h2 class="mb-8 text-3xl lg:text-4xl font-bold font-heading">
+      <h2 class="text-3xl lg:text-4xl mb-8 font-bold">
         {t("hero.title")}
       </h2>
 
-      <div class="max-w-3xl mx-auto">
+      <div class="max-w-2xl mx-auto">
         <p class="text-xl text-gray-600 mb-8 dark:text-slate-400">
           {t("hero.desc")}
         </p>
@@ -43,5 +44,6 @@ const {} = Astro.props;
       </div>
     </div>
 
+    
   </div>
 </section>

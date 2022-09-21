@@ -1,8 +1,33 @@
 {
   "hero": {
     "title": "Distributed Block Storage",
-    "desc": "ZettaStor DBS provides enterprise-level business storage solutions with high availability, high performance, easy expansion and easy maintenance for large-scale virtualization, private cloud and container environments. ZettaStor DBS, the solid digital base for cloud-based core applications, is independently developed by Nanjing Pengyun Network Technology Co. Ltd.",
-    "button2": "Learn more" 
+    "desc": "ZettaStor DBS provides enterprise-level business storage solutions with high availability, high performance, easy expansion and easy maintenance for large-scale virtualization, private cloud and container environments. ZettaStor DBS, the solid digital base for cloud-based core applications, is independently developed by Pengyun Network.",
+    "button2": "Learn more"
+  },
+  "diagram": {
+    "title": "Schematic Diagram of ZettaStor DBS",
+
+    "label-app-layer": "App Layer",
+    "label-storage-layer": "Storage Layer",
+    "label-device-layer": "Device Layer",
+
+    "label-cloud": "Cloud Computing",
+    "label-db": "Database",
+    "label-virtual": "Virtualization",
+    "label-backup": "Backup",
+    "label-dev": "Development",
+    "label-mass-storage": "Mass Storage",
+
+    "label-block-device": "Block Device API",
+    "label-unified-res": "Unified Storage Resource Pool",
+
+    "label-console": "Web Console",
+    "label-storage-mgmt": "Storage Management",
+    "label-cluster-mgmt": "Cluster Management",
+    "label-alarm-mgmt": "Alarm Management",
+    "label-performance-mgmt": "Performance Management",
+    "label-user-mgmt": "User Management",
+    "label-system-mgmt": "System Management"
   },
   "menu": {
     "home": "Home",
@@ -39,6 +64,14 @@
   },
   "benefits": {
     "titlebefore":"Customer Benefits of",
-    "titleafter":""
+    "titleafter":"",
+    "title1": "IT Architecture Upgrade",
+    "desc1": "Software-defined technology, storage resource pooling, multi-scenario applications support, silo-free environment",
+    "title2": "Cost Saving",
+    "desc2": "reducing TCO by more than 60% compared to traditional storage solution, with standard-compliant servers and network hardwares",
+    "title3": "On-demand Customization and Flexible Expansion",
+    "desc3": "Capable of horizontal and linear expansion, on-demand performance and capacity support",
+    "title4": "Safe, Efficient and Seamless Migration",
+    "desc4": "Perfectly unaltered original system, with simple and visualized migration process"
   }
 }

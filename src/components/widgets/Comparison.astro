@@ -101,8 +101,8 @@ const items = [
 <section class="relative" id="comparison">
   
   <div class="max-w-6xl mx-auto px-4 sm:px-6">
-    <div class="pb-12 md:pb-20 sm:text-center">
-      <h2 class="text-3xl lg:text-4xl mb-4 font-heading">
+    <div class="sm:text-center">
+      <h2 class="text-3xl lg:text-4xl mb-4">
         {t("comparison.titlebefore")}
         <span class="pmzd bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-secondary-500 whitespace-nowrap">ZettaStor DBS</span>
         {t("comparison.titleafter")}
@@ -110,14 +110,15 @@ const items = [
       <p class="max-w-3xl mx-auto text-gray-600 dark:text-slate-400">
         {t("comparison.desc")}
       </p>
-      <p class="max-w-3xl mx-auto sm:text-right text-gray-600 dark:text-slate-400">
+      <p class="max-w-3xl mx-auto text-right text-gray-600 dark:text-slate-400">
         <svg class="mx-1 w-5 h-5 text-blue-600 inline" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10"/></svg>{t("comparison.included")}
         <svg class="mx-1 w-5 h-5 text-blue-600 inline" stroke="currentColor" fill="none" stroke-width="1" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="9"/></svg>{t("comparison.partial")}
       </p>
-      <div class="max-w-3xl mx-auto p-6 rounded-md shadow-xl dark:shadow-none">
+
+      <div class="max-w-6xl flex justify-center mx-auto p-6 rounded-md shadow-xl dark:shadow-none">
 
 
-        <div id="detailed-pricing" class="overflow-x-auto w-full">
+        <div id="detailed-pricing" class="max-w-3xl overflow-x-auto w-full">
           <div class="overflow-hidden">
               <div class="grid grid-cols-3 gap-x-16 p-4 text-sm font-medium text-start text-gray-900 bg-gray-100 border-t border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700 dark:text-white">
                   <div>{t("comparison.feature")}</div>

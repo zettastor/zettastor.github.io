@@ -1,0 +1,120 @@
+---
+import { t } from "i18next";
+import i18next from "i18next";
+import { Icon } from "astro-icon";
+
+const {} = Astro.props;
+
+---
+
+<section id="diagram">
+  <div class="max-w-6xl flex justify-center mx-auto p-2 md:p-6 rounded-md shadow-xl dark:shadow-none">
+    <div class="max-w-4xl flex flex-wrap md:perspective-wrapper">
+      <div class="org-chart">
+        <div class="p-2 text-base font-medium border-b">
+          {t("diagram.title")}
+        </div>
+        <table class="text-sm">
+          <tbody>
+            <tr>
+              <td class="px-2 py-4 font-bold whitespace-wrap-lang" lang={i18next.language}>
+                {t("diagram.label-app-layer")}
+              </td>
+              <td class="px-2 py-4">
+                <div class="flex flex-wrap md:justify-center md:text-xs">
+                  <div class="flex md:items-center m-1 px-1">
+                    <Icon name="carbon:ibm-cloud-internet-services" class="w-5 h-5 mx-1" />
+                    <span class="scale-lang" lang={i18next.language}>{t("diagram.label-cloud")}</span>
+                  </div>
+                  <div class="flex md:items-center m-1 px-1">
+                    <Icon name="healthicons:database-outline" class="w-5 h-5 mx-1" />
+                    <span class="scale-lang" lang={i18next.language}>{t("diagram.label-db")}</span>
+                  </div>
+                  <div class="flex md:items-center m-1 px-1">
+                    <Icon name="ant-design:desktop-outlined" class="w-5 h-5 mx-1" />
+                    <span class="scale-lang" lang={i18next.language}>{t("diagram.label-virtual")}</span>
+                  </div>
+                  <div class="flex md:items-center m-1 px-1">
+                    <Icon name="carbon:vmdk-disk" class="w-5 h-5 mx-1" />
+                    <span class="scale-lang" lang={i18next.language}>{t("diagram.label-mass-storage")}</span>
+                  </div>
+                  <div class="flex md:items-center m-1 px-1">
+                    <Icon name="ic:round-settings-backup-restore" class="w-5 h-5 mx-1" />
+                    <span class="scale-lang" lang={i18next.language}>{t("diagram.label-backup")}</span>
+                  </div>
+                  <div class="flex md:items-center m-1 px-1">
+                    <Icon name="codicon:code" class="w-5 h-5 mx-1" />
+                    <span class="scale-lang" lang={i18next.language}>{t("diagram.label-dev")}</span>
+                  </div>
+                </div>
+              </td>
+              <td rowspan="3" class="py-4">
+                <div class="md:text-xs scale-lang whitespace-wrap-lang" lang={i18next.language}>
+                  <!-- <div class="m-1 p-2 text-xs text-gray-300 bg-white/20"><Icon name="mdi:monitor-dashboard" class="w-10 h-10 mx-1" /></div> -->
+                  <div class="ml-4 my-2 p-2 border text-primary-600 dark:text-primary-300 bg-white/20 dark:bg-black/20 diagram-border">{t("diagram.label-console")}</div>
+                  <div class="ml-4 my-2 p-2 border text-primary-600 dark:text-primary-300 bg-white/20 dark:bg-black/20 diagram-border">{t("diagram.label-storage-mgmt")}</div>
+                  <div class="ml-4 my-2 p-2 border text-primary-600 dark:text-primary-300 bg-white/20 dark:bg-black/20 diagram-border">{t("diagram.label-cluster-mgmt")}</div>
+                  <div class="ml-4 my-2 p-2 border text-primary-600 dark:text-primary-300 bg-white/20 dark:bg-black/20 diagram-border">{t("diagram.label-alarm-mgmt")}</div>
+                  <div class="ml-4 my-2 p-2 border text-primary-600 dark:text-primary-300 bg-white/20 dark:bg-black/20 diagram-border">{t("diagram.label-performance-mgmt")}</div>
+                  <div class="ml-4 my-2 p-2 border text-primary-600 dark:text-primary-300 bg-white/20 dark:bg-black/20 diagram-border">{t("diagram.label-user-mgmt")}</div>
+                  <div class="ml-4 my-2 p-2 border text-primary-600 dark:text-primary-300 bg-white/20 dark:bg-black/20 diagram-border">{t("diagram.label-system-mgmt")}</div>
+                </div>
+              </td>
+            </tr>
+            <tr class="border-dashed border-t diagram-border">
+              <td class="px-2 font-bold">
+                {t("diagram.label-storage-layer")}
+              </td>
+              <td class="px-2 py-4 text-primary-600 dark:text-primary-300">
+                <div class="flex flex-wrap md:justify-center">
+                  <div class="flex md:items-center p-1">
+                    <Icon name="carbon:block-storage" class="w-5 h-5 mx-1" />
+                    <span class="md:text-xs scale-lang" lang={i18next.language}>{t("diagram.label-block-device")}</span>
+                  </div>
+                  <div class="flex md:items-center p-1">
+                    <Icon name="carbon:block-storage" class="w-5 h-5 mx-1" />
+                    <span class="md:text-xs scale-lang" lang={i18next.language}>SCSI / iSCSI / LBD</span>
+                  </div>
+                </div>
+                <div class="flex justify-center">
+                  <div class="px-3 py-3 text-center border diagram-border bg-primary-600/20 dark:bg-primary-300/50 eclipse">
+                    {t("diagram.label-unified-res")}
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="border-dashed border-t diagram-border">
+              <td class="px-2 font-bold">
+                {t("diagram.label-device-layer")}
+              </td>
+              <td class="py-4 text-primary-600 dark:text-primary-300">
+                <div class="flex flex-wrap justify-center">
+                  <div class="flex m-1 border diagram-border">
+                    <Icon name="clarity:rack-server-line" class="w-5 h-5 m-0.5" />
+                    <Icon name="clarity:rack-server-line" class="w-5 h-5 m-0.5" />
+                    <Icon name="clarity:rack-server-line" class="w-5 h-5 m-0.5" />
+                  </div>
+                  <div class="flex m-1 border diagram-border">
+                    <Icon name="carbon:vmdk-disk" class="w-5 h-5 m-0.5" />
+                    <Icon name="carbon:vmdk-disk" class="w-5 h-5 m-0.5" />
+                    <Icon name="carbon:vmdk-disk" class="w-5 h-5 m-0.5" />
+                  </div>
+                  <div class="flex m-1 border diagram-border">
+                    <Icon name="clarity:storage-line" class="w-5 h-5 m-0.5" />
+                    <Icon name="clarity:storage-line" class="w-5 h-5 m-0.5" />
+                    <Icon name="clarity:storage-line" class="w-5 h-5 m-0.5" />
+                  </div>
+                  <div class="flex m-1 border diagram-border">
+                    <Icon name="ph:cpu" class="w-5 h-5 m-0.5" />
+                    <Icon name="ph:cpu" class="w-5 h-5 m-0.5" />
+                    <Icon name="ph:cpu" class="w-5 h-5 m-0.5" />
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
