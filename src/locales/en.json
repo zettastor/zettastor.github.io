@@ -1,4 +1,19 @@
 {
+  "link": {
+    "prefix": "en"
+  },
+  "contact": {
+    "title": "Nanjing Pengyun Network Technology Co., Ltd.",
+    "desc": "ZettaStor DBS, Designed for Data Storage",
+    "qr-desc": "Follow us on WeChat",
+    "address-label": "Address: ",
+    "address1": "270 Jiqingmen St, Suning Huigu, Building E6, Suite 1107-1110",
+    "address2": "Nanjing, Jiangsu CHINA 210019",
+    "website-label": "Website: ",
+    "email-label": "E-mail: ",
+    "support1-label": "Community support: ",
+    "support2-label": "Enterprise support: "
+  },
   "hero": {
     "title": "Distributed Block Storage",
     "desc": "ZettaStor DBS provides enterprise-level business storage solutions with high availability, high performance, easy expansion and easy maintenance for large-scale virtualization, private cloud and container environments. ZettaStor DBS, the solid digital base for cloud-based core applications, is independently developed by Pengyun Network.",

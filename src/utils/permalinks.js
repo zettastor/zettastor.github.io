@@ -2,6 +2,8 @@ import slugify from "limax";
 
 import { SITE, BLOG } from "~/config.mjs";
 
+import i18next from "i18next";
+
 const trim = (str, ch) => {
   let start = 0,
     end = str.length;
@@ -28,19 +30,26 @@ export const getCanonical = (path = "") => new URL(path, SITE.origin);
 export const getPermalink = (slug = "", type = "page") => {
   const _slug = cleanSlug(slug);
 
+  let langprefix = "";
+  if (i18next.language != "zh") {
+    langprefix = "/" + i18next.language;
+  }
+
+  console.log("SITE.basePathname:", SITE.basePathname, " ; ", i18next.language);
+
   switch (type) {
     case "category":
-      return createPath(basePathname, CATEGORY_BASE, _slug);
+      return createPath(basePathname + langprefix, CATEGORY_BASE, _slug);
 
     case "tag":
-      return createPath(basePathname, TAG_BASE, _slug);
+      return createPath(basePathname + langprefix, TAG_BASE, _slug);
 
     case "post":
-      return createPath(basePathname, BLOG.postsWithoutBlogSlug ? "" : BLOG_BASE, _slug);
+      return createPath(basePathname + langprefix, BLOG.postsWithoutBlogSlug ? "" : BLOG_BASE, _slug);
 
     case "page":
     default:
-      return createPath(basePathname, _slug);
+      return createPath(basePathname + langprefix, _slug);
   }
 };
 

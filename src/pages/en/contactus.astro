@@ -1,0 +1,56 @@
+---
+import { changeLanguage } from "i18next";
+import { t, changeLanguage } from "i18next";
+import Layout from "~/layouts/PageLayout.astro";
+import { SITE } from "~/config.mjs";
+import Picture from "~/components/core/Picture.astro";
+
+changeLanguage("en");
+
+//changeLanguage("zh");
+const title = `Contact — ${SITE.name}`;
+---
+
+<Layout meta={{ title }}>
+  <section class="relative">
+    <div class="absolute inset-0 bg-primary-50 dark:bg-slate-800 pointer-events-none mb-32" aria-hidden="true"></div>
+    <div class="relative max-w-3xl mx-auto px-4 sm:px-6">
+
+      <div class="py-4 pt-8 sm:py-6 lg:py-8 lg:pt-12">
+        <div class="mb-8 text-center">
+          <h2 class="text-3xl md:text-4xl font-bold leading-tighter tracking-tighter mb-4 font-heading">
+            {t("menu.contact")}
+          </h2>
+          <p class="max-w-3xl mx-auto text-center text-xl text-gray-600 dark:text-slate-400">
+            {t("contact.desc")}
+          </p>
+        </div>
+        <div class="grid gap-6 md:grid-cols-2 my-12 dark:text-white">
+          <div class="relative flex flex-col p-6 items-center justify-center bg-white dark:bg-slate-900 rounded shadow-xl hover:shadow-lg transition dark:border dark:border-slate-800 text-xl">
+            <div>{t("contact.qr-desc")}</div>
+            <Picture
+              src={import("~/assets/images/qr.png")}
+              widths={[258, 258]}
+              alt="QR code"
+              aspectRatio="1:1"
+            />
+          </div>
+          <div class="relative flex flex-col p-6 bg-white dark:bg-slate-900 rounded shadow-xl hover:shadow-lg transition dark:border dark:border-slate-800 text-gray-500 dark:text-gray-400 text-md">
+            <div class="flex items-center mb-4">
+              <div class="ml-4 text-xl font-bold">{t("contact.title")}</div>
+            </div>
+            <p>{t("contact.address-label")}</p>
+            <p>{t("contact.address1")}</p>
+            <p class="mb-4">{t("contact.address2")}</p>
+            <p>E-mail：<a class="hover:text-primary-600 hover:underline dark:text-gray-200" href="mailto:contact@pengyunnetwork.com">contact@pengyunnetwork.com</a></p>
+            <p>{t("contact.website-label")}<a class="hover:text-primary-600 hover:underline dark:text-gray-200" href="https://www.pengyunnetwork.cn">www.pengyunnetwork.cn</a></p>
+            <p>{t("contact.support1-label")}</p>
+            <p>{t("contact.support2-label")}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+</Layout>
