@@ -9,6 +9,7 @@ import sitemap from "@astrojs/sitemap";
 import image from "@astrojs/image";
 import partytown from "@astrojs/partytown";
 import subfont from "@ernxst/subfont/astro";
+import preact from '@astrojs/preact';
 import { SITE } from "./src/config.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -22,13 +23,14 @@ export default defineConfig({
   output: "static",
 
   integrations: [
-    astroI18next(),
+    preact(), // Enable Preact to support Preact JSX components.
     tailwind({
       config: {
         applyBaseStyles: false,
       },
     }),
     sitemap(),
+    astroI18next(),
     image(),
     subfont(),
 

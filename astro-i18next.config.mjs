@@ -1,7 +1,7 @@
 /** @type {import('astro-i18next').AstroI18nextConfig} */
 export default {
   defaultLanguage: "zh",
-  supportedLanguages: ["en", "zh"],
+  supportedLanguages: ["zh", "en"],
   i18next: {
     debug: true, // convenient during development to check for missing keys
     initImmediate: false,

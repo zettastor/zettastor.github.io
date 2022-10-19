@@ -1,0 +1,76 @@
+---
+import type { Frontmatter } from '../../config';
+import type { MarkdownHeading } from 'astro';
+
+import { getLanguageFromURL } from '../../languages';
+import { SIDEBAR } from "../../config.mjs";
+
+type Props = {
+	frontmatter: Frontmatter;
+	headings: MarkdownHeading[];
+	currentPage: string;
+};
+
+const { frontmatter, headings, currentPage } = Astro.props as Props;
+const title = frontmatter.title;
+const currentPageMatch = currentPage.endsWith('/')
+	? currentPage.slice(1, -1)
+	: currentPage.slice(1);
+const langCode = getLanguageFromURL(currentPage);
+const sidebar = SIDEBAR[langCode];
+---
+
+<article id="article" class="content">
+	<section class="main-section">
+		<h1 class="content-title" id="overview">{title}</h1>
+		<nav class="block sm:hidden">
+			<ul class="nav-groups">
+				{Object.entries(sidebar).map(([header, children]) => (
+					<li>
+						<div class="nav-group">
+							<h2>{header}</h2>
+							<ul>
+								{children.map((child) => {
+									const url = Astro.site?.pathname + child.link;
+									return (
+										<li class="nav-link">
+											<a href={url} aria-current={currentPageMatch === child.link ? 'page' : false}>
+												{child.text}
+											</a>
+										</li>
+									);
+								})}
+							</ul>
+						</div>
+					</li>
+				))}
+			</ul>
+		</nav>
+		<slot />
+	</section>
+</article>
+
+<style>
+	.content {
+		padding: 0;
+		max-width: 75ch;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.content > section {
+		margin-bottom: 4rem;
+	}
+
+	.block {
+		display: block;
+	}
+
+	@media (min-width: 50em) {
+		.sm\:hidden {
+			display: none;
+		}
+	}
+</style>

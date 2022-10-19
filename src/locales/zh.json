@@ -48,7 +48,7 @@
     "home": "首页",
     "download": "软件下载",
     "product": "产品介绍",
-    "documentation": "开发文档",
+    "documentation": "文档说明",
     "contact": "联系我们"
   },
   "feature": {
@@ -106,6 +106,9 @@
     "desc3": "横向扩展、线性扩容，性能容量按需增减，降低扩容成本",
     "title4": "无缝迁移安全高效",
     "desc4": "原有系统无需修改，迁移简单，可视化操作"
+  },
+  "doc": {
+    "overview": "概览"
   }
 }
 

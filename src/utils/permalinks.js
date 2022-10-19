@@ -35,7 +35,7 @@ export const getPermalink = (slug = "", type = "page") => {
     langprefix = "/" + i18next.language;
   }
 
-  console.log("SITE.basePathname:", SITE.basePathname, " ; ", i18next.language);
+  //console.log("SITE.basePathname:", SITE.basePathname, " ; ", i18next.language);
 
   switch (type) {
     case "category":

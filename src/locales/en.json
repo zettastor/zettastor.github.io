@@ -88,5 +88,8 @@
     "desc3": "Capable of horizontal and linear expansion, on-demand performance and capacity support",
     "title4": "Safe, Efficient and Seamless Migration",
     "desc4": "Perfectly unaltered original system, with simple and visualized migration process"
+  },
+  "doc": {
+    "overview": "Overview"
   }
 }
