@@ -41,7 +41,7 @@ export const SIDEBAR = {
       { text: 'Compilation', link: SITE.basePathname + 'compile' },
       { text: 'Developer Guide', link: SITE.basePathname + 'devguide' },
       { text: 'Coding Standard', link: SITE.basePathname + 'codingstyle' },
-      { text: 'License', link: SITE.basePathname + 'agpl-3.0' },
+      { text: 'License', link: SITE.basePathname + 'agpl' },
     ],
   },
   zh: {
@@ -55,7 +55,7 @@ export const SIDEBAR = {
       { text: '编译说明', link: SITE.basePathname + 'compile' },
       { text: '开发指南', link: SITE.basePathname + 'devguide' },
       { text: '编码规范', link: SITE.basePathname + 'codingstyle' },
-      { text: '许可证', link: SITE.basePathname + 'agpl-3.0' },
+      { text: '许可证', link: SITE.basePathname + 'agpl' },
     ],
   },
 };

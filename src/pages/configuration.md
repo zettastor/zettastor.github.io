@@ -1,7 +1,7 @@
 ---
 title: 配置说明
 description: 配置说明
-layout: ~/layouts/MainLayout.astro
+layout: ~/layouts/DocLayout.astro
 ---
 
 ### 文档简介

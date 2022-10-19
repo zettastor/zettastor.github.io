@@ -1,7 +1,7 @@
 ---
 title: License
 description: N/A
-layout: ~/layouts/MainLayout.astro
+layout: ~/layouts/DocLayout.astro
 ---
 
 ### GNU AFFERO GENERAL PUBLIC LICENSE

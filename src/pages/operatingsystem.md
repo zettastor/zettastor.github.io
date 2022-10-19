@@ -1,7 +1,7 @@
 ---
 title: 安装操作系统
 description: N/A
-layout: ~/layouts/MainLayout.astro
+layout: ~/layouts/DocLayout.astro
 ---
 
 本文档主要是列出分布式存储相关产品运行所依赖的操作系统相关信息，并对操作系统的安装要求进行说明。

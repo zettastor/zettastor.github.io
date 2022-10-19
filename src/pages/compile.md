@@ -1,7 +1,7 @@
 ---
 title: 编译说明
 description: N/A
-layout: ~/layouts/MainLayout.astro
+layout: ~/layouts/DocLayout.astro
 ---
 
 在 Linux 系统下，可以通过键入下列命令安装编译所需要的软件包：

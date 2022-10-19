@@ -1,7 +1,7 @@
 ---
 title: 编码规范
 description: N/A
-layout: ~/layouts/MainLayout.astro
+layout: ~/layouts/DocLayout.astro
 ---
 
 ## 编码标准

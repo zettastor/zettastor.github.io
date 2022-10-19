@@ -1,7 +1,7 @@
 ---
 title: 配置与部署DBS
 description: Docs intro
-layout: ~/layouts/MainLayout.astro
+layout: ~/layouts/DocLayout.astro
 ---
 
 分布式块存储的部署操作，在分布式块存储工具包的解压目录下，通常为 `/opt/deploy/Installation` 目录，赋予 `install.sh` 脚本执行权限
