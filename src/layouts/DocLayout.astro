@@ -2,12 +2,14 @@
 import "~/assets/styles/base.css";
 import "~/assets/styles/doc-theme.css";
 import "~/assets/styles/doc.css";
-import BasicScripts from "../components/core/BasicScripts.astro";
+
+import MetaTags from "../components/core/MetaTags.astro";
 import Header from "../components/widgets/Header.astro";
 import Footer from "../components/widgets/Footer.astro";
 import PageContent from '../components/blog/PageContent.astro';
 import LeftSidebar from '../components/blog/LeftSidebar.astro';
 import RightSidebar from '../components/blog/RightSidebar.astro';
+import BasicScripts from "../components/core/BasicScripts.astro";
 
 import { SITE } from "../config.mjs";
 import { Frontmatter } from '../config';
@@ -18,15 +20,19 @@ type Props = {
 	headings: MarkdownHeading[];
 };
 
-const { frontmatter, headings } = Astro.props as Props;
+const { frontmatter, headings, meta = {} } = Astro.props as Props;
 const currentPage = Astro.url.pathname;
+
 ---
 
-<html dir={frontmatter.dir ?? 'ltr'} lang={frontmatter.lang ?? 'en-us'} class="initial">
+<!DOCTYPE html>
+<html lang="en" class="motion-safe:scroll-smooth 2xl:text-[20px]">
 	<head>
 		<title>
 			{frontmatter.title ? `${frontmatter.title} - ${SITE.title}` : SITE.title}
 		</title>
+
+		<MetaTags {...meta} />
 
 		<style>
 			:root {
@@ -118,20 +124,10 @@ const currentPage = Astro.url.pathname;
 				width: 100%;
 				height: 100%;
 			}
-
-			.mobile-sidebar-toggle {
-				overflow: hidden;
-			}
-
-			.mobile-sidebar-toggle #grid-left {
-				display: block;
-				top: 2rem;
-			}
 		</style>
-
 	</head>
 
-	<body>
+	<body class="antialiased text-gray-900 dark:text-slate-300 tracking-tight bg-white dark:bg-slate-900">
 		<Header sticky="" />
 		<main class="layout">
 			<aside id="grid-left" class="grid-sidebar" title="Site Navigation">
@@ -146,6 +142,6 @@ const currentPage = Astro.url.pathname;
 				<RightSidebar headings={headings} />
 			</aside>
 		</main>
-		<BasicScripts />
+    	<BasicScripts />
 	</body>
 </html>

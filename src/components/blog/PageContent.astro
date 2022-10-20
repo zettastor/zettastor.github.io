@@ -35,7 +35,7 @@ const sidebar = SIDEBAR[langCode];
 									const url = getPermalink(child.link);
 									return (
 										<li class="nav-link">
-											<a href={url} aria-current={currentPageMatch === child.link ? 'page' : false}>
+											<a href={url} aria-current={currentPageMatch.endsWith(child.link.slice(1)) ? 'page' : false}>
 												{child.text}
 											</a>
 										</li>
@@ -67,6 +67,12 @@ const sidebar = SIDEBAR[langCode];
 
 	.block {
 		display: block;
+	}
+
+	.nav-link a[aria-current='page'] {
+		color: var(--theme-text-light);
+		font-weight: bold;
+		text-decoration: none;
 	}
 
 	@media (min-width: 50em) {

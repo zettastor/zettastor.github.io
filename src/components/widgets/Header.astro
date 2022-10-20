@@ -77,7 +77,7 @@ const {sticky} = Astro.props;
           </a>
         </li>
         <li class="md:hidden">
-          <LanguageSelector class="ml-3 dark:bg-gray-700" />
+          <LanguageSelector class={`${sticky ? "ml-3 dark:bg-gray-700" : "hidden" }`} />
         </li>
       </ul>
       <div class="md:self-center flex items-center mb-4 md:mb-0 ml-2">
