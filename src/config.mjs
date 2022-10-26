@@ -36,6 +36,7 @@ export const SIDEBAR = {
       { text: 'Getting Started', link: SITE.basePathname + 'install' },
       { text: 'Advanced Configuration', link: SITE.basePathname + 'configuration' },
       { text: 'User Manual', link: SITE.basePathname + 'manual' },
+      { text: 'FAQ', link: SITE.basePathname + 'faq' },
     ],
     'Developers': [
       { text: 'How to Compile', link: SITE.basePathname + 'compile' },
@@ -50,6 +51,7 @@ export const SIDEBAR = {
       { text: '快速配置与部署', link: SITE.basePathname + 'install' },
       { text: '高级配置与定制', link: SITE.basePathname + 'configuration' },
       { text: '用户手册', link: SITE.basePathname + 'manual' },
+      { text: '常见问题', link: SITE.basePathname + 'faq' },
     ],
     '开发文档': [
       { text: '编译说明', link: SITE.basePathname + 'compile' },

@@ -1,0 +1,56 @@
+---
+import "~/assets/styles/doc-theme.css";
+import { t, changeLanguage } from "i18next";
+import { Icon } from "astro-icon";
+import Layout from "~/layouts/PageLayout.astro";
+import { SITE } from "~/config.mjs";
+import Picture from "~/components/core/Picture.astro";
+
+changeLanguage("zh");
+
+const title = `Download — ${SITE.name}`;
+---
+
+<Layout meta={{ title }}>
+  <section class="relative">
+    <div class="relative max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="py-4 pt-8 sm:py-6 lg:py-8 lg:pt-12">
+        <div class="mb-8 text-center">
+          <p class="max-w-3xl mx-auto text-center text-xl text-gray-600 dark:text-slate-400">
+            Download Installer and Distribution package (current version):
+          </p>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-2 my-12 dark:text-white">
+          <div class="flex">
+            <a
+              class="btn text-white border border-primary-600 bg-primary-600 hover:bg-primary-800 hover:border-primary-800 sm:mb-0 w-full"
+              href="#" >
+              <Icon name="ri:install-line" class="w-5 h-5 mr-3 -ml-1.5" />Installer v3.0.0 (安装工具)
+            </a>
+          </div>
+          <div class="flex">
+            <a
+              class="btn text-white bg-green-600 hover:bg-green-800 w-full"
+              href="#" >
+              <Icon name="ph:package-duotone" class="w-5 h-5 mr-3 -ml-1.5" />
+              pengyun-deploy v1.0.0 (部署安装包)
+            </a>
+          </div>
+        </div>
+
+        <p class="max-w-3xl mx-auto">
+          By downloading Pengyun software, you accept Pengyun AGPL License.
+        </p>
+
+        You can download the source code here
+
+        <blockquote>If you use ZettaStor DBS inside your company, you should consider subscribing to ZettaStor DBS Enterprise Edition: your subscription will give you access to professional support and to the "Customizer" software. This customizer will allow you to generate personalized versions of MobaXterm including your own logo, your default settings and your welcome message.
+Please contact us for more information.</blockquote>
+
+      </div>
+    </div>
+  </section>
+  
+
+</Layout>

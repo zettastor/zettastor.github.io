@@ -1,6 +1,7 @@
 {
   "link": {
-    "prefix": ""
+    "prefix": "",
+    "copyright": "版权所有。"
   },
   "contact": {
     "title": "南京鹏云网络科技有限公司",
@@ -20,7 +21,7 @@
     "button2": "技术优势"
   },
   "diagram": {
-    "title": "ZettaStor DBS 示意图",
+    "title": "系统示意图",
 
     "label-app-layer": "应用层",
     "label-storage-layer": "存储层",

@@ -8,7 +8,7 @@ layout: ~/layouts/DocLayout.astro
 
 ### Hardware Requirements
 
-Deployment of Distributed Block Storage requires at least 3 nodes. For different usage scenarios and different customer environments, the configuration parameters may vary. Please refer to [Advanced Configuration](configuration). A functional demo can be deployed using virtual machines, while performance testing should be deployed on high-performance physical servers.
+Deployment of Distributed Block Storage (hereinafter "DBS") requires at least 3 nodes. For different usage scenarios and different customer environments, the configuration parameters may vary, please refer to [Advanced Configuration](configuration). A functional demo can be deployed using virtual machines, while performance testing should be deployed on high-performance physical servers.
 > For the convenience of explanation, the following documents use 3 nodes ( `192.168.1.10`, `192.168.1.11`, `192.168.1.12`) to illustrate the deployment use case.
 
 ### Software Requirements
@@ -18,7 +18,7 @@ For a list of supported operating system and installation requirements, please r
 ## Configuration and Deployment
 
 ### I. Preparing for Installation
-Distributed Block Storage packages are usually named in the following format:
+The installation package of DBS usually consists of the following two files:
 `Installation-3.0.0.tar.gz`  
 `pengyun-deploy-1.0.0-SNAPSHOT-OS-[2022-08-26_15-35-34].tar.gz`
 
@@ -157,7 +157,7 @@ Press Enter to continue, [M] to modify, [P] to return to the previous step:
 If `false` is selected, step 16 and 17 will be automatically skipped.
 
 >**Control-Data Separation**  
-In general, it is recommended that Distributed Block Storage uses separate networks for control flow and data flow. Control flow does not require high bandwidth, but high stability; data flow requires high bandwidth. It is recommended to use optical fiber or InfiniBand network to obtain better transmission performance. It is recommended to configure redundant links for data flow and control flow in a production environment.
+In general, it is recommended that DBS uses separate networks for control flow and data flow. Control flow does not require high bandwidth, but high stability; data flow requires high bandwidth. It is recommended to use optical fiber or InfiniBand network to obtain better transmission performance. It is recommended to configure redundant links for data flow and control flow in a production environment.
 
 15. Subnet for Control Communications
 ```
@@ -187,7 +187,7 @@ Select `false` if deploying in a virtual machine such as VMware.
 So far, the Configuration Wizard has been completed.
 
 ### III. Deployment
-1. To deploy the Distributed Block Storage software, execute the following commands:
+1. To deploy the DBS software, execute the following commands:
 ```
 cd /opt/deploy/Installation
 ./install.sh -b
@@ -230,10 +230,10 @@ If there is an error, the script will report and exit, please review the warning
 
 >Due to the number of cluster nodes, hardware configuration, disk configuration, etc., the deployment time varies greatly. Please wait patiently and do not interrupt the deployment operation.
 
-3. When the deployment is complete, the Distributed Block Storage web interface can be accessed through a browser, and the address is `http://192.168.1.10:8080` where `192.168.1.10` is the IP address of the “Web interface” configured in step 13 of the Configuration Wizard. For the usage of Distributed Block Storage, please refer to the [User Manual](manual).
+3. When the deployment is complete, the DBS web interface can be accessed through a browser, and the address is `http://192.168.1.10:8080` where `192.168.1.10` is the IP address of the “Web interface” configured in step 13 of the Configuration Wizard. For the usage of DBS, please refer to the [User Manual](manual).
 
 ### IV. Undeploying
-To cleanup the deployed Distributed Block Storage software, execute the following command.
+To cleanup the deployed DBS software, execute the following command.
 ```
 cd /opt/deploy/Installation
 perl product_block_storage_operation.pl -o wipeout

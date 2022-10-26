@@ -1,6 +1,6 @@
 ---
+import { t } from "i18next";
 import { Icon } from "astro-icon";
-
 import { getHomePermalink } from "~/utils/permalinks";
 
 const {} = Astro.props;
@@ -169,7 +169,7 @@ const {} = Astro.props;
     </div>
     <div class="md:flex md:items-center md:justify-between py-6 md:py-8">
       <ul class="flex mb-4 md:order-1 -ml-2 md:ml-4 md:mb-0">
-        <li>
+        <!-- <li>
           <a
             class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
             aria-label="Twitter"
@@ -195,7 +195,7 @@ const {} = Astro.props;
           >
             <Icon name="tabler:brand-facebook" class="w-5 h-5" />
           </a>
-        </li>
+        </li> -->
         <li>
           <a
             class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
@@ -220,7 +220,7 @@ const {} = Astro.props;
           class="w-5 h-5 md:w-6 md:h-6 md:-mt-0.5 bg-cover mr-1.5 float-left rounded-sm bg-[url(https://onwidget.com/favicon/favicon-32x32.png)]"
         >
         </span> -->
-        All rights reserved.
+        © 2022 {t("contact.title")} {t("link.copyright")}
       </div>
     </div>
   </div>

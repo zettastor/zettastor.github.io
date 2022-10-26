@@ -1,6 +1,7 @@
 ---
 import { t } from "i18next";
 import { Icon } from "astro-icon";
+
 const {} = Astro.props;
 
 const items = [
@@ -48,7 +49,111 @@ const items = [
         {t("feature.desc")}
       </p>
     </div>
+
     <div class="grid mx-auto space-y-6 md:grid-cols-2 md:space-y-0">
+      <div class="space-y-8 sm:px-8">
+        <div class="flex flex-row max-w-md">
+          <div class="mb-4 mr-4">
+            <div class="flex items-center justify-center w-12 h-12 rounded-full bg-primary-600 border-primary-500 border-2">
+              <Icon name="carbon:vmdk-disk" class="w-6 h-6 text-white dark:text-slate-200 icon-bold" />
+            </div>
+          </div>
+          <div>
+            <h3 class="mb-3 text-xl font-bold">单卷性能对比</h3>
+            <img src="media/performance2.png"  />
+          </div>
+        </div>
+        <div class="flex flex-row max-w-md">
+          <div class="mb-4 mr-4">
+            <div class="flex items-center justify-center w-12 h-12 rounded-full bg-primary-600 border-primary-500 border-2">
+              <Icon name="ph:share-network" class="w-6 h-6 text-white dark:text-slate-200 icon-bold" />
+            </div>
+          </div>
+          <div class="w-full">
+            <h3 class="mb-3 text-xl font-bold">稳定性对比</h3>
+            <table class="text-sm">
+              <thead>
+                  <tr>
+                      <th>异常场景</th>
+                      <th>单盘故障</th>
+                      <th>慢盘</th>
+                      <th>死机</th>
+                      <th>无响应</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td>Ceph</td>
+                      <td>抖动7秒</td>
+                      <td>持续抖动</td>
+                      <td>抖动7秒</td>
+                      <td>不可恢复</td>
+                  </tr>
+                  <tr>
+                      <td>ZettaStor</td>
+                      <td>抖动4秒</td>
+                      <td>无影响</td>
+                      <td>抖动4秒</td>
+                      <td>抖动4秒</td>
+                  </tr>
+              </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="space-y-8 sm:px-8">
+        <div class="flex flex-row max-w-md">
+          <div class="mb-4 mr-4">
+            <div class="flex items-center justify-center w-12 h-12 rounded-full bg-primary-600 border-primary-500 border-2">
+              <Icon name="clarity:hard-drive-disks-line" class="w-6 h-6 text-white dark:text-slate-200 icon-bold" />
+            </div>
+          </div>
+          <div>
+            <h3 class="mb-3 text-xl font-bold">多卷性能对比</h3>
+            <img src="media/performance2.png"  />
+          </div>
+        </div>
+        <div class="flex flex-row max-w-md">
+          <div class="mb-4 mr-4">
+            <div class="flex items-center justify-center w-12 h-12 rounded-full bg-primary-600 border-primary-500 border-2">
+              <Icon name="ph:share-network" class="w-6 h-6 text-white dark:text-slate-200 icon-bold" />
+            </div>
+          </div>
+          <div class="w-full">
+            <h3 class="mb-3 text-xl font-bold">易用性对比</h3>
+            <table class="text-sm">
+              <thead>
+                  <tr>
+                    <th>管理工具</th>
+                    <th>Ceph Admin</th>
+                    <th>ZettaStor Console</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                    <td>一键部署</td>
+                    <td>步骤较多</td>
+                    <td>支持</td>
+                  </tr>
+                  <tr>
+                    <td>部署环境检测</td>  
+                    <td>不支持</td>
+                    <td>支持</td>
+                  </tr>
+                  <tr>
+                    <td>错误码分类及解决方案</td>  
+                    <td>不支持</td>
+                    <td>支持</td>
+                  </tr>
+              </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid mx-auto space-y-6 md:grid-cols-2 md:space-y-0 features-section-margin">
       {
         items.map((subitems) => (
           <div class="space-y-8 sm:px-8">
@@ -71,3 +176,53 @@ const items = [
     </div>
   </div>
 </section>
+
+<style>
+  .features-section-margin {
+    margin-top: 2rem;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  table, {
+	position: relative;
+	--padding-block: 1rem;
+	--padding-inline: 2rem;
+	padding: var(--padding-block) var(--padding-inline);
+	padding-right: calc(var(--padding-inline) * 2);
+	margin-left: calc(var(--padding-inline) * -1);
+	margin-right: calc(var(--padding-inline) * -1);
+
+	line-height: 1.5;
+	font-size: 0.85em;
+	overflow-y: hidden;
+	overflow-x: auto;
+}
+
+table {
+	width: 100%;
+	padding: var(--padding-block) 0;
+	margin: 0;
+	border-width: medium;
+	border-collapse: collapse;
+}
+
+/* Zebra striping */
+tr:nth-of-type(odd) {
+	background: var(--theme-bg-hover);
+}
+th {
+	background: var(--color-black);
+	color: var(--theme-color);
+	font-weight: bold;
+}
+td,
+th {
+	padding: 6px;
+  border: 0.5px solid #e5e7eb;
+	text-align: left;
+}
+</style>

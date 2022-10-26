@@ -1,8 +1,10 @@
 ---
-title: License
+title: 许可证
 description: N/A
 layout: ~/layouts/DocLayout.astro
 ---
+
+>ZettaStor社区版的源代码在 AGPL 3.0 协议下进行分发。
 
 ### GNU AFFERO GENERAL PUBLIC LICENSE
 

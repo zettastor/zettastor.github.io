@@ -1,6 +1,7 @@
 {
   "link": {
-    "prefix": "en"
+    "prefix": "en",
+    "copyright": "All Rights Reserved."
   },
   "contact": {
     "title": "Nanjing Pengyun Network Technology Co., Ltd.",
@@ -20,7 +21,7 @@
     "button2": "Learn more"
   },
   "diagram": {
-    "title": "Schematic Diagram of ZettaStor DBS",
+    "title": "Schematic Diagram",
 
     "label-app-layer": "App Layer",
     "label-storage-layer": "Storage Layer",

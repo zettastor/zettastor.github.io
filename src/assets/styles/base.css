@@ -82,3 +82,12 @@
 [data-aw-toggle-menu].expanded g > path:last-child {
   @apply rotate-45 translate-y-[-8px] translate-x-[14px];
 }
+
+blockquote {
+	margin: 2rem 0;
+	padding: 1.25em 1.5rem;
+	border-left: 3px solid var(--theme-text-light);
+	background-color: var(--theme-bg-offset);
+	border-radius: 0 0.25rem 0.25rem 0;
+	line-height: 1.7;
+}

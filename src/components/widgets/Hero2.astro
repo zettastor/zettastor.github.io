@@ -8,7 +8,7 @@ const {} = Astro.props;
 ---
 
 <section class="mx-auto max-w-6xl bg-primary-50 dark:bg-slate-800 hero-sm md:hero">
-  <div class="grid gap-6 row-gap-10 px-4 sm:px-6 lg:px-8 py-16 lg:py-20  justify-start">
+  <div class="grid gap-6 row-gap-10 px-4 sm:px-6 lg:px-8 py-8 lg:py-12 justify-start">
     <div class="md:pb-6 md:pr-6">
 
       <h2 class="text-3xl lg:text-4xl mb-4">
@@ -19,8 +19,11 @@ const {} = Astro.props;
       </h2>
 
       <div class="max-w-2xl mx-auto">
-        <p class="text-xl text-gray-600 mb-8 dark:text-slate-400">
+        <p class="text-xl text-gray-600 mb-4 dark:text-slate-400">
           {t("hero.desc")}
+        </p>
+        <p class="text-xl text-gray-600 mb-8 dark:text-slate-400">
+          ZettaStor DBS 分为社区版（开源）和企业版。社区版的源代码在 <a href="https://www.gnu.org/licenses/agpl-3.0-standalone.html" target="_blank">AGPL 3.0</a> 协议下进行分发。
         </p>
         <div class="max-w-none px-6 flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4">
           <div class="flex w-full sm:w-auto">
@@ -43,7 +46,11 @@ const {} = Astro.props;
         </div>
       </div>
     </div>
-
-    
   </div>
 </section>
+
+<style>
+  section p a {
+    text-decoration:revert;
+  }
+</style>
