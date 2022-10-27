@@ -226,7 +226,7 @@ Update configuration settings for the product.
 Deploy dbs package under the parent folder of Installation folder, please ensure there is ONLY one tar.gz file.
 ```
 
-If there is an error, the script will report and exit, please review the warning messages (especially text in red color).
+If there is an error, the script will report and exit, please review the warning messages (**especially text in red color**).
 
 >Due to the number of cluster nodes, hardware configuration, disk configuration, etc., the deployment time varies greatly. Please wait patiently and do not interrupt the deployment operation.
 

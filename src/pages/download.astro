@@ -15,13 +15,20 @@ const title = `Download — ${SITE.name}`;
   <section class="relative">
     <div class="relative max-w-3xl mx-auto px-4 sm:px-6">
       <div class="py-4 pt-8 sm:py-6 lg:py-8 lg:pt-12">
-        <div class="mb-8 text-center">
-          <p class="max-w-3xl mx-auto text-center text-xl text-gray-600 dark:text-slate-400">
-            下载安装工具和预编译安装包
+        <div class="mb-8">
+          <h1>软件下载</h1>
+          <p class="max-w-3xl">
+            为了节省您的时间，我们提供预编译安装包和安装工具的下载。如果您的系统环境不在以下支持列表中，请按 <a href="compile">编译说明文档</a> 的相关说明，从 <a href="https://github.com/zettastor/dbs">GitHub</a> 下载和编译 ZettaStor DBS 社区版的源代码。
           </p>
+          <ul class="my-2">
+            <li>CentOS 7 (1908) x86_64</li>
+            <li>CentOS 8 (1905) x86_64</li>
+            <li>银河麒麟 v10 aarch64</li>
+            <li>统信UOS v20 mips64</li>
+          </ul>
         </div>
 
-        <div class="grid gap-6 md:grid-cols-2 my-12 dark:text-white">
+        <div class="grid gap-6 md:grid-cols-2 my-8 dark:text-white">
           <div class="flex">
             <a
               class="btn text-white border border-primary-600 bg-primary-600 hover:bg-primary-800 hover:border-primary-800 sm:mb-0 w-full"
@@ -34,13 +41,13 @@ const title = `Download — ${SITE.name}`;
               class="btn text-white bg-green-600 hover:bg-green-800 w-full"
               href="#" >
               <Icon name="ph:package-duotone" class="w-5 h-5 mr-3 -ml-1.5" />
-              pengyun-deploy v1.0.0 <br/>(x86_64 安装包)
+              pengyun-deploy v1.0.0 (安装包)
             </a>
           </div>
         </div>
 
         <p class="max-w-3xl mx-auto">
-          您可以从 <a href="https://github.com/zettastor/dbs">Github</a> 下载 ZettaStor DBS 社区版的源代码。下载鹏云网络提供的软件或者使用其程序，就意味着您已经接受了 <a href="https://www.gnu.org/licenses/agpl-3.0-standalone.html" target="_blank">AGPL 3.0</a> 许可证中的条款。
+          下载鹏云网络提供的软件或者使用其程序，就意味着您已经接受了 <a href="agpl">AGPL 3.0</a> 许可证中的条款。
         </p>
 
         
@@ -57,5 +64,17 @@ const title = `Download — ${SITE.name}`;
 <style>
   section a {
     text-decoration:revert;
+    color: var(--theme-text-accent);
+  }
+
+  section ul {
+    list-style: revert;
+    padding: revert;
+  }
+
+  section h1 {
+    font-size: revert;
+    font-weight: revert;
+    margin: revert;
   }
 </style>
