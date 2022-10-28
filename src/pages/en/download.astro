@@ -1,0 +1,80 @@
+---
+import "~/assets/styles/doc-theme.css";
+import { t, changeLanguage } from "i18next";
+import { Icon } from "astro-icon";
+import Layout from "~/layouts/PageLayout.astro";
+import { SITE } from "~/config.mjs";
+import Picture from "~/components/core/Picture.astro";
+
+changeLanguage("en");
+
+const title = `Download — ${SITE.name}`;
+---
+
+<Layout meta={{ title }}>
+  <section class="relative">
+    <div class="relative max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="py-4 pt-8 sm:py-6 lg:py-8 lg:pt-12">
+        <div class="mb-8">
+          <h1>软件下载</h1>
+          <p class="max-w-3xl">
+            为了节省您的时间，我们提供预编译安装包和安装工具的下载。如果您的系统环境不在以下支持列表中，请按 <a href="compile">编译说明文档</a> 的相关说明，从 <a href="https://github.com/zettastor/dbs">GitHub</a> 下载和编译 ZettaStor DBS 社区版的源代码。
+          </p>
+          <ul class="my-2">
+            <li>CentOS 7 (1908) x86_64</li>
+            <li>CentOS 8 (1905) x86_64</li>
+            <li>银河麒麟 v10 aarch64</li>
+            <li>统信UOS v20 mips64</li>
+          </ul>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-2 my-8 dark:text-white">
+          <div class="flex">
+            <a
+              class="btn text-white border border-primary-600 bg-primary-600 hover:bg-primary-800 hover:border-primary-800 sm:mb-0 w-full"
+              href="#" >
+              <Icon name="ri:install-line" class="w-5 h-5 mr-3 -ml-1.5" />Installer v3.0.0 (安装工具)
+            </a>
+          </div>
+          <div class="flex">
+            <a
+              class="btn text-white bg-green-600 hover:bg-green-800 w-full"
+              href="#" >
+              <Icon name="ph:package-duotone" class="w-5 h-5 mr-3 -ml-1.5" />
+              pengyun-deploy v1.0.0 (安装包)
+            </a>
+          </div>
+        </div>
+
+        <p class="max-w-3xl mx-auto">
+          下载鹏云网络提供的软件或者使用其程序，就意味着您已经接受了 <a href="agpl">AGPL 3.0</a> 许可证中的条款。
+        </p>
+
+        
+
+        <blockquote>如果需要以商业形式使用 ZettaStor DBS，您应该使用 ZettaStor DBS 商业版：购买商业版将获得专业支持和更多功能。请<a href="/contactus">联系我们</a>以获取更多信息。</blockquote>
+
+      </div>
+    </div>
+  </section>
+  
+
+</Layout>
+
+<style>
+  section a {
+    text-decoration:revert;
+    color: var(--theme-text-accent);
+  }
+
+  section ul {
+    list-style: revert;
+    padding: revert;
+  }
+
+  section h1 {
+    font-size: revert;
+    font-weight: revert;
+    margin: revert;
+  }
+</style>

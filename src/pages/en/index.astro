@@ -5,6 +5,7 @@ import { getCanonical, getHomePermalink } from "~/utils/permalinks";
 import Layout from "~/layouts/PageLayout.astro";
 import Hero2 from "~/components/widgets/Hero2.astro";
 import Diagram from "~/components/widgets/Diagram.astro";
+import Diagram2 from "~/components/widgets/Diagram2.astro";
 import Comparison from "~/components/widgets/Comparison.astro";
 import Features2 from "~/components/widgets/Features2.astro";
 import Benefits from "~/components/widgets/Benefits.astro";
@@ -20,7 +21,10 @@ const meta = {
 
 <Layout meta={meta}>
   <Hero2 />
-  <Diagram />
+  <div class="grid lg:grid-cols-2 gap-4 justify-center mx-auto max-w-6xl">
+    <Diagram2 />
+    <Diagram />
+  </div>
   <Features2 />
   <Comparison />
   <Benefits />

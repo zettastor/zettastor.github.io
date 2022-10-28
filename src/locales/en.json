@@ -18,10 +18,13 @@
   "hero": {
     "title": "Distributed Block Storage",
     "desc": "ZettaStor DBS provides enterprise-level business storage solutions with high availability, high performance, easy expansion and easy maintenance for large-scale virtualization, private cloud and container environments. ZettaStor DBS, the solid digital base for cloud-based core applications, is independently developed by Pengyun Network.",
+    "desc2": "ZettaStor DBS comes in two distributions: the Community Edition and Enterprise Edition. The source code for the Community Edition is distributed under the",
+    "desc3": "license.",
     "button2": "Learn more"
   },
   "diagram": {
     "title": "Schematic Diagram",
+    "title2": "System Architecture Diagram",
 
     "label-app-layer": "App Layer",
     "label-storage-layer": "Storage Layer",
@@ -43,7 +46,12 @@
     "label-alarm-mgmt": "Alarm Management",
     "label-performance-mgmt": "Performance Management",
     "label-user-mgmt": "User Management",
-    "label-system-mgmt": "System Management"
+    "label-system-mgmt": "System Management",
+
+    "label-client-driver" : "Client Driver",
+    "label-data-flow" : "Data Flow",
+    "label-data-flows" : "Data Flows",
+    "label-control-flows" : "Control Flows"
   },
   "menu": {
     "home": "Home",

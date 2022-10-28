@@ -1,0 +1,221 @@
+---
+import { t } from "i18next";
+import i18next from "i18next";
+import { Icon } from "astro-icon";
+
+const {} = Astro.props;
+
+---
+
+<section id="diagram2">
+  <div class="max-w-4xl flex justify-center mx-auto font-bold p-2 pt-4 border-b">{t("diagram.title2")}</div>
+  <div class="max-w-6xl flex justify-center mx-auto p-2 md:px-0 md:py-4">
+    <div class="max-w-4xl flex flex-col md:flex-row gap-6 text-sm text-gray-500 dark:text-gray-300">
+        <div id="diag-data" class="grow border border-dashed border-2 border-gray-300 dark:border-slate-400 bg-slate-50 dark:bg-inherit p-2">
+          <table>
+            <tbody>
+              <tr>
+                <td colspan="4" class="text-center font-bold">{t("diagram.label-data-flows")}</td>
+              </tr>
+
+              <tr>
+                <td class="px-1 pt-2">
+                  <div id="diag-drv1" class="border border-gray-400 p-1 text-center bg-white dark:bg-black/20">{t("diagram.label-client-driver")}<br />iSCSI/PYD</div>
+                </td>
+                <td class="px-1 pt-2">
+                  <div id="diag-drv2" class="border border-emerald-400 p-1 text-center text-emerald-600 dark:text-emerald-300 bg-white dark:bg-black/20">{t("diagram.label-client-driver")}<br />iSCSI/PYD</div>
+                </td>
+                <td class="px-1 pt-2">
+                  …
+                </td>
+                <td class="px-1 pt-2">
+                  <div id="diag-drv3" class="border border-primary-400 p-1 text-center text-primary-600 dark:text-primary-300 bg-white dark:bg-black/20">{t("diagram.label-client-driver")}<br />iSCSI/PYD</div>
+                </td>
+              </tr>
+
+              <tr>
+                <td colspan="4" class="px-1 py-2 italic text-xs">{t("diagram.label-data-flow")}</td>
+              </tr>
+
+              <tr>
+                <td class="px-1">
+                  <div id="diag-co1" class="border border-gray-400 p-1 text-center bg-white dark:bg-black/20">
+                    <div class="border rounded border-gray-400 border-dashed">
+                      <div class="flex justify-center m-1">
+                        <Icon name="clarity:container-volume-solid" class="w-5 h-5 mx-0.5" />
+                        …
+                        <Icon name="clarity:container-volume-line" class="w-5 h-5 mx-0.5" />
+                        <Icon name="clarity:container-volume-line" class="w-5 h-5 mx-0.5" />
+                      </div>
+                      Coordinators
+                    </div>
+                    <div class="mt-1">Driver Container</div>
+                  </div>
+                </td>
+                <td class="px-1">
+                  <div id="diag-co2" class="border border-emerald-400 p-1 text-center text-emerald-600 dark:text-emerald-300 bg-white dark:bg-black/20">
+                    <div class="border rounded border-emerald-400 border-dashed">
+                      <div class="flex justify-center m-1">
+                        <Icon name="clarity:container-volume-solid" class="w-5 h-5 mx-0.5" />
+                        …
+                        <Icon name="clarity:container-volume-line" class="w-5 h-5 mx-0.5" />
+                        <Icon name="clarity:container-volume-line" class="w-5 h-5 mx-0.5" />
+                      </div>
+                      Coordinators
+                    </div>
+                    <div class="mt-1">Driver Container</div>
+                  </div>
+                </td>
+                <td class="px-1">
+                  …
+                </td>
+                <td class="px-1">
+                  <div id="diag-co3" class="border border-primary-400 p-1 text-center text-primary-600 dark:text-primary-300 bg-white dark:bg-black/20">
+                    <div class="border rounded border-primary-400 border-dashed">
+                      <div class="flex justify-center m-1">
+                        <Icon name="clarity:container-volume-solid" class="w-5 h-5 mx-0.5" />
+                        …
+                        <Icon name="clarity:container-volume-line" class="w-5 h-5 mx-0.5" />
+                        <Icon name="clarity:container-volume-line" class="w-5 h-5 mx-0.5" />
+                      </div>
+                      Coordinators
+                    </div>
+                    <div class="mt-1">Driver Container</div>
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <td colspan="4" class="px-1 py-4 italic text-xs">{t("diagram.label-data-flow")}</td>
+              </tr>
+
+              <tr>
+                <td class="px-1">
+                  <div id="diag-dn1" class="border p-1 text-center text-primary-600 dark:text-primary-300 bg-white dark:bg-black/20 diagram-border">
+                    <div class="flex justify-center m-1">
+                      <Icon name="carbon:vmdk-disk" class="w-5 h-5 mx-0.5" />
+                      <Icon name="carbon:vmdk-disk" class="w-5 h-5 mx-0.5" />
+                      <Icon name="carbon:vmdk-disk" class="w-5 h-5 mx-0.5" />
+                    </div>
+                    Data Node
+                  </div>
+                </td>
+                <td class="px-1">
+                  <div id="diag-dn2" class="border p-1 text-center text-primary-600 dark:text-primary-300 bg-white dark:bg-black/20 diagram-border">
+                    <div class="flex justify-center m-1">
+                      <Icon name="carbon:vmdk-disk" class="w-5 h-5 mx-0.5" />
+                      <Icon name="carbon:vmdk-disk" class="w-5 h-5 mx-0.5" />
+                      <Icon name="carbon:vmdk-disk" class="w-5 h-5 mx-0.5" />
+                    </div>
+                    Data Node
+                  </div>
+                </td>
+                <td class="px-1">
+                  …
+                </td>
+                <td class="px-1">
+                  <div id="diag-dn3" class="border p-1 text-center text-primary-600 dark:text-primary-300 bg-white dark:bg-black/20 diagram-border">
+                    <div class="flex justify-center m-1">
+                      <Icon name="carbon:vmdk-disk" class="w-5 h-5 mx-0.5" />
+                      <Icon name="carbon:vmdk-disk" class="w-5 h-5 mx-0.5" />
+                      <Icon name="carbon:vmdk-disk" class="w-5 h-5 mx-0.5" />
+                    </div>
+                    Data Node
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="flex flex-row md:flex-col justify-evenly md:justify-between scale-lang" lang={i18next.language}>
+          <div id="diag-ctrl" class="border border-dashed border-2 border-gray-300 dark:border-slate-400 p-3 flex flex-col gap-2 bg-slate-50 dark:bg-inherit">
+            <div class="text-center font-bold">{t("diagram.label-control-flows")}</div>
+            <div class="flex border p-2 text-primary-600 dark:text-primary-300 bg-white dark:bg-black/20 diagram-border">
+              <Icon name="ant-design:desktop-outlined" class="w-5 h-5 mr-2" />
+              Console
+            </div>
+            <div class="flex border p-2 text-primary-600 dark:text-primary-300 bg-white dark:bg-black/20 diagram-border">
+              <Icon name="ant-design:info-circle-outlined" class="w-5 h-5 mr-2" />
+              InfoCenter
+            </div>
+            <div class="flex border border-gray-300 p-2 text-gray-600 dark:text-gray-300 bg-white dark:bg-black/20">
+              <Icon name="uil:shovel" class="w-5 h-5 mr-2" />
+              ZooKeeper
+            </div>
+          </div>
+
+          <div class="border border-x-2 border-t-2 border-transparent px-3 pt-3 flex flex-col gap-2">
+            <div id="diag-dih" class="flex border p-2 text-primary-600 dark:text-primary-300 bg-white/20 dark:bg-black/20 diagram-border">
+              <Icon name="simple-icons:flathub" class="w-5 h-5 mr-2" />
+              InstanceHub
+            </div>
+            <div id="diag-daemon" class="flex border p-2 text-primary-600 dark:text-primary-300 bg-white/20 dark:bg-black/20 diagram-border">
+              <Icon name="eos-icons:daemon-outlined" class="w-5 h-5 mr-2" />
+              SystemDaemon
+            </div>
+            <div id="diag-prometheus" class="flex border p-2 text-gray-600 dark:text-gray-300 border-gray-300 dark:border-slate-400">
+              <svg viewBox="0 0 32 32" class="w-5 h-5 mr-2 dark:fill-gray-300">
+                <path d="M16 30c-2.506 0-4.539-1.674-4.539-3.739h9.077C20.539 28.325 18.507 30 16 30zM23.496 25.023H8.503v-2.719h14.994v2.719h-.001zM23.443 20.9H8.546c-.05-.057-.1-.113-.148-.171a10.867 10.867 0 0 1-2.248-3.824c-.006-.033 1.861.381 3.185.679 0 0 .681.158 1.677.339a6.225 6.225 0 0 1-1.524-4c0-3.2 2.452-5.992 1.568-8.25.861.07 1.782 1.817 1.844 4.549a9.769 9.769 0 0 0 1.3-4.992c0-1.467.966-3.17 1.933-3.229-.862 1.42.223 2.638 1.188 5.658.362 1.134.316 3.044.595 4.254.093-2.515.525-6.184 2.12-7.45-.7 1.6.1 3.591.657 4.551a8.623 8.623 0 0 1 1.432 4.94 6.17 6.17 0 0 1-1.476 3.983c1.053-.2 1.781-.376 1.781-.376l3.421-.667a9.7 9.7 0 0 1-2.408 4.006z"></path>
+              </svg>
+              Prometheus
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import LeaderLine from 'leader-line-new';
+
+  let opt1 = {
+    startPlug: 'arrow3',
+    endPlug: 'arrow3',
+    size: 2,
+    startSocket: "bottom",
+    startPlugSize: 1,
+    endPlugSize: 1,
+    endSocket: "top",
+    //dash: true,
+    path: "straight",
+   };
+
+  opt1['color'] = 'rgba(156, 163, 175, 0.6)';
+  new LeaderLine(document.getElementById('diag-drv1'), document.getElementById('diag-co1'), opt1);
+  new LeaderLine(document.getElementById('diag-co1'), document.getElementById('diag-dn1'), opt1);
+  new LeaderLine(document.getElementById('diag-co1'), document.getElementById('diag-dn2'), opt1);
+  new LeaderLine(document.getElementById('diag-co1'), document.getElementById('diag-dn3'), opt1);
+
+  opt1['color'] = 'rgba(52, 211, 153, 0.6)';
+  new LeaderLine(document.getElementById('diag-drv2'), document.getElementById('diag-co2'), opt1);
+  new LeaderLine(document.getElementById('diag-co2'), document.getElementById('diag-dn1'), opt1);
+  new LeaderLine(document.getElementById('diag-co2'), document.getElementById('diag-dn2'), opt1);
+  new LeaderLine(document.getElementById('diag-co2'), document.getElementById('diag-dn3'), opt1);
+
+  opt1['color'] = 'rgba(96, 165, 250, 0.6)';
+  new LeaderLine(document.getElementById('diag-drv3'), document.getElementById('diag-co3'), opt1);
+  new LeaderLine(document.getElementById('diag-co3'), document.getElementById('diag-dn1'), opt1);
+  new LeaderLine(document.getElementById('diag-co3'), document.getElementById('diag-dn2'), opt1);
+  new LeaderLine(document.getElementById('diag-co3'), document.getElementById('diag-dn3'), opt1);
+
+  let opt2 = {
+    startPlug: 'arrow3',
+    endPlug: 'arrow3',
+    size: 4,
+    startPlugSize: 1,
+    endPlugSize: 1,
+    dash: false,
+    path: "arc",
+    color: 'rgba(96, 165, 250, 0.6)',
+  };
+
+  new LeaderLine(document.getElementById('diag-ctrl'), document.getElementById('diag-data'), opt2);
+  new LeaderLine(document.getElementById('diag-daemon'), document.getElementById('diag-data'), opt2);
+  new LeaderLine(document.getElementById('diag-dih'), document.getElementById('diag-data'), opt2);
+
+  opt2.dash = true;
+  opt2['startSocket'] = "right";
+  opt2['endSocket'] = "right";
+  new LeaderLine(document.getElementById('diag-daemon'), document.getElementById('diag-prometheus'), opt2);
+</script>

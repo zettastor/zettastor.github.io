@@ -8,20 +8,18 @@ const {} = Astro.props;
 ---
 
 <section id="diagram">
-  <div class="max-w-6xl flex justify-center mx-auto p-2 md:p-6 rounded-md">
-    <div class="max-w-4xl flex flex-wrap md:perspective-wrapper">
+  <div class="max-w-4xl flex justify-center mx-auto p-2 pt-4 border-b font-bold">{t("diagram.title")}</div>
+  <div class="max-w-6xl flex justify-center mx-auto p-2 md:px-0 md:py-4">
+    <div class="max-w-4xl flex flex-wrap md:perspective-wrapper text-sm text-gray-500 dark:text-gray-300">
       <div class="org-chart">
-        <div class="p-2 text-base font-medium border-b">
-          {t("diagram.title")}
-        </div>
-        <table class="text-sm">
+        <table>
           <tbody>
             <tr>
               <td class="px-2 py-4 font-bold whitespace-wrap-lang" lang={i18next.language}>
                 {t("diagram.label-app-layer")}
               </td>
               <td class="px-2 py-4">
-                <div class="flex flex-wrap md:justify-center md:text-xs">
+                <div class="flex flex-wrap justify-center md:text-xs">
                   <div class="flex md:items-center m-1 px-1">
                     <Icon name="carbon:ibm-cloud-internet-services" class="w-5 h-5 mx-1" />
                     <span class="scale-lang" lang={i18next.language}>{t("diagram.label-cloud")}</span>
@@ -66,7 +64,7 @@ const {} = Astro.props;
                 {t("diagram.label-storage-layer")}
               </td>
               <td class="px-2 py-4 text-primary-600 dark:text-primary-300">
-                <div class="flex flex-wrap md:justify-center">
+                <div class="flex flex-wrap justify-center">
                   <div class="flex md:items-center p-1">
                     <Icon name="carbon:block-storage" class="w-5 h-5 mx-1" />
                     <span class="md:text-xs scale-lang" lang={i18next.language}>{t("diagram.label-block-device")}</span>
@@ -77,7 +75,7 @@ const {} = Astro.props;
                   </div>
                 </div>
                 <div class="flex justify-center">
-                  <div class="px-3 py-3 text-center border diagram-border bg-primary-600/20 dark:bg-primary-300/50 eclipse">
+                  <div id="diag-pool" class="px-3 py-3 text-center border diagram-border bg-primary-600/20 dark:bg-primary-300/50 eclipse">
                     {t("diagram.label-unified-res")}
                   </div>
                 </div>
@@ -89,22 +87,22 @@ const {} = Astro.props;
               </td>
               <td class="py-4 text-primary-600 dark:text-primary-300">
                 <div class="flex flex-wrap justify-center">
-                  <div class="flex m-1 border diagram-border">
+                  <div id="diag-server" class="flex m-1 pt-1 border diagram-border">
                     <Icon name="clarity:rack-server-line" class="w-5 h-5 m-0.5" />
                     <Icon name="clarity:rack-server-line" class="w-5 h-5 m-0.5" />
                     <Icon name="clarity:rack-server-line" class="w-5 h-5 m-0.5" />
                   </div>
-                  <div class="flex m-1 border diagram-border">
+                  <div id="diag-disk" class="flex m-1 pt-1 border diagram-border">
                     <Icon name="carbon:vmdk-disk" class="w-5 h-5 m-0.5" />
                     <Icon name="carbon:vmdk-disk" class="w-5 h-5 m-0.5" />
                     <Icon name="carbon:vmdk-disk" class="w-5 h-5 m-0.5" />
                   </div>
-                  <div class="flex m-1 border diagram-border">
+                  <div id="diag-db" class="flex m-1 pt-1 border diagram-border">
                     <Icon name="clarity:storage-line" class="w-5 h-5 m-0.5" />
                     <Icon name="clarity:storage-line" class="w-5 h-5 m-0.5" />
                     <Icon name="clarity:storage-line" class="w-5 h-5 m-0.5" />
                   </div>
-                  <div class="flex m-1 border diagram-border">
+                  <div id="diag-cpu" class="flex m-1 pt-1 border diagram-border">
                     <Icon name="ph:cpu" class="w-5 h-5 m-0.5" />
                     <Icon name="ph:cpu" class="w-5 h-5 m-0.5" />
                     <Icon name="ph:cpu" class="w-5 h-5 m-0.5" />
@@ -118,3 +116,37 @@ const {} = Astro.props;
     </div>
   </div>
 </section>
+
+<script>
+  import LeaderLine from 'leader-line-new';
+
+  let opt1 = {
+    size: 4,
+    //startPlug: 'square',
+    endPlug: 'square',
+    //startPlugSize: 1,
+    endPlugSize: 1,
+    startSocket: "bottom",
+    endSocket: "top",
+    //dash: true,
+    path: "straight",
+    color: 'rgba(96, 165, 250, 0.6)',
+  };
+
+  let line1 = new LeaderLine(document.getElementById('diag-pool'), document.getElementById('diag-server'), opt1);
+  new LeaderLine(document.getElementById('diag-pool'), document.getElementById('diag-disk'), opt1);
+  new LeaderLine(document.getElementById('diag-pool'), document.getElementById('diag-db'), opt1);
+  new LeaderLine(document.getElementById('diag-pool'), document.getElementById('diag-cpu'), opt1);
+
+  //document.querySelector('.leader-line').style.zIndex = -1;
+
+  // opt1.size = 1;
+  // opt1.path = "grid";
+  // opt1['startPlug'] = 'square';
+  // opt1['startSocket'] = "bottom";
+  // opt1['endSocket'] = "bottom";
+  // opt1.color = 'gray';
+  // new LeaderLine(document.getElementById('diag-server'), document.getElementById('diag-disk'), opt1);
+  // new LeaderLine(document.getElementById('diag-disk'), document.getElementById('diag-db'), opt1);
+  // new LeaderLine(document.getElementById('diag-db'), document.getElementById('diag-cpu'), opt1);
+</script>

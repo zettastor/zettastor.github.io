@@ -4,6 +4,8 @@ import { SITE } from "~/config.mjs";
 import { getCanonical, getHomePermalink } from "~/utils/permalinks";
 import Layout from "~/layouts/PageLayout.astro";
 import Hero2 from "~/components/widgets/Hero2.astro";
+import Diagram from "~/components/widgets/Diagram.astro";
+import Diagram2 from "~/components/widgets/Diagram2.astro";
 import Comparison from "~/components/widgets/Comparison.astro";
 import Features2 from "~/components/widgets/Features2.astro";
 import Benefits from "~/components/widgets/Benefits.astro";
@@ -19,27 +21,10 @@ const meta = {
 
 <Layout meta={meta}>
   <Hero2 />
-  <section id="diagram">
-    <div class="max-w-6xl flex justify-center mx-auto p-2 md:p-6 rounded-md">
-      <div class="max-w-4xl flex flex-wrap md:perspective-wrapper">
-        <table>
-          <tr><td class="p-2 text-base font-medium border-b">ZettaStor DBS 架构图</td></tr>
-          <tr><td>&nbsp;</td></tr>
-          <tr><td>&nbsp;</td></tr>
-          <tr><td>&nbsp;</td></tr>
-          <tr><td>&nbsp;</td></tr>
-          <tr><td>&nbsp;</td></tr>
-          <tr><td>&nbsp;</td></tr>
-          <tr><td>&nbsp;</td></tr>
-          <tr><td>&nbsp;</td></tr>
-          <tr><td>&nbsp;</td></tr>
-          <tr><td>&nbsp;</td></tr>
-          <tr><td>&nbsp;</td></tr>
-          <tr><td>&nbsp;</td></tr>
-        </table>
-      </div>
-    </div>
-  </section>
+  <div class="grid lg:grid-cols-2 gap-4 justify-center mx-auto max-w-6xl">
+    <Diagram2 />
+    <Diagram />
+  </div>
   <Features2 />
   <Comparison />
   <Benefits />

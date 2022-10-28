@@ -13,15 +13,18 @@
     "website-label": "网址：",
     "email-label": "电子邮件：",
     "support1-label": "社区版支持：",
-    "support2-label": "商用版服务："
+    "support2-label": "商业版服务："
   },
   "hero": {
     "title": "分布式块存储系统",
     "desc": "ZettaStor DBS 由南京鹏云网络科技有限公司（简称“鹏云网络”）完全自主研发。该产品可为大规模虚拟化、私有云和容器环境，提供高可用、高性能、易扩展、易维护的企业级用户业务存储解决方案，成为核心应用上云的坚实数据底座。",
+    "desc2": "ZettaStor DBS 分为社区版（开源）和商业版。社区版的源代码在",
+    "desc3": "许可证下进行分发。",
     "button2": "技术优势"
   },
   "diagram": {
     "title": "系统示意图",
+    "title2": "系统架构图",
 
     "label-app-layer": "应用层",
     "label-storage-layer": "存储层",
@@ -43,7 +46,12 @@
     "label-alarm-mgmt": "告警管理",
     "label-performance-mgmt": "性能管理",
     "label-user-mgmt": "用户管理",
-    "label-system-mgmt": "系统管理"
+    "label-system-mgmt": "系统管理",
+
+    "label-client-driver": "客户端驱动",
+    "label-data-flow" : "数据流",
+    "label-data-flows" : "数据通路",
+    "label-control-flows" : "控制通路"
   },
   "menu": {
     "home": "首页",
