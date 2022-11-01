@@ -32,7 +32,7 @@ layout: ~/layouts/DocLayout.astro
 
 - 在设置安装语言的时候，请选择 `English(United States)`
 - 在设置日期和时间的时候，请选择 `Asia / Shanghai`
-- 在设置安装磁盘和分区情况的时候，请根据实际情况选择需要安装的磁盘，并在设置分区的时候，除 `/boot` 分区和 `/` 根目录分区之外，对于 `swap` 和 `/home` 等分区不建议保留。也就是说，除了必须的 `/boot` 分区之外，系统磁盘的所有剩余空间分配给根分区，根分区文件系统格式推荐设置为 `ext4`
+- 在设置安装磁盘和分区情况的时候，请选择需要安装操作系统的磁盘，并在设置分区的时候，除 `/boot` 分区和 `/` 根目录分区之外，对于 `swap` 和 `/home` 等分区不建议保留。也就是说，除了必须的 `/boot` 分区之外，系统磁盘的所有剩余空间分配给根分区，根分区文件系统格式推荐设置为 `ext4`
 
 - 根据网络规划，为安装的节点设置对应的 IP 地址
 - 其它选项请根据操作系统类型进行设置
@@ -45,7 +45,7 @@ layout: ~/layouts/DocLayout.astro
 注意：
 
 - 本章节列举的操作系统类型，名称按照字母从小到大进行排序，忽略大小写。
-- 每一种操作系统的名称需要与自动化部署工具中规划的名称保证一致
+- 每一种操作系统的名称需要与`安装部署工具`中规划的名称保证一致
 
 ### CentOS 7 (1908)
 
@@ -68,7 +68,7 @@ MD5值：`dc5932260da8f26bcdce0c7ebf0f59ca`
 进行本次系统安装的软件选择
 <img src="/operatingsystem/media/image4.png" />
 
-这里软件列表选择“Compute Node”模式。 右边的软件包不需要选择。
+这里软件列表选择`Compute Node`模式。 右边的软件包不需要选择。
 <img src="/operatingsystem/media/image5.png" />
 
 确定软件选择之后，开始进行系统分区配置
@@ -83,7 +83,7 @@ MD5值：`dc5932260da8f26bcdce0c7ebf0f59ca`
 选定标准分区模式之后，点击上方的自动分区，进行分区调整。
 <img src="/operatingsystem/media/image9.png" />
 
-调整后，只保留/boot和/分区。系统磁盘的所有剩余空间分配给根分区，根分区文件系统格式推荐设置为 ext4 格式
+调整后，只保留 `/boot` 和 `/` 分区。系统磁盘的所有剩余空间分配给根分区，根分区文件系统格式推荐设置为 `ext4` 格式
 <img src="/operatingsystem/media/image10.png" />
 
 （这里有个方法来设置根分区大小，将不需要的分区删除之后，选择根分区，将根分区的大小，设置为一个大于整个系统盘的容量，然后调整根分区的文件系统格式为 ext4。系统会自动将尽可能所有的剩余空间分配给根分区）
@@ -254,20 +254,19 @@ Linux 下的网络绑定请参考[设置指南](https://www.cloudibee.com/networ
 
 在某些情况下，因为RAID卡资源不足导致RAID卡不能正确的读取硬盘信息，这种情况下需要把RAID卡上不需要的服务关闭。以下以华为RH2288服务器的配置进行说明。
 
-进入BIOS的菜单。选中左侧Advanced下的Socket Configuration
+进入BIOS的菜单。选中左侧 `Advanced` 下的 `Socket Configuration`
 
 <img src="/operatingsystem/media/image34.png" />
 
-在Socket Configuration 中选择IIO Configuration
+在 `Socket Configuration` 中选择 `IIO Configuration`
 
 <img src="/operatingsystem/media/image35.png" />
 
-在IIO Configuration中将Intel(R)VT for Directed I/O
-（VT-D）功能的Enabled修改为Disabled
+在 `IIO Configuration` 中将 `Intel(R) VT for Directed I/O(VT-d)` 功能的 `Enabled` 修改为 `Disabled`
 
 <img src="/operatingsystem/media/image36.png" />
 
-将Advanced下的Console Redirection 从Enabled修改为Disabled
+将 `Advanced` 下的 `Console Redirection` 从 `Enabled` 修改为 `Disabled`
 
 <img src="/operatingsystem/media/image37.png" />
 

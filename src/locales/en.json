@@ -84,7 +84,25 @@
     "included": "Included",
     "partial": "Partially included",
     "title1":"Community Edition",
-    "title2":"Enterprise Edition"
+    "title2":"Enterprise Edition",
+    "f01":"Volume Extension",
+    "f02":"Volume Shrink",
+    "f03":"Volume Clone",
+    "f04":"Volume Snapshot",
+    "f05":"iSCSI Protocol",
+    "f06":"PYD Protocol",
+    "f07":"Access Control",
+    "f08":"Data Access Control Strategy",
+    "f09":"Data Reconstruction Strategy",
+    "f10":"Load Balancing Strategy",
+    "f11":"Cache Boosting",
+    "f12":"System-wide Power Failure Protection",
+    "f13":"Disk Indicator",
+    "f14":"Disk Roaming",
+    "f15":"Alarm Management",
+    "f16":"User Management",
+    "f17":"Log Auditor",
+    "f18":"GUI Operation"
   },
   "benefits": {
     "titlebefore":"Customer Benefits of",
@@ -97,6 +115,22 @@
     "desc3": "Capable of horizontal and linear expansion, on-demand performance and capacity support",
     "title4": "Safe, Efficient and Seamless Migration",
     "desc4": "Perfectly unaltered original system, with simple and visualized migration process"
+  },
+  "download": {
+    "download": "Software Download",
+    "kylin": "Kylin OS",
+    "uos": "UOS",
+    "desc1": "Pre-compiled setup wizard and deployment packages are provided to save your time. If your system environment is not in the support list below, please obtain the source code of ZettaStor DBS Community Edition from",
+    "desc2": "and follow the instructions in the ",
+    "desc3": "How to Compile",
+    "desc4": "documentation.",
+    "installer1": "(Setup Wizard)",
+    "installer2": "(Deployment Package)",
+    "commercial1": "If you use ZettaStor DBS inside your company, you should consider subscribing to ZettaStor DBS Enterprise Edition. Your subscription will give you access to professional support and more features. Please",
+    "commercial2": "contact us",
+    "commercial3": "for more information.",
+    "terms1": "By downloading Pengyun software, you accept the terms and conditions of",
+    "terms2": "License."
   },
   "doc": {
     "overview": "Overview"
