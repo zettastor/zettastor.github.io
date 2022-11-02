@@ -40,7 +40,7 @@ const {} = Astro.props;
               <tr>
                 <td class="px-1">
                   <div id="diag-co1" class="border border-gray-400 p-1 text-center bg-white dark:bg-black/20">
-                    <div class="border rounded border-gray-400 border-dashed">
+                    <div class="border rounded border-gray-400 border-dashed cursor-pointer" title={t("diagram.desc-coord")}>
                       <div class="flex justify-center m-1">
                         <Icon name="clarity:container-volume-solid" class="w-5 h-5 mx-0.5" />
                         …
@@ -49,12 +49,12 @@ const {} = Astro.props;
                       </div>
                       Coordinators
                     </div>
-                    <div class="mt-1">Driver Container</div>
+                    <div class="mt-1 cursor-pointer" title={t("diagram.desc-drvcontainer")}>Driver Container</div>
                   </div>
                 </td>
                 <td class="px-1">
                   <div id="diag-co2" class="border border-emerald-400 p-1 text-center text-emerald-600 dark:text-emerald-300 bg-white dark:bg-black/20">
-                    <div class="border rounded border-emerald-400 border-dashed">
+                    <div class="border rounded border-emerald-400 border-dashed cursor-pointer" title={t("diagram.desc-coord")}>
                       <div class="flex justify-center m-1">
                         <Icon name="clarity:container-volume-solid" class="w-5 h-5 mx-0.5" />
                         …
@@ -63,7 +63,7 @@ const {} = Astro.props;
                       </div>
                       Coordinators
                     </div>
-                    <div class="mt-1">Driver Container</div>
+                    <div class="mt-1 cursor-pointer" title={t("diagram.desc-drvcontainer")}>Driver Container</div>
                   </div>
                 </td>
                 <td class="px-1">
@@ -71,7 +71,7 @@ const {} = Astro.props;
                 </td>
                 <td class="px-1">
                   <div id="diag-co3" class="border border-primary-400 p-1 text-center text-primary-600 dark:text-primary-300 bg-white dark:bg-black/20">
-                    <div class="border rounded border-primary-400 border-dashed">
+                    <div class="border rounded border-primary-400 border-dashed cursor-pointer" title={t("diagram.desc-coord")}>
                       <div class="flex justify-center m-1">
                         <Icon name="clarity:container-volume-solid" class="w-5 h-5 mx-0.5" />
                         …
@@ -80,7 +80,7 @@ const {} = Astro.props;
                       </div>
                       Coordinators
                     </div>
-                    <div class="mt-1">Driver Container</div>
+                    <div class="mt-1 cursor-pointer" title={t("diagram.desc-drvcontainer")}>Driver Container</div>
                   </div>
                 </td>
               </tr>
@@ -91,7 +91,7 @@ const {} = Astro.props;
 
               <tr>
                 <td class="px-1">
-                  <div id="diag-dn1" class="border p-1 text-center text-primary-600 dark:text-primary-300 bg-white dark:bg-black/20 diagram-border">
+                  <div id="diag-dn1" class="border p-1 text-center text-primary-600 dark:text-primary-300 bg-white dark:bg-black/20 diagram-border cursor-pointer" title={t("diagram.desc-datanode")}>
                     <div class="flex justify-center m-1">
                       <Icon name="carbon:vmdk-disk" class="w-5 h-5 mx-0.5" />
                       <Icon name="carbon:vmdk-disk" class="w-5 h-5 mx-0.5" />
@@ -101,7 +101,7 @@ const {} = Astro.props;
                   </div>
                 </td>
                 <td class="px-1">
-                  <div id="diag-dn2" class="border p-1 text-center text-primary-600 dark:text-primary-300 bg-white dark:bg-black/20 diagram-border">
+                  <div id="diag-dn2" class="border p-1 text-center text-primary-600 dark:text-primary-300 bg-white dark:bg-black/20 diagram-border cursor-pointer" title={t("diagram.desc-datanode")}>
                     <div class="flex justify-center m-1">
                       <Icon name="carbon:vmdk-disk" class="w-5 h-5 mx-0.5" />
                       <Icon name="carbon:vmdk-disk" class="w-5 h-5 mx-0.5" />
@@ -114,7 +114,7 @@ const {} = Astro.props;
                   …
                 </td>
                 <td class="px-1">
-                  <div id="diag-dn3" class="border p-1 text-center text-primary-600 dark:text-primary-300 bg-white dark:bg-black/20 diagram-border">
+                  <div id="diag-dn3" class="border p-1 text-center text-primary-600 dark:text-primary-300 bg-white dark:bg-black/20 diagram-border cursor-pointer" title={t("diagram.desc-datanode")}>
                     <div class="flex justify-center m-1">
                       <Icon name="carbon:vmdk-disk" class="w-5 h-5 mx-0.5" />
                       <Icon name="carbon:vmdk-disk" class="w-5 h-5 mx-0.5" />
@@ -131,11 +131,11 @@ const {} = Astro.props;
         <div class="flex flex-row md:flex-col justify-evenly md:justify-between scale-lang" lang={i18next.language}>
           <div id="diag-ctrl" class="border border-dashed border-2 border-gray-300 dark:border-slate-400 p-3 flex flex-col gap-2 bg-slate-50 dark:bg-inherit">
             <div class="text-center font-bold">{t("diagram.label-control-flows")}</div>
-            <div class="flex border p-2 text-primary-600 dark:text-primary-300 bg-white dark:bg-black/20 diagram-border">
+            <div class="flex border p-2 text-primary-600 dark:text-primary-300 bg-white dark:bg-black/20 diagram-border cursor-pointer" title={t("diagram.desc-console")}>
               <Icon name="ant-design:desktop-outlined" class="w-5 h-5 mr-2" />
               Console
             </div>
-            <div class="flex border p-2 text-primary-600 dark:text-primary-300 bg-white dark:bg-black/20 diagram-border">
+            <div class="flex border p-2 text-primary-600 dark:text-primary-300 bg-white dark:bg-black/20 diagram-border cursor-pointer" title={t("diagram.desc-info")}>
               <Icon name="ant-design:info-circle-outlined" class="w-5 h-5 mr-2" />
               InfoCenter
             </div>
@@ -146,11 +146,11 @@ const {} = Astro.props;
           </div>
 
           <div class="border border-x-2 border-t-2 border-transparent px-3 pt-3 flex flex-col gap-2">
-            <div id="diag-dih" class="flex border p-2 text-primary-600 dark:text-primary-300 bg-white/20 dark:bg-black/20 diagram-border">
+            <div id="diag-dih" class="flex border p-2 text-primary-600 dark:text-primary-300 bg-white/20 dark:bg-black/20 diagram-border cursor-pointer" title={t("diagram.desc-dih")}>
               <Icon name="simple-icons:flathub" class="w-5 h-5 mr-2" />
               InstanceHub
             </div>
-            <div id="diag-daemon" class="flex border p-2 text-primary-600 dark:text-primary-300 bg-white/20 dark:bg-black/20 diagram-border">
+            <div id="diag-daemon" class="flex border p-2 text-primary-600 dark:text-primary-300 bg-white/20 dark:bg-black/20 diagram-border cursor-pointer" title={t("diagram.desc-sysd")}>
               <Icon name="eos-icons:daemon-outlined" class="w-5 h-5 mr-2" />
               SystemDaemon
             </div>

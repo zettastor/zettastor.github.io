@@ -51,7 +51,15 @@
     "label-client-driver" : "Client Driver",
     "label-data-flow" : "Data Flow",
     "label-data-flows" : "Data Flows",
-    "label-control-flows" : "Control Flows"
+    "label-control-flows" : "Control Flows",
+
+    "desc-dih": "This module monitors and manages the status of various services",
+    "desc-sysd": "This module monitors cluster's hardware information and forwards service logs",
+    "desc-console": "This module provides a Web interface for configuring and managing the entire system",
+    "desc-info": "This module manages the configuration(metadata) information, performance and alarm data of the system",
+    "desc-coord": "This module responds to the I/O requests submitted by the Client Driver and distributes them to the Data Node on the corresponding storage nodes",
+    "desc-datanode": "This module manages all disks on the storage nodes, receives I/O requests, and performs the actual I/O operations",
+    "desc-drvcontainer": "This module manages all network drivers in the system"
   },
   "menu": {
     "home": "Home",

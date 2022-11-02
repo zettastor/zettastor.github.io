@@ -51,7 +51,15 @@
     "label-client-driver": "客户端驱动",
     "label-data-flow" : "数据流",
     "label-data-flows" : "数据通路",
-    "label-control-flows" : "控制通路"
+    "label-control-flows" : "控制通路",
+
+    "desc-dih": "用于监控和管理各项服务的状态",
+    "desc-sysd": "用于监控节点硬件信息和转发服务日志",
+    "desc-console": "提供 Web 界面用于配置和管理整个系统",
+    "desc-info": "信息中心用于管理系统的配置信息(元数据信息)、性能和告警数据",
+    "desc-coord": "响应客户端驱动提交的数据读写请求，并分发给对应的存储节点服务器上的 DataNode",
+    "desc-datanode": "管理存储节点上的所有用于存储的磁盘，接收读写请求、进行数据读写操作",
+    "desc-drvcontainer": "网络驱动容器管理系统的所有网络驱动"
   },
   "menu": {
     "home": "首页",
