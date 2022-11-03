@@ -43,7 +43,7 @@
   } */
 
   .scale-lang[lang="en"] {
-    /* @apply scale-90; */
+    @apply scale-90;
   }
 
   .diagram-border {
