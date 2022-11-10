@@ -8,22 +8,46 @@ If you're on Linux, the packages required for compilation can be installed by th
 
 ## I. Setup a development environment
 
-### CentOS 7 / RHEL 7
+### RHEL(CentOS) 7
 ```bash
-yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-yum install net-tools maven thrift protobuf-compiler
+yum install epel-release
+yum -y install git java-1.8.0-openjdk-devel thrift curl unzip
+
+# Install a newer version of Apache Maven
+curl -LO https://downloads.apache.org/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.tar.gz
+tar -zxvf apache-maven-3.5.4-bin.tar.gz --directory /opt
+ln -s /opt/apache-maven-3.5.4 /opt/maven
+chown -R root:root /opt/maven
+echo '# Apache Maven Environment Variables' > /etc/profile.d/maven.sh
+echo 'export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk/' >> /etc/profile.d/maven.sh
+echo 'export PATH=/opt/maven/bin:${PATH}' >> /etc/profile.d/maven.sh
+
+# Install a newer version of Protocol Buffers
+curl -LO https://github.com/protocolbuffers/protobuf/releases/download/v3.5.1/protoc-3.5.1-linux-x86_64.zip
+unzip protoc-3.5.1-linux-x86_64.zip -d /usr/local
+
 ```
 
-### CentOS 8 / RHEL 8
+### RHEL(CentOS) 8
 ```bash
-yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-yum install net-tools maven compat-openssl10 protobuf-compiler
+yum install epel-release
+yum install git net-tools maven compat-openssl10 protobuf-compiler
 yum install https://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/t/thrift-0.9.1-15.el7.x86_64.rpm
+```
+
+### RHEL 9
+```bash
+yum install git maven unzip
+yum install http://mirror.centos.org/centos/8-stream/AppStream/x86_64/os/Packages/compat-openssl10-1.0.2o-3.el8.x86_64.rpm
+yum install https://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/t/thrift-0.9.1-15.el7.x86_64.rpm
+curl -LO https://github.com/protocolbuffers/protobuf/releases/download/v3.5.1/protoc-3.5.1-linux-x86_64.zip
+unzip protoc-3.5.1-linux-x86_64.zip -d /usr/local
 ```
 
 ### Debian 10 / Debian 11 / Ubuntu 18 / Ubuntu 20
 ```bash
-sudo apt-get install net-tools curl maven protobuf-compiler
+sudo apt-get update
+sudo apt-get install git net-tools curl maven protobuf-compiler
 curl -LO http://ftp.debian.org/debian/pool/main/t/thrift-compiler/thrift-compiler_0.9.1-2.1+b1_amd64.deb
 sudo dpkg -i thrift-compiler_0.9.1-2.1+b1_amd64.deb
 ```
@@ -35,10 +59,51 @@ curl -LO https://github.com/protocolbuffers/protobuf/releases/download/v3.5.1/pr
 unzip protoc-3.5.1-linux-x86_64.zip -d /usr/local
 ```
 
-## II. Compiling the code
-To build the package, Use the following commands in the directory where pom.xml is located
+## II. Downloading the Source
 ```bash
-mvn versions:use-dep-version -DdepVersion=$(thrift --version | awk '{print $3}') -Dincludes=org.apache.thrift:libthrift
-mvn versions:use-dep-version -DdepVersion=$(protoc --version | awk '{print $2}') -Dincludes=com.google.protobuf:protobuf-java
-mvn clean install
+ROOT_PATH=$1
+
+git clone --depth 1 -b 1.0.0 file://$ROOT_PATH/pengyun-root
+pushd pengyun-root
+
+git clone --depth 1 -b 1.0.0 file://$ROOT_PATH/pengyun-root/pengyun-lib
+pushd pengyun-lib
+git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-lib/pengyun-core
+git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-lib/pengyun-database_core
+git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-lib/pengyun-models
+git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-lib/pengyun-dih_model
+git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-lib/pengyun-dih_client
+git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-lib/pengyun-query_log
+git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-lib/pengyun-configuration
+git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-lib/pengyun-monitor_common
+popd
+
+git clone --depth 1 -b 1.0.x-OS file://$ROOT_PATH/pengyun-root/pengyun-dbs
+pushd pengyun-dbs
+git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-dbs/dbs-dnmodel
+git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-dbs/dbs-models_related
+git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-driver_core
+git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-coordinator
+git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-infocenter
+git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-drivercontainer
+git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-deployment_daemon
+git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-system_daemon
+git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-datanode_core
+git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-datanode_service
+git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-datanode
+git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-webservice_adapter
+git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-utils
+git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-console
+popd
+
+popd
+```
+
+## III. Compiling the code
+To build the package, Use the following commands in the directory where `pengyun-root/pom.xml` is located
+```bash
+# Update version number from system environment
+mvn versions:set-property -Dproperty=libthrift.version -DnewVersion=$(thrift --version | awk '{print $3}')
+mvn versions:set-property -Dproperty=protobuf.version -DnewVersion=$(protoc --version | awk '{print $2}')
+mvn clean install -Dcheckstyle.skip=true -DskipTests
 ```
