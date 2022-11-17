@@ -8,7 +8,7 @@ layout: ~/layouts/DocLayout.astro
 
 ## 一、准备编译环境
 
-### RHEL(CentOS) 7
+### RHEL/CentOS 7
 ```bash
 yum install epel-release
 yum -y install git java-1.8.0-openjdk-devel thrift curl unzip
@@ -27,7 +27,7 @@ curl -LO https://github.com/protocolbuffers/protobuf/releases/download/v3.5.1/pr
 unzip protoc-3.5.1-linux-x86_64.zip -d /usr/local
 ```
 
-### RHEL(CentOS) 8
+### RHEL/CentOS 8
 ```bash
 yum install epel-release
 yum install git net-tools maven compat-openssl10 protobuf-compiler
@@ -43,15 +43,15 @@ curl -LO https://github.com/protocolbuffers/protobuf/releases/download/v3.5.1/pr
 unzip protoc-3.5.1-linux-x86_64.zip -d /usr/local
 ```
 
-### Debian 10 / Debian 11 / Ubuntu 18 / Ubuntu 20
+### Debian 10/11, Ubuntu 18/20
 ```bash
 sudo apt-get update
-sudo apt-get install git net-tools curl maven protobuf-compiler
+sudo apt-get install git net-tools curl openjdk-11-jdk maven protobuf-compiler
 curl -LO http://ftp.debian.org/debian/pool/main/t/thrift-compiler/thrift-compiler_0.9.1-2.1+b1_amd64.deb
 sudo dpkg -i thrift-compiler_0.9.1-2.1+b1_amd64.deb
 ```
 
-### openSUSE 15
+### SUSE/SLES 15
 ```bash
 zypper install net-tools-deprecated curl unzip maven thrift
 curl -LO https://github.com/protocolbuffers/protobuf/releases/download/v3.5.1/protoc-3.5.1-linux-x86_64.zip
@@ -59,6 +59,7 @@ unzip protoc-3.5.1-linux-x86_64.zip -d /usr/local
 ```
 
 ## 二、下载代码
+ZettaStor DBS 的仓库必须按特定的层次结构组织目录，请使用下列命令下载源代码：
 ```bash
 ROOT_PATH=$1
 
