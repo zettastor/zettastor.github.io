@@ -147,72 +147,70 @@ The internal format of Archives under ZettaStor DBS management is shown below. A
 
 <img src="https://zdbs.io/devguide/media/image6.jpg" />
 
-
-
-
-
 ### Data Volume Creation
 
-ZettaStor DBS data volume, that is, Volume. ZettaStor
-DBS provides storage resources to client hosts in the form of data volumes, and clients use data volumes just like using local disks.
+ZettaStor DBS provides storage resources to client hosts in the form of data volumes, and clients use data volumes just like using regular local disks.
 
 ### Caching Mechanism
 
-ZettaStor DBS adopts multi-level distributed cache. Among them, open up a special area in the memory of each storage node server as the first-level cache area, and use the solid-state hard disk (SAS/SATA interface or PCI-e interface) inside each storage node server as an optional second-level cache area, and the two-level cache is managed in a unified manner. The cache areas of each node follow the Shared
-Nothing's fully symmetrical distribution, while highly independent and autonomous, also works efficiently and collaboratively based on private P2P protocols and patented technologies.
+ZettaStor DBS adopts multi-level, distributed cache. A special area in the memory of each storage node server is allocated as the first-level cache; the solid-state disk (SAS/SATA or PCI-e interface) inside each storage node server can be used as an optional second-level cache. The two-level cache models are managed in a unified manner. 
+
+The cache areas of each node are in a fully symmetrical distribution with Shared-Nothing Architecture (SNA). These cache areas are highly independent and autonomous while at the same time working efficiently and collaboratively based on P2P protocols and patented technologies.
 
 <img src="https://zdbs.io/devguide/media/image7.png" />
 
-The page replacement management of the cache space adopts LRU (Least Recently
-Used), that is, the least recently used algorithm. The system will remove the data blocks with the least recent use frequency from the cache to make room for loading other newly requested data blocks to obtain a higher cache hit rate.
+The page replacement algorithm of the cache space adopts LRU (Least Recently Used) algorithm. The data blocks with the least recent use frequency are removed from the cache to make room for loading other newly requested data blocks for a higher cache hit rate.
 
 ### I/O Write Process
 
-The write request will be sent to the Coordinator first. When the Coordinator receives the user's write request, it will perform calculations based on the volume composition information to determine which segment the user's data falls on.
+The write requests will be sent to the Coordinator first. When the Coordinator receives the user's write request, it will perform calculations based on the volume composition information to determine which segment the user's data falls on.
 
-The implementation of the stripe strategy is: each volume has its own fixed stripe size independently, and the size is Page
-Size is an integer multiple, and the specific multiple can be specified according to the user's business scenario. According to user I/O, based on the I/O request start position and volume composition information, calculate which segment the start position should fall in. After calculating a stripe, if there is still requested data, continue to calculate the next one The segment and location corresponding to the strip, and so on.
+The implementation of the striping strategy can be defined as follows: each volume has its own fixed stripe size independently; the stripe size must be an integer multiple of page size; and the integer value can be specified according to the user's profile. Based on the I/O request offset position and volume composition information, the system calculates which Segment the offset position should fall in. After addressing a stripe, if there is still additional requested data, continue to calculate the next Segment corresponding to the stripe, and so on.
 
-Assuming that the user initiates a write request, the start position of the write request is 0, and the size is 5MB. After stripe conversion, there will be 5 small block write requests, which are \[0,1MB), \[1MB,2MB) , \[2MB,3MB), \[3MB,4MB), \[4MB,5MB), the writing order is as follows:
+Assuming that the user initiates a write request, the offset position of the write request is 0, and the size of data is 5MB. After stripe conversion, there will be 5 smaller block write requests, which are \[0,1MB), \[1MB,2MB) , \[2MB,3MB), \[3MB,4MB), \[4MB,5MB), the writing order is as follows:
 
-1. \[0,1MB) will be written from position 0 of the 0th Segment, and the length is a stripe size: 1MB;
-2. \[1MB,2MB) will be written from position 0 of the first Segment, and the length is one stripe size: 1MB;
-3. \[2MB,3MB) will be written from position 0 of the second segment, and the length is one stripe size: 1MB;
-4. \[3MB,4MB) will be written from position 0 of the third segment, and the length is one stripe size: 1MB;
-5. \[4MB,5MB) will be written from position 0 of the fourth segment, and the length is one stripe size: 1MB.
+1. \[0,1MB) will be written to position 0 of the 0th Segment, and the size is 1 stripe: 1MB;
+2. \[1MB,2MB) will be written to position 0 of the 1st Segment, and the size is 1 stripe: 1MB;
+3. \[2MB,3MB) will be written to position 0 of the 2nd Segment, and the size is 1 stripe: 1MB;
+4. \[3MB,4MB) will be written to position 0 of the 3rd Segment, and the size is 1 stripe: 1MB;
+5. \[4MB,5MB) will be written to position 0 of the 4th Segment, and the size is 1 stripe: 1MB.
 
 <img src="https://zdbs.io/devguide/media/logicw.png" />
 
-The purpose of introducing the striping strategy is to ensure that the user's write requests evenly fall on all data disks when writing large blocks sequentially, so as to ensure disk-level load balancing, instead of writing to certain disks, resulting in some The disk becomes a performance bottleneck.
+The purpose of introducing the striping strategy is to ensure that the user's write requests evenly fall on all data disks when writing large blocks sequentially, so as to ensure disk-level load-balancing, instead of writing to certain disks and resulting a performance bottleneck.
 
-The Coordinator calculates the Segment where the data is located based on the Offset of the data, and first determines the target and number of data to be sent based on the Membership of the Segment. Membership contains the node status of the node information, among which the Segment of the Primary, Secondary and JoinSecondary status
-Unit needs to send data; Segment in Arbiter state
-Unit is in a stable state, but Arbiter is only an arbitrator of voting and does not store data; Segment of InActiveSecondary
-Unit DescriptionSegment
-Unit cannot be written normally for the time being. Coordinator does not need to send write requests. The Coordinator will send write requests to all Actives at the same time by broadcasting
-The DataNode where the Segment Unit is located.
+The Coordinator calculates the Segment where the data is located based on the offset of the data, and determines the target and size of data to be sent based on the Membership of the Segment. Membership contains the node status, among which the Segment Units in Primary, Secondary and JoinSecondary status will send data; Segment Unit in Arbiter is in a stable state, but it is only an arbitrator of voting and does not store data; A Segment Unit of InActiveSecondary indicates that the Segment Unit cannot be written temporarily. The Coordinator will simultaneously send write requests to all DataNodes where the Active Segment Units are located by broadcasting.
 
-Coordinator will count all segments after broadcasting
+Coordinator will count all Segments after broadcasting
 Unit returns the result, and determines the write result according to the VolumeType of the Volume:
 
-__Two copies__: In a stable state, it is required to write two copies successfully; in the event of problems such as downtime disks, it is possible to allow a single copy to be written successfully. At this time, the availability of the environment is guaranteed but the risk of data loss is increased. In steady state, only one copy is allowed to be corrupted or lost.
+After broadcasting, the Coordinator will count the return results from all Segment Units, and determine the write results according to the VolumeType of the volume:
 
-__Three copies__: the copy of the primary must be written successfully, and any secondary copy is considered successful. In steady state, only one copy is allowed to be corrupted or lost.
+__Two-copy Mode__: In a stable state, two copies shall be written successfully; in the event of a disaster such as disk downtime, it is allowed that only a single copy is written successfully. In this case, the availability is guaranteed but the risk of data loss is increased. In a stable state, only one copy is allowed to be corrupted or lost.
 
-Three copies of high availability: In a stable state, it is required to write three copies successfully; in the event of a problem such as a downtime disk, it is considered successful if a single copy is allowed to write. At this time, the availability of the environment is guaranteed but the risk of data loss is increased. In steady state, two replicas are allowed to be corrupted or lost.
+__Three-copy Mode__: the primary copy must be written successfully, the operation is considered successful if any one of the secondary copies is successfully written. In a stable state, one copy is allowed to be corrupted or lost.
 
-In the three-copy mode, the write I/O operation only needs to be successfully confirmed by two data copies to be considered successful. Other data copies can ensure successful data writing through cache comparison and synchronization between nodes. In this way, the increase of write latency caused by the abnormality of the network or host of some storage nodes is avoided.
+__Three-copy High Availability Mode__: In a stable state, three copies shall be written successfully; in the event of a disaster such as disk downtime, the operation is considered successful if only a single copy is written successfully. In this case, the availability is guaranteed but the risk of data loss is increased. In a stable state, two copies are allowed to be corrupted or lost.
 
-When the DataNode receives the write request from the Coordinator, it will create a corresponding Log in memory. The Primary will generate a unique and self-increasing LogId for each Log, broadcast the LogId to all Secondaries, and collect whether all Secondaries have received the LogId and Data, and return the result to the Coordinator, if the conditions are met (The condition is the same as the condition that the Coordinator judges that the write is successful), and the user is returned to write successfully, otherwise, it will be resent and the above processing will be carried out until the I/O times out.
+In Three-copy Mode, the write I/O operation only needs to be confirmed by two successful data copies. Other data copies can be ensured by cache comparison and synchronization between nodes. In this way, the impact of write latency caused by the abnormality of the network or storage nodes is avoided.
 
-After responding to the Coordinator, the data can be actually placed on the disk. The smallest unit of data is Page, and a piece of data must belong to a Page. There are two advantages to placing the data in the unit of Page:
+When the DataNode receives the write request from the Coordinator, it will create a corresponding Log in memory. A unique and self-increasing LogId for each Log will be generated by the Primary, then the LogId is broadcasted to all Secondaries, making sure all Secondaries have received the LogId and Data, and finally the result is returned to the Coordinator.
 
-1. When multiple copies of data fall into the same Page, it is not necessary to write multiple times. Instead, the data corresponding to this Page is sorted in the order of LogId in the memory, and a copy of data is written to the disk, which improves the performance of the disk. performance.
-2. When writing pages, sort them according to the disk offset corresponding to the pages. The advantage of this is to organize the random I/O of the user into semi-sequential I/O to improve the throughput of the disk.
+If the conditions are met (i.e., the condition that the Coordinator considers that the write is successful), 
+a result of successful writing is returned, otherwise, request will be resent in the process described above until I/O times out.
+
+After responding to the Coordinator, the data are actually placed on the disk. The smallest unit of data is Page, and a piece of data must belong to a Page. There are two advantages to this:
+
+1. When multiple copies of data fall into the same Page, it is not necessary to write multiple times. Instead, the data corresponding to this Page is sorted in the order of LogId in the memory, and a single copy of data is written to the disk, which improves the performance.
+2. When writing Pages, the operation is sorted by disk offset corresponding to the pages. The advantage of this is to organize random I/O from the user into some semi-sequential I/O to improve the throughput of the disk.
+
+
+
+
 
 ### I/O Read Process
 
-The read request is first sent to the Coordinator, and the Coordinator calculates the Segment where the data required by the user is located based on the volume composition information and the stripe policy.
-After the index is assembled, a read request will be sent to the primary copy (Primary) in the segment at the same time, and a check read request will be sent to other copies. The check read request will only check whether the membership is consistent and whether the primary has changed, but will not actually read the data. The advantage of this is that when Membership is not turbulent, it does not need to send read requests to multiple nodes to improve performance. When turbulence occurs, it can sense changes in time to prevent Membership from split-brain, resulting in inconsistent data reading.
+The read request is first sent to the Coordinator, and the Coordinator calculates the Segment where the data required by the user is located, based on the volume composition information and the striping strategy.
+After getting the index, a read request will be sent to the Primary copy in the Segment, at the same time, a check read request will be sent to other copies. The check read request will only check whether the Membership is consistent and whether the primary has been changed, it will not actually read the data. The advantage of this is that when Membership is stable, it does not need to send read requests to multiple nodes to improve performance. When turbulence occurs, it can detect changes in time to prevent Membership from split-brain, resulting in a inconsistent data reading.
 
 <img src="https://zdbs.io/devguide/media/logicr.png" />
