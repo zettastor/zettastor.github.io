@@ -58,6 +58,21 @@ curl -LO https://github.com/protocolbuffers/protobuf/releases/download/v3.5.1/pr
 unzip protoc-3.5.1-linux-x86_64.zip -d /usr/local
 ```
 
+### 其他架构和平台
+要编译 ZettaStor DBS，您需要：
+- Java Development Kit (JDK) 11
+- Apache Maven 3.5
+- Apache Thrift 0.9.1
+- Protocol Buffers 3.5.1
+
+一般来说，最便捷的方法是下载预编译的二进制文件。如果要从源代码编译二进制文件，请参阅下列章节。
+
+#### Apache Thrift
+要从源代码编译 Thrift，请查看 [安装说明](https://thrift.apache.org/docs/install/)。请注意各个操作系统可能有相关的特定要求。
+
+#### Protocol Buffers (Protobuf)
+首先检查您是否可以下载 [protobuf 3.5.1 预编译二进制文件](https://github.com/protocolbuffers/protobuf/releases/tag/v3.5.1)。如果要从源代码编译 protoc 二进制文件，请查看 [安装说明](https://github.com/protocolbuffers/protobuf/blob/main/src/README.md)。
+
 ## 二、下载代码
 ZettaStor DBS 的仓库必须按特定的层次结构组织目录，请使用下列命令下载源代码：
 ```bash

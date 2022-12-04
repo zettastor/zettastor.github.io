@@ -25,7 +25,6 @@ echo 'export PATH=/opt/maven/bin:${PATH}' >> /etc/profile.d/maven.sh
 # Install a newer version of Protocol Buffers
 curl -LO https://github.com/protocolbuffers/protobuf/releases/download/v3.5.1/protoc-3.5.1-linux-x86_64.zip
 unzip protoc-3.5.1-linux-x86_64.zip -d /usr/local
-
 ```
 
 ### RHEL/CentOS 8
@@ -58,6 +57,21 @@ zypper install net-tools-deprecated curl unzip maven thrift
 curl -LO https://github.com/protocolbuffers/protobuf/releases/download/v3.5.1/protoc-3.5.1-linux-x86_64.zip
 unzip protoc-3.5.1-linux-x86_64.zip -d /usr/local
 ```
+
+### Other Architecture and Platform
+To compile ZettaStor DBS, you need:
+- Java Development Kit (JDK) 11
+- Apache Maven 3.5
+- Apache Thrift 0.9.1
+- Protocol Buffers 3.5.1
+
+As a general rule, the simplest way is to download a pre-built binary. If you would like to build from source code, please refer to the sections below for details.
+
+#### Apache Thrift
+To build Thrift from source look at [installation instructions](https://thrift.apache.org/docs/install/). Pay attention to the OS notes, there are are some system specific requirements.
+
+#### Protocol Buffers (Protobuf)
+First check whether you can download a [protobuf 3.5.1 pre-built binary](https://github.com/protocolbuffers/protobuf/releases/tag/v3.5.1). If you would like to build protoc binary from source, see the [installation instructions](https://github.com/protocolbuffers/protobuf/blob/main/src/README.md).
 
 ## II. Downloading the Source
 The repositories of ZettaStor DBS must be organized in a hierarchy structure, use the following commands to download the source code:
