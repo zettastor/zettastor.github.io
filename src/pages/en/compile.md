@@ -65,6 +65,20 @@ To compile ZettaStor DBS, you need:
 - Apache Thrift 0.9.1
 - Protocol Buffers 3.5.1
 
+Please make sure that the following command is in the PATH environment variable of the system and returns the correct version number, for example:
+```
+mvn --version
+Apache Maven 3.6.3
+Maven home: /usr/share/maven
+Java version: 11.0.17, vendor: Ubuntu, runtime: /usr/lib/jvm/java-11-openjdk-amd64
+
+thrift --version
+Thrift version 0.9.1
+
+protoc --version
+libprotoc 3.5.1
+```
+
 As a general rule, the simplest way is to download a pre-built binary. If you would like to build from source code, please refer to the sections below for details.
 
 #### Apache Thrift
