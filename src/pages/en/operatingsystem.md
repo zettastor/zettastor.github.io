@@ -112,7 +112,7 @@ After the system is installed, restart it and check whether you can enter the sy
 After the system is installed:
 
 version information
-```
+```bash
 cat /etc/*release | grep PRETTY_NAME):
 
 PRETTY_NAME="CentOS Linux 7 (Core)"
@@ -133,15 +133,15 @@ Linux localhost.localdomain 3.10.0-1062.el7.x86_64 \#1 SMP Wed Aug 7
 Use the command `lspci` to identify the model of the IB card, you can use `yum install
 pciutils` on CentOS to install the package.
 
-````
+```bash
 lspci | grep Mellanox
-````
+```
 
 Download the corresponding driver according to the operating system type
 
 http://cn.mellanox.com/page/products_dyn?product_family=26&mtag=linux_sw_drivers
 
-```
+```bash
 tar zxf MLNX_OFED_LINUX-*.tar.gz
 cd MLNX_OFED_LINUX-*
 ./mlnxofedinstall

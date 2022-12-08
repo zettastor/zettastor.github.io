@@ -66,7 +66,7 @@ unzip protoc-3.5.1-linux-x86_64.zip -d /usr/local
 - Protocol Buffers 3.5.1
 
 请确认下列命令行在系统的 PATH 环境变量中，并能返回正确的版本号，例如：
-```
+```bash
 mvn --version
 Apache Maven 3.6.3
 Maven home: /usr/share/maven
@@ -85,7 +85,7 @@ libprotoc 3.5.1
 要从源代码编译 Thrift，请查看 [安装说明](https://thrift.apache.org/docs/install/)。请注意各个操作系统可能有相关的特定要求。
 
 #### Protocol Buffers (Protobuf)
-首先检查您是否可以下载 [protobuf 3.5.1 预编译二进制文件](https://github.com/protocolbuffers/protobuf/releases/tag/v3.5.1)。如果要从源代码编译 protoc 二进制文件，请查看 [安装说明](https://github.com/protocolbuffers/protobuf/blob/main/src/README.md)。
+首先检查您是否可以下载 [Protobuf 3.5.1 预编译二进制文件](https://github.com/protocolbuffers/protobuf/releases/tag/v3.5.1)。如果要从源代码编译 protoc 二进制文件，请查看 [安装说明](https://github.com/protocolbuffers/protobuf/blob/main/src/README.md)。
 
 ## 二、下载代码
 ZettaStor DBS 的仓库必须按特定的层次结构组织目录，请使用下列命令下载源代码：
