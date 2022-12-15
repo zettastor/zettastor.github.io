@@ -3,7 +3,7 @@ import { ref, computed } from 'vue';
 import { Bar } from 'vue-chartjs';
 import * as ChartImport from 'chart.js';
 
-const props = defineProps(['ylabel', 'datas']);
+const props = defineProps(['ylabel', 'ytype', 'datas']);
 
 const {
   Chart,
@@ -13,13 +13,15 @@ const {
   BarElement,
   CategoryScale,
   LinearScale,
+  LogarithmicScale,
 } = ChartImport;
-Chart.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale);
+Chart.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale, LogarithmicScale);
 
 const chartOptions = {
   responsive: true,
   scales: {
     y: {
+      type: props.ytype,
       title: {
         display: true,
         text: props.ylabel,
