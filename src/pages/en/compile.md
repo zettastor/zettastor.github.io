@@ -4,9 +4,49 @@ description: N/A
 layout: ~/layouts/DocLayout.astro
 ---
 
-If you're on Linux, the packages required for compilation can be installed by the folowing commands
+## I. Downloading the Source
+The repositories of ZettaStor DBS must be organized in a hierarchy structure, use the following commands to download the source code:
+```bash
+ROOT_PATH=$1
 
-## I. Setup a development environment
+git clone -b 1.0.0 $ROOT_PATH/pengyun-root
+pushd pengyun-root
+
+git clone -b 1.0.0 $ROOT_PATH/pengyun-root/pengyun-lib
+pushd pengyun-lib
+git clone -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-lib/pengyun-core
+git clone -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-lib/pengyun-database_core
+git clone -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-lib/pengyun-models
+git clone -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-lib/pengyun-dih_model
+git clone -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-lib/pengyun-dih_client
+git clone -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-lib/pengyun-query_log
+git clone -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-lib/pengyun-configuration
+git clone -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-lib/pengyun-monitor_common
+popd
+
+git clone -b 1.0.x-OS $ROOT_PATH/pengyun-root/pengyun-dbs
+pushd pengyun-dbs
+git clone -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-dbs/dbs-dnmodel
+git clone -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-dbs/dbs-models_related
+git clone -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-driver_core
+git clone -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-coordinator
+git clone -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-infocenter
+git clone -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-drivercontainer
+git clone -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-deployment_daemon
+git clone -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-system_daemon
+git clone -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-datanode_core
+git clone -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-datanode_service
+git clone -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-datanode
+git clone -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-webservice_adapter
+git clone -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-utils
+git clone -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-console
+popd
+
+popd
+```
+
+## II. Setup a development environment
+If you're on Linux, the packages required for compilation can be installed by the folowing commands
 
 ### RHEL/CentOS 7
 ```bash
@@ -84,6 +124,16 @@ export PATH="/usr/local/opt/thrift@0.9/bin:$PATH"
 ```
 
 ### Other Architecture and Platform
+
+As a general rule, the simplest way is to download a pre-built binary. If you would like to build from source code, please refer to the links below for details.
+
+- __Apache Thrift__: To build Thrift from source look at [installation instructions](https://thrift.apache.org/docs/install/). Pay attention to the OS notes, there are are some system specific requirements.
+
+- __Protocol Buffers (Protobuf)__: First check whether you can download a [Protobuf 3.5.1 pre-built binary](https://github.com/protocolbuffers/protobuf/releases/tag/v3.5.1). If you would like to build protoc binary from source, see the [installation instructions](https://github.com/protocolbuffers/protobuf/blob/main/src/README.md).
+
+## III. Compiling the code
+
+### Verification of Requirements
 To compile ZettaStor DBS, you need:
 - Java Development Kit (JDK) 11
 - Apache Maven 3.5 or higher
@@ -104,56 +154,8 @@ $ protoc --version
 libprotoc 3.5.1
 ```
 
-As a general rule, the simplest way is to download a pre-built binary. If you would like to build from source code, please refer to the sections below for details.
+### Building with Maven
 
-#### Apache Thrift
-To build Thrift from source look at [installation instructions](https://thrift.apache.org/docs/install/). Pay attention to the OS notes, there are are some system specific requirements.
-
-#### Protocol Buffers (Protobuf)
-First check whether you can download a [Protobuf 3.5.1 pre-built binary](https://github.com/protocolbuffers/protobuf/releases/tag/v3.5.1). If you would like to build protoc binary from source, see the [installation instructions](https://github.com/protocolbuffers/protobuf/blob/main/src/README.md).
-
-## II. Downloading the Source
-The repositories of ZettaStor DBS must be organized in a hierarchy structure, use the following commands to download the source code:
-```bash
-ROOT_PATH=$1
-
-git clone --depth 1 -b 1.0.0 $ROOT_PATH/pengyun-root
-pushd pengyun-root
-
-git clone --depth 1 -b 1.0.0 $ROOT_PATH/pengyun-root/pengyun-lib
-pushd pengyun-lib
-git clone --depth 1 -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-lib/pengyun-core
-git clone --depth 1 -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-lib/pengyun-database_core
-git clone --depth 1 -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-lib/pengyun-models
-git clone --depth 1 -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-lib/pengyun-dih_model
-git clone --depth 1 -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-lib/pengyun-dih_client
-git clone --depth 1 -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-lib/pengyun-query_log
-git clone --depth 1 -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-lib/pengyun-configuration
-git clone --depth 1 -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-lib/pengyun-monitor_common
-popd
-
-git clone --depth 1 -b 1.0.x-OS $ROOT_PATH/pengyun-root/pengyun-dbs
-pushd pengyun-dbs
-git clone --depth 1 -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-dbs/dbs-dnmodel
-git clone --depth 1 -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-dbs/dbs-models_related
-git clone --depth 1 -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-driver_core
-git clone --depth 1 -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-coordinator
-git clone --depth 1 -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-infocenter
-git clone --depth 1 -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-drivercontainer
-git clone --depth 1 -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-deployment_daemon
-git clone --depth 1 -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-system_daemon
-git clone --depth 1 -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-datanode_core
-git clone --depth 1 -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-datanode_service
-git clone --depth 1 -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-datanode
-git clone --depth 1 -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-webservice_adapter
-git clone --depth 1 -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-utils
-git clone --depth 1 -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-console
-popd
-
-popd
-```
-
-## III. Compiling the code
 To build the package, use the following commands in the directory where `pengyun-root/pom.xml` is located
 ```bash
 # Update version number from system environment

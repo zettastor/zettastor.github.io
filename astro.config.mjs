@@ -10,6 +10,7 @@ import image from "@astrojs/image";
 import partytown from "@astrojs/partytown";
 import subfont from "@ernxst/subfont/astro";
 import preact from '@astrojs/preact';
+import vue from "@astrojs/vue";
 import { SITE } from "./src/config.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -19,7 +20,7 @@ export default defineConfig({
   // Astro uses this full URL to generate your sitemap and canonical URLs in your final build
   site: SITE.origin,
   base: SITE.basePathname,
-  server: { host: "0.0.0.0", port: 8080 },
+  server: { host: "0.0.0.0", port: 28080 },
   output: "static",
 
   integrations: [
@@ -33,6 +34,7 @@ export default defineConfig({
     astroI18next(),
     image(),
     subfont(),
+    vue(),
 
     /* Disable this integration if you don't use Google Analytics (or other external script). */
     partytown({

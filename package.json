@@ -14,21 +14,23 @@
     "@astrojs/image": "^0.10.0",
     "@astrojs/partytown": "^1.0.0",
     "@astrojs/preact": "^1.2.0",
-    "@astrojs/rss": "^1.0.0",
     "@astrojs/sitemap": "^1.0.0",
     "@astrojs/tailwind": "^1.0.1",
+    "@astrojs/vue": "^0.2.0",
     "@ernxst/subfont": "^0.1.4",
     "@fontsource/inter": "^4.5.14",
     "@tailwindcss/typography": "^0.5.4",
     "astro": "^1.4.7",
     "astro-i18next": "^1.0.0-beta.12",
     "astro-icon": "^0.7.3",
+    "chart.js": "^3.8.0",
     "glyphhanger": "^5.0.0",
     "i18next-fs-backend": "^1.1.5",
     "leader-line-new": "^1.1.9",
     "limax": "^v2.1.0",
     "preact": "^10.11.2",
-    "reading-time": "^1.5.0"
+    "vue": "^3.2.37",
+    "vue-chartjs": "^4.1.1"
   },
   "engines": {
     "node": ">=14"

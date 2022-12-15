@@ -2,6 +2,7 @@
 import { t } from "i18next";
 import i18next from "i18next";
 import { Icon } from "astro-icon";
+import Chart from './Benchmark.vue'
 
 const {} = Astro.props;
 
@@ -62,8 +63,8 @@ const items = [
             </div>
           </div>
           <div>
-            <h3 class="mb-3 text-xl font-bold">单卷性能对比</h3>
-            <img src="/assets/performance2.png"  />
+            <h3 class="mb-3 text-xl font-bold">磁盘IOPS性能对比</h3>
+            <Chart ylabel="IOPS" datas='{"labels":["4kB随机读","4kB随机写","8kB随机读","8kB随机写"],"datasets":[{"label":"鹏云","data":[14800,8100,7900,6100],"backgroundColor":"rgba(37, 99, 235, 0.8)"},{"label":"友商","data":[5670,4190,3140,4510],"backgroundColor":"rgba(162, 162, 162, 0.8)"}]}' client:load></Chart>
           </div>
         </div>
         <div class="flex flex-row max-w-md">
@@ -113,8 +114,8 @@ const items = [
             </div>
           </div>
           <div>
-            <h3 class="mb-3 text-xl font-bold">多卷性能对比</h3>
-            <img src="/assets/performance2.png"  />
+            <h3 class="mb-3 text-xl font-bold">磁盘带宽性能对比</h3>
+            <Chart ylabel="带宽(MiB/s)" datas='{"labels":["512kB顺序读","512kB顺序写","4MB顺序读","4MB顺序写"],"datasets":[{"label":"鹏云","data":[179.67,18.17,177.33,51.83],"backgroundColor":"rgba(37, 99, 235, 0.8)"},{"label":"友商","data":[28.87,27.85,18.75,14.87],"backgroundColor":"rgba(162, 162, 162, 0.8)"}]}' client:load></Chart>
           </div>
         </div>
         <div class="flex flex-row max-w-md">
