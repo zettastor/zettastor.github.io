@@ -9,10 +9,10 @@ ZettaStor DBS 的仓库必须按特定的层次结构组织目录，请使用下
 ```bash
 ROOT_PATH=$1
 
-git clone -b 1.0.0 $ROOT_PATH/pengyun-root
+git clone -b 1.0.0 $ROOT_PATH:main/pengyun-root
 pushd pengyun-root
 
-git clone -b 1.0.0 $ROOT_PATH/pengyun-root/pengyun-lib
+git clone -b 1.0.0 $ROOT_PATH:main/pengyun-lib
 pushd pengyun-lib
 git clone -b feature/open_source $ROOT_PATH:main/pengyun-core
 git clone -b feature/open_source $ROOT_PATH:database/pengyun-database_core
@@ -24,7 +24,7 @@ git clone -b feature/open_source $ROOT_PATH:main/pengyun-configuration
 git clone -b feature/open_source $ROOT_PATH:monitor/pengyun-monitor_common
 popd
 
-git clone -b 1.0.x-OS $ROOT_PATH/pengyun-root/pengyun-dbs
+git clone -b 1.0.x-OS $ROOT_PATH:main/pengyun-dbs
 pushd pengyun-dbs
 git clone -b feature/open_source $ROOT_PATH:dbs/dbs-dnmodel
 git clone -b feature/open_source $ROOT_PATH:dbs/dbs-models_related
@@ -70,7 +70,7 @@ unzip protoc-3.5.1-linux-x86_64.zip -d /usr/local
 ### RHEL/CentOS 8
 ```bash
 yum install epel-release
-yum install net-tools maven compat-openssl10 protobuf-compiler
+yum install maven compat-openssl10 protobuf-compiler
 yum install https://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/t/thrift-0.9.1-15.el7.x86_64.rpm
 ```
 
