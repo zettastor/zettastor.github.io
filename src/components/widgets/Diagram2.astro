@@ -139,17 +139,18 @@ const {} = Astro.props;
               <Icon name="ant-design:info-circle-outlined" class="w-5 h-5 mr-2" />
               InfoCenter
             </div>
+            <div class="flex border p-2 text-primary-600 dark:text-primary-300 bg-white dark:bg-black/20 diagram-border cursor-pointer" title={t("diagram.desc-dih")}>
+              <Icon name="simple-icons:flathub" class="w-5 h-5 mr-2" />
+              InstanceHub
+            </div>
             <div class="flex border border-gray-300 p-2 text-gray-600 dark:text-gray-300 bg-white dark:bg-black/20">
               <Icon name="uil:shovel" class="w-5 h-5 mr-2" />
               ZooKeeper
             </div>
           </div>
 
+          <!-- 
           <div class="border border-x-2 border-t-2 border-transparent px-3 pt-3 flex flex-col gap-2">
-            <div id="diag-dih" class="flex border p-2 text-primary-600 dark:text-primary-300 bg-white/20 dark:bg-black/20 diagram-border cursor-pointer" title={t("diagram.desc-dih")}>
-              <Icon name="simple-icons:flathub" class="w-5 h-5 mr-2" />
-              InstanceHub
-            </div>
             <div id="diag-daemon" class="flex border p-2 text-primary-600 dark:text-primary-300 bg-white/20 dark:bg-black/20 diagram-border cursor-pointer" title={t("diagram.desc-sysd")}>
               <Icon name="eos-icons:daemon-outlined" class="w-5 h-5 mr-2" />
               SystemDaemon
@@ -161,6 +162,7 @@ const {} = Astro.props;
               Prometheus
             </div>
           </div>
+          -->
         </div>
     </div>
   </div>
@@ -206,16 +208,16 @@ const {} = Astro.props;
     startPlugSize: 1,
     endPlugSize: 1,
     dash: false,
-    path: "arc",
+    path: "straight",
     color: 'rgba(96, 165, 250, 0.6)',
   };
 
   new LeaderLine(document.getElementById('diag-ctrl'), document.getElementById('diag-data'), opt2);
-  new LeaderLine(document.getElementById('diag-daemon'), document.getElementById('diag-data'), opt2);
-  new LeaderLine(document.getElementById('diag-dih'), document.getElementById('diag-data'), opt2);
+  //new LeaderLine(document.getElementById('diag-daemon'), document.getElementById('diag-data'), opt2);
+  //new LeaderLine(document.getElementById('diag-dih'), document.getElementById('diag-data'), opt2);
 
-  opt2.dash = true;
-  opt2['startSocket'] = "right";
-  opt2['endSocket'] = "right";
-  new LeaderLine(document.getElementById('diag-daemon'), document.getElementById('diag-prometheus'), opt2);
+  //opt2.dash = true;
+  //opt2['startSocket'] = "right";
+  //opt2['endSocket'] = "right";
+  //new LeaderLine(document.getElementById('diag-daemon'), document.getElementById('diag-prometheus'), opt2);
 </script>

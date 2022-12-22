@@ -14,40 +14,39 @@ pushd pengyun-root
 
 git clone -b 1.0.0 $ROOT_PATH/pengyun-root/pengyun-lib
 pushd pengyun-lib
-git clone -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-lib/pengyun-core
-git clone -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-lib/pengyun-database_core
-git clone -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-lib/pengyun-models
-git clone -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-lib/pengyun-dih_model
-git clone -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-lib/pengyun-dih_client
-git clone -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-lib/pengyun-query_log
-git clone -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-lib/pengyun-configuration
-git clone -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-lib/pengyun-monitor_common
+git clone -b feature/open_source $ROOT_PATH:main/pengyun-core
+git clone -b feature/open_source $ROOT_PATH:database/pengyun-database_core
+git clone -b feature/open_source $ROOT_PATH:main/pengyun-models
+git clone -b feature/open_source $ROOT_PATH:main/pengyun-dih_model
+git clone -b feature/open_source $ROOT_PATH:main/pengyun-dih_client
+git clone -b feature/open_source $ROOT_PATH:monitor/pengyun-query_log
+git clone -b feature/open_source $ROOT_PATH:main/pengyun-configuration
+git clone -b feature/open_source $ROOT_PATH:monitor/pengyun-monitor_common
 popd
 
 git clone -b 1.0.x-OS $ROOT_PATH/pengyun-root/pengyun-dbs
 pushd pengyun-dbs
-git clone -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-dbs/dbs-dnmodel
-git clone -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-dbs/dbs-models_related
-git clone -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-driver_core
-git clone -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-coordinator
-git clone -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-infocenter
-git clone -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-drivercontainer
-git clone -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-deployment_daemon
-git clone -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-system_daemon
-git clone -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-datanode_core
-git clone -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-datanode_service
-git clone -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-datanode
-git clone -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-webservice_adapter
-git clone -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-utils
-git clone -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-console
+git clone -b feature/open_source $ROOT_PATH:dbs/dbs-dnmodel
+git clone -b feature/open_source $ROOT_PATH:dbs/dbs-models_related
+git clone -b feature/open_source $ROOT_PATH:main/pengyun-driver_core
+git clone -b feature/open_source $ROOT_PATH:main/pengyun-coordinator
+git clone -b feature/open_source $ROOT_PATH:main/pengyun-infocenter
+git clone -b feature/open_source $ROOT_PATH:main/pengyun-drivercontainer
+git clone -b feature/open_source $ROOT_PATH:main/pengyun-deployment_daemon
+git clone -b feature/open_source $ROOT_PATH:main/pengyun-datanode_core
+git clone -b feature/open_source $ROOT_PATH:datanode/pengyun-datanode_service
+git clone -b feature/open_source $ROOT_PATH:main/pengyun-datanode
+git clone -b feature/open_source $ROOT_PATH:main/pengyun-webservice_adapter
+git clone -b feature/open_source $ROOT_PATH:main/pengyun-utils
+git clone -b feature/open_source $ROOT_PATH:main/pengyun-console
 popd
 
 popd
 ```
 
-在 Linux 系统下，可以通过键入下列命令安装编译所需要的软件包：
-
 ## 二、准备编译环境
+
+在类 Unix 系统下，可以通过键入下列命令安装编译所需要的软件包：
 
 ### RHEL/CentOS 7
 ```bash
