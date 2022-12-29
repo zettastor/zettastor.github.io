@@ -32,7 +32,7 @@ ZettaStor分布式块设备存储系统（简称ZettaStor
 DBS）是一款软件定义的分布式存储。它运用分布式技术把大量标准架构服务器的存储介质进行聚合，将这些存储资源整合成为既具备传统SAN/NAS的企业级功能和特性，又具有高弹性、高扩展性、高可靠性的存储系统，可称做Server
 SAN。ZettaStor分布式块设备存储系统可以与OpenStack、VMware和FusionCompute等云计算平台进行无缝对接。
 
-<img src="https://zdbs.io/manual/media/image2.png" />
+<img src="/manual/media/image2.png" />
 
 ZettaStor DBS直接管理磁盘裸设备，无需由文件层转化，效率更高、性能更好。
 
@@ -55,7 +55,7 @@ DBS包括InfoCenter、DriverContainer、DataNode、DIH、Console、Coordinator�
 
 用户在系统安装部署完成后，遵循以下业务开通流程，使用ZettaStor分布式块设备存储系统，具体如下：
 
-<img src="https://zdbs.io/manual/media/image3.png" />
+<img src="/manual/media/image3.png" />
 
 1. 创建存储域，添加存储节点
 2. 创建存储池，添加存储磁盘
@@ -76,59 +76,59 @@ DBS包括InfoCenter、DriverContainer、DataNode、DIH、Console、Coordinator�
 
 1. 访问ZettaStor DBS Web界面，访问地址为http://*\[Console_IP\]*:8080。
 
-<img src="https://zdbs.io/manual/media/image4.png" />
+<img src="/manual/media/image4.png" />
 
-<img src="https://zdbs.io/manual/media/image5.png" />
+<img src="/manual/media/image5.png" />
 
 *Console_IP*即系统安装时指定的Console.deploy.host.list地址中的任何一个节点IP地址。
 
 2. 登录ZettaStor DBS系统，默认用户名/密码：admin/admin。
 
-<img src="https://zdbs.io/manual/media/image6.png" />
+<img src="/manual/media/image6.png" />
 
-<img src="https://zdbs.io/manual/media/image7.png" />
+<img src="/manual/media/image7.png" />
 
 admin用户具有系统最高权限，请及时在账户管理界面修改密码，并谨慎使用。
 
 ### 系统退出
 
-1. 在页面右上角点击当前登录用户名，选择“用户登出”，也可点击图标<img src="https://zdbs.io/manual/media/image8.png" />安全退出登录账号。
+1. 在页面右上角点击当前登录用户名，选择“用户登出”，也可点击图标<img src="/manual/media/image8.png" />安全退出登录账号。
 
-<img src="https://zdbs.io/manual/media/image9.png" />
+<img src="/manual/media/image9.png" />
 
 ## 五、系统主页
 
 系统主页实时动态展现系统级容量参数和状态参数。系统主页显示包括系统容量、服务、存储池、磁盘、卷、客户机等概览信息。
 
-<img src="https://zdbs.io/manual/media/image6.png" />
+<img src="/manual/media/image6.png" />
 
 1. 通过下图直观展现系统容量的总容量与使用情况，红色为已使用容量，黄色为已分配但未使用容量，蓝色为未分配未使用容量。
 
-<img src="https://zdbs.io/manual/media/image10.png" />
+<img src="/manual/media/image10.png" />
 
-2. 当前系统的服务数量，<img src="https://zdbs.io/manual/media/image11.png" />为健康状态的服务数量，<img src="https://zdbs.io/manual/media/image12.png" />为错误状态的服务数量。
+2. 当前系统的服务数量，<img src="/manual/media/image11.png" />为健康状态的服务数量，<img src="/manual/media/image12.png" />为错误状态的服务数量。
 
-<img src="https://zdbs.io/manual/media/image13.png" />
+<img src="/manual/media/image13.png" />
 
-3. 当前系统中存储池数量，<img src="https://zdbs.io/manual/media/image11.png" />为健康状态的存储池数量，<img src="https://zdbs.io/manual/media/image12.png" />为亚健康状态的存储池数量。
+3. 当前系统中存储池数量，<img src="/manual/media/image11.png" />为健康状态的存储池数量，<img src="/manual/media/image12.png" />为亚健康状态的存储池数量。
 
-<img src="https://zdbs.io/manual/media/image14.png" />
+<img src="/manual/media/image14.png" />
 
-4. 当前系统中磁盘数量，<img src="https://zdbs.io/manual/media/image11.png" />为健康状态的磁盘数量，<img src="https://zdbs.io/manual/media/image12.png" />为错误状态的磁盘数量。
+4. 当前系统中磁盘数量，<img src="/manual/media/image11.png" />为健康状态的磁盘数量，<img src="/manual/media/image12.png" />为错误状态的磁盘数量。
 
-<img src="https://zdbs.io/manual/media/image15.png" />
+<img src="/manual/media/image15.png" />
 
-5. 当前系统中卷数量，<img src="https://zdbs.io/manual/media/image11.png" />为健康状态的卷数量，<img src="https://zdbs.io/manual/media/image12.png" />为错误状态的卷数量。
+5. 当前系统中卷数量，<img src="/manual/media/image11.png" />为健康状态的卷数量，<img src="/manual/media/image12.png" />为错误状态的卷数量。
 
-<img src="https://zdbs.io/manual/media/image16.png" />
+<img src="/manual/media/image16.png" />
 
-6. 当前系统中驱动的客户机的总数量，<img src="https://zdbs.io/manual/media/image17.png" />为客户机的连接数。
+6. 当前系统中驱动的客户机的总数量，<img src="/manual/media/image17.png" />为客户机的连接数。
 
-<img src="https://zdbs.io/manual/media/image18.png" />
+<img src="/manual/media/image18.png" />
 
 7. 当前登陆的用户：admin，此处可以修改当前用户密码，也可以登出系统。
 
-<img src="https://zdbs.io/manual/media/image19.png" /><img src="https://zdbs.io/manual/media/image9.png" />
+<img src="/manual/media/image19.png" /><img src="/manual/media/image9.png" />
 
 ## 六、存储管理
 
@@ -149,11 +149,11 @@ Unit将均衡地分配到每个域包含的DataNode节点之中，不会扩散�
 
 1. 在左侧导航栏选择“存储”--\>“域&存储池”。
 
-<img src="https://zdbs.io/manual/media/image20.png" />
+<img src="/manual/media/image20.png" />
 
 2. 选择“创建”，输入“域名称”和“描述”，选择“创建”，选择“完成”。
 
-<img src="https://zdbs.io/manual/media/image21.png" /><img src="https://zdbs.io/manual/media/image22.png" />
+<img src="/manual/media/image21.png" /><img src="/manual/media/image22.png" />
 
 1. “域名称”只能输入中英文、数字、“\_”，长度2-64，“域名称”不能重复。
 
@@ -163,15 +163,15 @@ Unit将均衡地分配到每个域包含的DataNode节点之中，不会扩散�
 
 3. 选择域名称，选择“操作”--\>“存储节点”，开始添加节点操作，也可以根据上一步提示页直接选择“添加节点”。
 
-<img src="https://zdbs.io/manual/media/image23.png" />
+<img src="/manual/media/image23.png" />
 
 4. 勾选相应DataNode节点，选择“添加节点”，选择“完成”。
 
-<img src="https://zdbs.io/manual/media/image24.png" />
+<img src="/manual/media/image24.png" />
 
 5. 查看域信息。
 
-<img src="https://zdbs.io/manual/media/image25.png" />
+<img src="/manual/media/image25.png" />
 
 域信息包含：
 
@@ -187,9 +187,9 @@ Unit将均衡地分配到每个域包含的DataNode节点之中，不会扩散�
 
 1. 在“域&存储池”导航栏下，选择域名称，选择“操作”，选择“修改”，开始修改域操作。
 
-<img src="https://zdbs.io/manual/media/image26.png" />
+<img src="/manual/media/image26.png" />
 
-<img src="https://zdbs.io/manual/media/image27.png" />
+<img src="/manual/media/image27.png" />
 
 >**说明**  
 域ID无法修改。
@@ -198,19 +198,19 @@ Unit将均衡地分配到每个域包含的DataNode节点之中，不会扩散�
 
 1. 在“域&存储池”导航栏下，选择域名称，选择“操作”，选择“存储节点”，开始添加和移除存储节点操作。
 
-<img src="https://zdbs.io/manual/media/image26.png" />
+<img src="/manual/media/image26.png" />
 
 - **添加存储节点**
 
 1. 选择相应DataNode节点，选择“添加节点”，选择“完成”。
 
-<img src="https://zdbs.io/manual/media/image28.png" />
+<img src="/manual/media/image28.png" />
 
 - **移除存储节点**
 
 1. 选择相应DataNode节点，选择“移除存储节点”，选择“确认”。
 
-<img src="https://zdbs.io/manual/media/image29.png" />
+<img src="/manual/media/image29.png" />
 
 >**说明**  
 添加存储节点：此节点纳入存储系统，为存储节点提供存储服务，往域中添加节点后，域的容量发生相应改变。  
@@ -220,9 +220,9 @@ Unit将均衡地分配到每个域包含的DataNode节点之中，不会扩散�
 
 1. 在“域&存储池”导航栏下，选择域名称。
 
-<img src="https://zdbs.io/manual/media/image30.png" />
+<img src="/manual/media/image30.png" />
 
-<img src="https://zdbs.io/manual/media/image31.png" />
+<img src="/manual/media/image31.png" />
 
 域详情包括已使用节点信息和基本信息，基本信息包含域名称、描述、状态、总容量、剩余容量、已分配容量。
 
@@ -230,7 +230,7 @@ Unit将均衡地分配到每个域包含的DataNode节点之中，不会扩散�
 
 1. 在“域&存储池”导航栏下，在搜索栏输入关键字查询。
 
-<img src="https://zdbs.io/manual/media/image32.png" />
+<img src="/manual/media/image32.png" />
 
 >**说明**  
 查询域支持模糊查询。
@@ -239,11 +239,11 @@ Unit将均衡地分配到每个域包含的DataNode节点之中，不会扩散�
 
 1. 在“域&存储池”导航栏下，勾选域名称。
 
-<img src="https://zdbs.io/manual/media/image33.png" />
+<img src="/manual/media/image33.png" />
 
 2. 选择“删除”，进行删除操作。
 
-<img src="https://zdbs.io/manual/media/image34.png" />
+<img src="/manual/media/image34.png" />
 
 >**注意**  
 域中存在存储池时，必须先删除存储池才能删除域，数据无价，请谨慎使用。
@@ -258,15 +258,15 @@ ZettaStor分布式块设备存储系统通过在存储节点上部署DataNode模
 
 1. 在“域&存储池”导航栏下，选择域名称，选择“存储池”，开始创建存储池。
 
-<img src="https://zdbs.io/manual/media/image35.png" />
+<img src="/manual/media/image35.png" />
 
 2. 选择“创建”，输入“存储池名称”和“描述”，选择“创建”，选择“完成”。
 
-<img src="https://zdbs.io/manual/media/image36.png" />
+<img src="/manual/media/image36.png" />
 
-<img src="https://zdbs.io/manual/media/image37.png" /><img src="https://zdbs.io/manual/media/image38.png" />
+<img src="/manual/media/image37.png" /><img src="/manual/media/image38.png" />
 
-<img src="https://zdbs.io/manual/media/image5.png" />
+<img src="/manual/media/image5.png" />
 
 1. “存储池名称”只能输入中英文、数字、“\_”，长度2-64，“存储池名称”不能重复。
 
@@ -276,15 +276,15 @@ ZettaStor分布式块设备存储系统通过在存储节点上部署DataNode模
 
 3. 选择存储池名称，选择“操作”--\>“磁盘”，进行添加磁盘操作，也可以根据上一步提示页直接选择“添加”。
 
-<img src="https://zdbs.io/manual/media/image39.png" />
+<img src="/manual/media/image39.png" />
 
 4. 选择相应节点磁盘，选择“扩容”--\>“完成”。
 
-<img src="https://zdbs.io/manual/media/image40.png" />
+<img src="/manual/media/image40.png" />
 
 5. 查看存储池信息。
 
-<img src="https://zdbs.io/manual/media/image41.png" />
+<img src="/manual/media/image41.png" />
 
 存储池信息包含存储池名称、描述、状态、存储池等级、QoS策略、重构进度等内容。
 
@@ -292,9 +292,9 @@ ZettaStor分布式块设备存储系统通过在存储节点上部署DataNode模
 
 1. 在“域&存储池”导航栏下，选择域名称，选择“操作”，选择“存储池”，选择存储池，选择“操作”，选择“修改”。
 
-<img src="https://zdbs.io/manual/media/image42.png" />
+<img src="/manual/media/image42.png" />
 
-<img src="https://zdbs.io/manual/media/image43.png" />
+<img src="/manual/media/image43.png" />
 
 >**说明**  
 存储池ID无法修改。
@@ -303,21 +303,21 @@ ZettaStor分布式块设备存储系统通过在存储节点上部署DataNode模
 
 1. 在“域&存储池”导航栏下，选择域名称，选择“操作”，选择“存储池”，选择存储池，选择“操作”，选择“磁盘”。
 
-<img src="https://zdbs.io/manual/media/image42.png" />
+<img src="/manual/media/image42.png" />
 
 - **存储池磁盘扩容**
 
 1. 选择相应节点磁盘，选择“扩容”--\>“完成”。
 
-<img src="https://zdbs.io/manual/media/image40.png" />
+<img src="/manual/media/image40.png" />
 
 - **存储池磁盘减容**
 
 1. 选择相应节点磁盘，选择“减容”，选择“确认”。
 
-<img src="https://zdbs.io/manual/media/image44.png" />
+<img src="/manual/media/image44.png" />
 
-<img src="https://zdbs.io/manual/media/image5.png" />
+<img src="/manual/media/image5.png" />
 
 1. 存储池磁盘扩容：将磁盘添加至存储池，为存储池提供存储服务，往存储池中添加磁盘后，存储池的容量发生相应改变。
 
@@ -327,27 +327,27 @@ ZettaStor分布式块设备存储系统通过在存储节点上部署DataNode模
 
 1. 在“域&存储池”导航栏下，选择域名称，选择“操作”，选择“存储池”，选择存储池名称。
 
-<img src="https://zdbs.io/manual/media/image42.png" />
+<img src="/manual/media/image42.png" />
 
 2. 基本信息包含存储池名称、描述、总容量、类型、状态、QoS策略、存储池等级、重构进度。
 
-<img src="https://zdbs.io/manual/media/image45.png" />
+<img src="/manual/media/image45.png" />
 
 3. 性能数据页面包含存储池使用状况、两副本与三副本剩余有效容量。
 
-<img src="https://zdbs.io/manual/media/image46.png" />
+<img src="/manual/media/image46.png" />
 
 4. 磁盘信息页面包含各个磁盘的实例ID、主机IP地址、所在组编号、磁盘名、存储类型等。
 
-<img src="https://zdbs.io/manual/media/image47.png" />
+<img src="/manual/media/image47.png" />
 
 #### 查询储存池
 
 1. 在“域&存储池”导航栏下，选择域名称，选择“操作”，选择“存储池”，在搜索栏输入关键字查询。
 
-<img src="https://zdbs.io/manual/media/image48.png" />
+<img src="/manual/media/image48.png" />
 
-<img src="https://zdbs.io/manual/media/image5.png" />
+<img src="/manual/media/image5.png" />
 
 查询存储池支持模糊查询。
 
@@ -355,11 +355,11 @@ ZettaStor分布式块设备存储系统通过在存储节点上部署DataNode模
 
 1. 在“域&存储池”导航栏下，选择域名称，选择“操作”--\>“存储池”，勾选存储池名称。
 
-<img src="https://zdbs.io/manual/media/image48.png" />
+<img src="/manual/media/image48.png" />
 
 2. 选择“删除”，选择“删除”。
 
-<img src="https://zdbs.io/manual/media/image49.png" />
+<img src="/manual/media/image49.png" />
 
 >**注意**  
 存储池中存在卷时，必须先删除卷才能删除存储池，数据无价，请谨慎使用。
@@ -372,17 +372,17 @@ ZettaStor分布式块设备存储系统通过在存储节点上部署DataNode模
 
 1. 在左侧导航栏选择“存储”--\>“卷”，包含“卷列表”和“卷回收站”子页面。
 
-<img src="https://zdbs.io/manual/media/image50.png" />
+<img src="/manual/media/image50.png" />
 
 2. 卷列表包含卷名称、描述、状态、所属域、所属存储池、创建时间、重构、Rebalance进度、创建类型、操作等。
 
-<img src="https://zdbs.io/manual/media/image51.png" />
+<img src="/manual/media/image51.png" />
 
 3. 卷回收站包含卷名称、描述、状态、所属域、所属存储池、放入时长、重构、Rebalance进度、创建类型、操作等。
 
-<img src="https://zdbs.io/manual/media/image52.png" />
+<img src="/manual/media/image52.png" />
 
-<img src="https://zdbs.io/manual/media/image5.png" />
+<img src="/manual/media/image5.png" />
 
 1. “状态”分为创建中、可用、稳定、不可用、删除中、已删除、克隆中、迁移中等。
 
@@ -396,15 +396,15 @@ ZettaStor分布式块设备存储系统通过在存储节点上部署DataNode模
 
 1. 在左侧导航栏选择“存储”--\>“卷”。
 
-<img src="https://zdbs.io/manual/media/image53.png" />
+<img src="/manual/media/image53.png" />
 
 2. 选择“创建”，输入“卷名”、“描述”、“卷容量”、“副本数量”、“所在域”、“存储池”，选择“创建”，选择“完成”。正常情况下卷的最终状态为稳定。
 
-<img src="https://zdbs.io/manual/media/image54.png" /><img src="https://zdbs.io/manual/media/image55.png" />
+<img src="/manual/media/image54.png" /><img src="/manual/media/image55.png" />
 
-<img src="https://zdbs.io/manual/media/image56.png" />
+<img src="/manual/media/image56.png" />
 
-<img src="https://zdbs.io/manual/media/image5.png" />
+<img src="/manual/media/image5.png" />
 
 1. “卷名”只能输入中英文、数字、“\_”，长度2-64，“卷名”不能重复。
 
@@ -421,9 +421,9 @@ ZettaStor分布式块设备存储系统通过在存储节点上部署DataNode模
 
 1. 在左侧导航栏选择“存储”--\>“卷”，在搜索栏输入关键字查询。
 
-<img src="https://zdbs.io/manual/media/image57.png" />
+<img src="/manual/media/image57.png" />
 
-<img src="https://zdbs.io/manual/media/image5.png" />
+<img src="/manual/media/image5.png" />
 
 查询卷支持模糊查询。
 
@@ -431,27 +431,27 @@ ZettaStor分布式块设备存储系统通过在存储节点上部署DataNode模
 
 1. 在左侧导航栏选择“存储”--\>“卷”，选择卷名称。
 
-<img src="https://zdbs.io/manual/media/image57.png" />
+<img src="/manual/media/image57.png" />
 
 2. 基本信息包含卷名称、描述、占用物理空间、总容量、剩余容量、已用容量、卷状态、所属域、所属存储池、副本数量、创建时间、重构进度、Rebalance进度、创建类型。
 
-<img src="https://zdbs.io/manual/media/image58.png" />
+<img src="/manual/media/image58.png" />
 
 3. 映射关系页面包含映射驱动列表，驱动名称、快照ID、驱动状态、驱动容器IP、驱动地址、驱动端口、驱动用户数量、chap认证、驱动用户信息。
 
-<img src="https://zdbs.io/manual/media/image59.png" />
+<img src="/manual/media/image59.png" />
 
 #### 删除卷
 
 1. 在左侧导航栏选择“存储”--\>“卷”，勾选卷名称。
 
-<img src="https://zdbs.io/manual/media/image60.png" />
+<img src="/manual/media/image60.png" />
 
 2. 选择“删除”，选择“删除”。
 
-<img src="https://zdbs.io/manual/media/image61.png" />
+<img src="/manual/media/image61.png" />
 
-<img src="https://zdbs.io/manual/media/image7.png" />
+<img src="/manual/media/image7.png" />
 
 卷挂载驱动时，必须先删除驱动才能删除卷，数据无价，请谨慎使用。
 
@@ -461,13 +461,13 @@ ZettaStor分布式块设备存储系统通过在存储节点上部署DataNode模
 
 1. 在左侧导航栏选择“存储”--\>“卷”，勾选卷名称。
 
-<img src="https://zdbs.io/manual/media/image62.png" />
+<img src="/manual/media/image62.png" />
 
 2. 选择“扩展”，输入“扩展大小”，选择“扩展”。
 
-<img src="https://zdbs.io/manual/media/image63.png" />
+<img src="/manual/media/image63.png" />
 
-<img src="https://zdbs.io/manual/media/image5.png" />
+<img src="/manual/media/image5.png" />
 
 扩展大小表示源卷增加的空间，即扩展后卷大小 = 扩展前卷大小 + 扩展大小。
 
@@ -485,13 +485,13 @@ PYD：将远程主机的磁盘空间，当作一个块设备来使用，就像�
 
 1. 在左侧导航栏选择“存储”--\>“驱动”。
 
-<img src="https://zdbs.io/manual/media/image64.png" />
+<img src="/manual/media/image64.png" />
 
 2. 选择“挂载”，输入“驱动名称”、“目标卷”、“驱动类型”、“驱动数量”，选择“高级筛选”，需要选择“所在域”、“存储池”来筛选“目标卷”，选择“挂载”。
 
-<img src="https://zdbs.io/manual/media/image65.png" /><img src="https://zdbs.io/manual/media/image66.png" />
+<img src="/manual/media/image65.png" /><img src="/manual/media/image66.png" />
 
-<img src="https://zdbs.io/manual/media/image5.png" />
+<img src="/manual/media/image5.png" />
 
 1. “驱动名称”只能输入中英文、数字、“\_”，长度2-64。
 
@@ -503,13 +503,13 @@ PYD：将远程主机的磁盘空间，当作一个块设备来使用，就像�
 
 1. 挂载PYD单链路驱动。
 
-<img src="https://zdbs.io/manual/media/image67.png" />
+<img src="/manual/media/image67.png" />
 
-<img src="https://zdbs.io/manual/media/image68.png" />
+<img src="/manual/media/image68.png" />
 
 2. 客户机创建目录/opt/pyd/（默认位置），将pyd-client和pyd.ko文件复制此目录下，pyd.ko文件与操作系统内核版本相关，使用前需要确认。
 
-<img src="https://zdbs.io/manual/media/image69.png" />
+<img src="/manual/media/image69.png" />
 
 3. 加载并检查内核。
 
@@ -519,7 +519,7 @@ lsmod \| grep pyd
 
 ll /dev/pyd\*
 
-<img src="https://zdbs.io/manual/media/image70.png" />
+<img src="/manual/media/image70.png" />
 
 4. 将PYD设备与驱动地址连接。
 
@@ -527,11 +527,11 @@ ll /dev/pyd\*
 
 /opt/pyd/pyd-client 3223620355005862222 0 10.0.3.174 /dev/pyd0
 
-<img src="https://zdbs.io/manual/media/image71.png" />
+<img src="/manual/media/image71.png" />
 
-<img src="https://zdbs.io/manual/media/image72.png" />
+<img src="/manual/media/image72.png" />
 
-<img src="https://zdbs.io/manual/media/image5.png" />
+<img src="/manual/media/image5.png" />
 
 1. “卷ID”、“驱动地址”可在“存储”--\>“驱动”界面查看。“快照ID”默认为0
 
@@ -547,11 +547,11 @@ ll /dev/pyd\*
 
 /opt/pyd/pyd-client -f /dev/pyd0
 
-<img src="https://zdbs.io/manual/media/image73.png" />
+<img src="/manual/media/image73.png" />
 
-<img src="https://zdbs.io/manual/media/image74.png" />
+<img src="/manual/media/image74.png" />
 
-<img src="https://zdbs.io/manual/media/image5.png" />
+<img src="/manual/media/image5.png" />
 
 断开PYD设备与驱动地址连接前，需要卸载文件系统。
 
@@ -559,13 +559,13 @@ ll /dev/pyd\*
 
 1. 挂载PYD多链路驱动。
 
-<img src="https://zdbs.io/manual/media/image75.png" />
+<img src="/manual/media/image75.png" />
 
-<img src="https://zdbs.io/manual/media/image76.png" />
+<img src="/manual/media/image76.png" />
 
 2. 客户机创建目录/opt/pyd/，将pyd-client和pyd.ko文件放入此目录下。
 
-<img src="https://zdbs.io/manual/media/image69.png" />
+<img src="/manual/media/image69.png" />
 
 3. 加载并检查内核。
 
@@ -575,7 +575,7 @@ lsmod \| grep pyd
 
 ll /dev/pyd\*
 
-<img src="https://zdbs.io/manual/media/image70.png" />
+<img src="/manual/media/image70.png" />
 
 4. 客户机创建目录/opt/pyd/config/，新增配置文件multipaths，内容如下：
 
@@ -585,7 +585,7 @@ ll /dev/pyd\*
 
 10.0.3.176
 
-<img src="https://zdbs.io/manual/media/image5.png" />
+<img src="/manual/media/image5.png" />
 
 multipaths文件内的地址与“存储”--\>“驱动”界面“驱动地址”一致。
 
@@ -595,11 +595,11 @@ multipaths文件内的地址与“存储”--\>“驱动”界面“驱动地址
 
 /opt/pyd/pyd-client 3223620355005862222 0 /dev/pyd0 -M
 
-<img src="https://zdbs.io/manual/media/image77.png" />
+<img src="/manual/media/image77.png" />
 
-<img src="https://zdbs.io/manual/media/image78.png" />
+<img src="/manual/media/image78.png" />
 
-<img src="https://zdbs.io/manual/media/image5.png" />
+<img src="/manual/media/image5.png" />
 
 1. “卷ID”可在“存储”--\>“驱动”界面查看，“快照ID”默认为0。
 
@@ -615,11 +615,11 @@ multipaths文件内的地址与“存储”--\>“驱动”界面“驱动地址
 
 /opt/pyd/pyd-client -f /dev/pyd0
 
-<img src="https://zdbs.io/manual/media/image79.png" />
+<img src="/manual/media/image79.png" />
 
-<img src="https://zdbs.io/manual/media/image80.png" />
+<img src="/manual/media/image80.png" />
 
-<img src="https://zdbs.io/manual/media/image5.png" />
+<img src="/manual/media/image5.png" />
 
 断开PYD设备与驱动地址连接前，需要卸载文件系统。
 
@@ -627,11 +627,11 @@ multipaths文件内的地址与“存储”--\>“驱动”界面“驱动地址
 
 1. 挂载ISCSI单链路驱动。
 
-<img src="https://zdbs.io/manual/media/image81.png" />
+<img src="/manual/media/image81.png" />
 
-<img src="https://zdbs.io/manual/media/image82.png" />
+<img src="/manual/media/image82.png" />
 
-<img src="https://zdbs.io/manual/media/image5.png" />
+<img src="/manual/media/image5.png" />
 
 “chap认证”为可选配置，客户机相关配置需与之同步。
 
@@ -643,7 +643,7 @@ yum -y install iscsi-initiator-utils
 
 cat /etc/iscsi/initiatorname.iscsi
 
-<img src="https://zdbs.io/manual/media/image83.png" />
+<img src="/manual/media/image83.png" />
 
 4. 客户机配置chap认证，可选，以CentOS为例，配置如下：
 
@@ -659,7 +659,7 @@ node.session.auth.username_in = outadmin \#outgoing用户
 
 node.session.auth.password_in = outadmin \#outgoing密码
 
-<img src="https://zdbs.io/manual/media/image5.png" />
+<img src="/manual/media/image5.png" />
 
 chap认证为可选配置，驱动相关配置需与之同步。
 
@@ -675,9 +675,9 @@ systemctl enable iscsid
 
 iscsiadm -m discovery -t st -p 10.0.3.176
 
-<img src="https://zdbs.io/manual/media/image84.png" />
+<img src="/manual/media/image84.png" />
 
-<img src="https://zdbs.io/manual/media/image5.png" />
+<img src="/manual/media/image5.png" />
 
 1. *IP:PORT*可在“存储”--\>“驱动”界面查看，PORT默认为3260。
 
@@ -689,15 +689,15 @@ iscsiadm -m discovery -t st -p 10.0.3.176
 
 iscsiadm -m node --login
 
-<img src="https://zdbs.io/manual/media/image85.png" />
+<img src="/manual/media/image85.png" />
 
-<img src="https://zdbs.io/manual/media/image86.png" />
+<img src="/manual/media/image86.png" />
 
 8. 客户机查看挂载设备，以CentOS为例，命令如下：
 
 ls -l /dev/disk/by-path/ip-\*
 
-<img src="https://zdbs.io/manual/media/image87.png" />
+<img src="/manual/media/image87.png" />
 
 9. 将本地挂载设备进行分区、格式化、创建文件系统和读写等操作，略。
 
@@ -708,11 +708,11 @@ ls -l /dev/disk/by-path/ip-\*
 
 iscsiadm -m node --logout
 
-<img src="https://zdbs.io/manual/media/image88.png" />
+<img src="/manual/media/image88.png" />
 
-<img src="https://zdbs.io/manual/media/image89.png" />
+<img src="/manual/media/image89.png" />
 
-<img src="https://zdbs.io/manual/media/image5.png" />
+<img src="/manual/media/image5.png" />
 
 1. 断开ISCSI设备与驱动地址连接前，需要卸载文件系统。
 
@@ -722,11 +722,11 @@ iscsiadm -m node --logout
 
 1. 挂载ISCSI多链路驱动，即驱动数量设置为大于1的值，通常为2或者3。
 
-<img src="https://zdbs.io/manual/media/image90.png" />
+<img src="/manual/media/image90.png" />
 
-<img src="https://zdbs.io/manual/media/image91.png" />
+<img src="/manual/media/image91.png" />
 
-<img src="https://zdbs.io/manual/media/image5.png" />
+<img src="/manual/media/image5.png" />
 
 “chap认证”为可选配置，客户机相关配置需与之同步。
 
@@ -738,7 +738,7 @@ yum -y install iscsi-initiator-utils
 
 cat /etc/iscsi/initiatorname.iscsi
 
-<img src="https://zdbs.io/manual/media/image92.png" />
+<img src="/manual/media/image92.png" />
 
 4. 客户机配置chap认证，可选，以CentOS为例，配置如下：
 
@@ -754,7 +754,7 @@ node.session.auth.username_in = outadmin \#outgoing用户
 
 node.session.auth.password_in = outadmin \#outgoing密码
 
-<img src="https://zdbs.io/manual/media/image5.png" />
+<img src="/manual/media/image5.png" />
 
 chap认证为可选配置，驱动相关配置需与之同步。
 
@@ -772,9 +772,9 @@ iscsiadm -m discovery -t st -p 10.0.3.174
 
 iscsiadm -m discovery -t st -p 10.0.3.176
 
-<img src="https://zdbs.io/manual/media/image93.png" />
+<img src="/manual/media/image93.png" />
 
-<img src="https://zdbs.io/manual/media/image5.png" />
+<img src="/manual/media/image5.png" />
 
 1. *IP:PORT*可在“存储”--\>“驱动”界面查看，PORT默认为3260。
 
@@ -786,15 +786,15 @@ iscsiadm -m discovery -t st -p 10.0.3.176
 
 iscsiadm -m node --login
 
-<img src="https://zdbs.io/manual/media/image94.png" />
+<img src="/manual/media/image94.png" />
 
-<img src="https://zdbs.io/manual/media/image95.png" />
+<img src="/manual/media/image95.png" />
 
 8. 客户机查看挂载设备，以CentOS为例，命令如下：
 
 ls -l /dev/disk/by-path/ip-\*
 
-<img src="https://zdbs.io/manual/media/image96.png" />
+<img src="/manual/media/image96.png" />
 
 9. 客户机安装多路径软件device-mapper-multipath，以CentOS为例，命令如下：
 
@@ -865,7 +865,7 @@ product ".\*"
 
 }
 
-<img src="https://zdbs.io/manual/media/image5.png" />
+<img src="/manual/media/image5.png" />
 
 1. failback设置为immediate，表示当前链路出现问题立刻切换到下一条链路，此项配置同时还需调整open-iscsi配置文件中的相关参数才能生效，具体设置/etc/iscsi/iscsid.conf中参数node.session.timeo.replacement_timeout
     = 0。
@@ -884,7 +884,7 @@ systemctl enable multipathd
 
 multipath -ll
 
-<img src="https://zdbs.io/manual/media/image97.png" />
+<img src="/manual/media/image97.png" />
 
 13. 将本地挂载设备（/dev/mapper/mpatha或者/dev/dm-0）进行分区、格式化、创建文件系统和读写等操作，略。
 
@@ -895,11 +895,11 @@ multipath -ll
 
 iscsiadm -m node --logout
 
-<img src="https://zdbs.io/manual/media/image98.png" />
+<img src="/manual/media/image98.png" />
 
-<img src="https://zdbs.io/manual/media/image99.png" />
+<img src="/manual/media/image99.png" />
 
-<img src="https://zdbs.io/manual/media/image5.png" />
+<img src="/manual/media/image5.png" />
 
 1. 断开ISCSI设备与驱动地址连接前，需要在客户机上卸载文件系统。
 
@@ -909,13 +909,13 @@ iscsiadm -m node --logout
 
 1. 在左侧导航栏选择“存储”--\>“驱动”。
 
-<img src="https://zdbs.io/manual/media/image100.png" />
+<img src="/manual/media/image100.png" />
 
 2. 选择驱动名称，选择“操作”，选择“卸载”。
 
-<img src="https://zdbs.io/manual/media/image101.png" />
+<img src="/manual/media/image101.png" />
 
-<img src="https://zdbs.io/manual/media/image5.png" />
+<img src="/manual/media/image5.png" />
 
 卸载驱动前，“驱动用户数量”需为0。
 
@@ -929,13 +929,13 @@ ZettaStor系统支持ISCSI和PYD两种类型驱动，对应需要创建ISCSI和P
 
 1. 在左侧导航栏选择“存储”--\>“访问控制”。
 
-<img src="https://zdbs.io/manual/media/image102.png" />
+<img src="/manual/media/image102.png" />
 
 2. 选择“ISCSI驱动”，选择“创建”，输入“规则名称”、“Initiator名称”、“incoming用户”、“incoming密码”、“outcoming用户”、“outcoming密码”，选择“创建”。
 
-<img src="https://zdbs.io/manual/media/image103.png" /><img src="https://zdbs.io/manual/media/image104.png" />
+<img src="/manual/media/image103.png" /><img src="/manual/media/image104.png" />
 
-<img src="https://zdbs.io/manual/media/image5.png" />
+<img src="/manual/media/image5.png" />
 
 1. “规则名称”只能输入中英文、数字、“\_”，长度2-64。
 
@@ -949,7 +949,7 @@ ZettaStor系统支持ISCSI和PYD两种类型驱动，对应需要创建ISCSI和P
 
 cat /etc/iscsi/initiatorname.iscsi
 
-<img src="https://zdbs.io/manual/media/image105.png" />
+<img src="/manual/media/image105.png" />
 
 4. 客户机配置chap认证，可选。以CentOS为例，如果不需要CHAP认证的话，将下列内容注释或者删除；如果需要CHAP认证的话，配置如下：
 
@@ -969,23 +969,23 @@ node.session.auth.password_in = outadmin \#outgoing密码
 
 1. 在左侧导航栏选择“存储”--\>“访问控制”，选择“ISCSI驱动”。
 
-<img src="https://zdbs.io/manual/media/image106.png" />
+<img src="/manual/media/image106.png" />
 
 2. 选择规则名称，选择“操作”，选择“授权”，选择驱动名称，选择“应用”或“撤销”，授权驱动或撤销授权，选择“完成”。
 
-<img src="https://zdbs.io/manual/media/image107.png" />
+<img src="/manual/media/image107.png" />
 
-<img src="https://zdbs.io/manual/media/image108.png" />
+<img src="/manual/media/image108.png" />
 
 - **删除客户机**
 
 1. 在左侧导航栏选择“存储”--\>“访问控制”，选择“ISCSI驱动”，勾选规则名称。
 
-<img src="https://zdbs.io/manual/media/image109.png" />
+<img src="/manual/media/image109.png" />
 
 2. 选择“删除”，选择“删除”，删除客户机。
 
-<img src="https://zdbs.io/manual/media/image110.png" />
+<img src="/manual/media/image110.png" />
 
 #### PYD客户机
 
@@ -993,33 +993,33 @@ node.session.auth.password_in = outadmin \#outgoing密码
 
 1. 在左侧导航栏选择“存储”--\>“访问控制”。
 
-<img src="https://zdbs.io/manual/media/image111.png" />
+<img src="/manual/media/image111.png" />
 
 2. 选择“PYD驱动”，选择“创建”,输入“客户机IP地址”。
 
-<img src="https://zdbs.io/manual/media/image112.png" />
+<img src="/manual/media/image112.png" />
 
 - **授权客户机**
 
 1. 在左侧导航栏选择“存储”--\>“访问控制”，选择“PYD驱动”。
 
-<img src="https://zdbs.io/manual/media/image113.png" />
+<img src="/manual/media/image113.png" />
 
 2. 选择客户机IP，选择“操作”，选择“授权”，选择“卷名称”，选择“应用”或“撤销”，授权卷或撤销授权，选择“完成”。
 
-<img src="https://zdbs.io/manual/media/image114.png" />
+<img src="/manual/media/image114.png" />
 
-<img src="https://zdbs.io/manual/media/image115.png" />
+<img src="/manual/media/image115.png" />
 
 - **删除客户机**
 
 1. 在左侧导航栏选择“存储”--\>“访问控制”，选择“PYD驱动”，勾选客户机IP。
 
-<img src="https://zdbs.io/manual/media/image116.png" />
+<img src="/manual/media/image116.png" />
 
 2. 选择“删除”，选择“删除”，删除客户机。
 
-<img src="https://zdbs.io/manual/media/image117.png" />
+<img src="/manual/media/image117.png" />
 
 ### QoS策略管理
 
@@ -1031,13 +1031,13 @@ node.session.auth.password_in = outadmin \#outgoing密码
 
 1. 在左侧导航栏选择“存储”--\>“QoS策略”，选择“数据访问”。
 
-<img src="https://zdbs.io/manual/media/image118.png" />
+<img src="/manual/media/image118.png" />
 
 2. 选择“创建”，输入“策略名称”、“类型”、“IOPS限制”、“吞吐量”，“类型”为“动态”时，需添加规则，输入“时间跨度”，选择“添加”。
 
-<img src="https://zdbs.io/manual/media/image119.png" /><img src="https://zdbs.io/manual/media/image120.png" />
+<img src="/manual/media/image119.png" /><img src="/manual/media/image120.png" />
 
-<img src="https://zdbs.io/manual/media/image5.png" />
+<img src="/manual/media/image5.png" />
 
 1. “策略名称”只能输入中英文、数字、“\_”，长度2-64，“策略名称”不能重复。
 
@@ -1051,17 +1051,17 @@ node.session.auth.password_in = outadmin \#outgoing密码
 
 1. 在左侧导航栏选择“存储”--\>“QoS策略”，选择“数据访问”，点击策略名称左侧“+”，查看QoS策略详细信息。
 
-<img src="https://zdbs.io/manual/media/image121.png" />
+<img src="/manual/media/image121.png" />
 
 - **修改数据访问QoS策略**
 
 1. 在左侧导航栏选择“存储”--\>“QoS策略”，选择“数据访问”，选择策略名称，选择“操作”，选择“修改”，修改相关参数，选择“修改”。
 
-<img src="https://zdbs.io/manual/media/image122.png" />
+<img src="/manual/media/image122.png" />
 
-<img src="https://zdbs.io/manual/media/image123.png" /><img src="https://zdbs.io/manual/media/image124.png" />
+<img src="/manual/media/image123.png" /><img src="/manual/media/image124.png" />
 
-<img src="https://zdbs.io/manual/media/image5.png" />
+<img src="/manual/media/image5.png" />
 
 1. 静态策略支持修改“IOPS限制”和“吞吐量”。
 
@@ -1073,19 +1073,19 @@ node.session.auth.password_in = outadmin \#outgoing密码
 
 1. 在左侧导航栏选择“存储”--\>“QoS策略”，选择“数据访问”，选择策略名称“操作”，选择“关联设置”。
 
-<img src="https://zdbs.io/manual/media/image125.png" />
+<img src="/manual/media/image125.png" />
 
 2. 选择“驱动名称”，选择“应用”或“撤销”，关联驱动或撤销关联，选择“完成”。
 
-<img src="https://zdbs.io/manual/media/image126.png" />
+<img src="/manual/media/image126.png" />
 
 - **删除数据访问QoS策略**
 
 1. 在左侧导航栏选择“存储”--\>“QoS策略”，选择“数据访问”，勾选策略名称，选择“删除”，选择“删除”，删除QoS策略。
 
-<img src="https://zdbs.io/manual/media/image127.png" />
+<img src="/manual/media/image127.png" />
 
-<img src="https://zdbs.io/manual/media/image128.png" />
+<img src="/manual/media/image128.png" />
 
 #### 数据重构QoS策略
 
@@ -1098,17 +1098,17 @@ Unit数量的限制。
 
 1. 在左侧导航栏选择“存储”--\>“QoS策略”，选择“数据重构”，查看QoS策略详细信息。
 
-<img src="https://zdbs.io/manual/media/image129.png" />
+<img src="/manual/media/image129.png" />
 
 - **关联数据重构QoS策略**
 
 1. 在左侧导航栏选择“存储”--\>“QoS策略”，选择“数据重构”，选择策略名称“操作”，选择“关联设置”。
 
-<img src="https://zdbs.io/manual/media/image130.png" />
+<img src="/manual/media/image130.png" />
 
 2. 选择“存储池名”，选择“应用”或“撤销”，关联存储池或撤销关联，选择“完成”。
 
-<img src="https://zdbs.io/manual/media/image131.png" />
+<img src="/manual/media/image131.png" />
 
 #### 负载均衡策略
 
@@ -1120,13 +1120,13 @@ Unit分布，磁盘空间得到充分使用，卷的性能得到最大化的发�
 
 1. 在左侧导航栏选择“存储”--\>“QoS策略”，选择“负载均衡”。
 
-<img src="https://zdbs.io/manual/media/image132.png" />
+<img src="/manual/media/image132.png" />
 
 2. 选择“创建”，输入“策略名称”、“相对时间”、“绝对时间”，选择“创建”。
 
-<img src="https://zdbs.io/manual/media/image133.png" />
+<img src="/manual/media/image133.png" />
 
-<img src="https://zdbs.io/manual/media/image5.png" />
+<img src="/manual/media/image5.png" />
 
 1. “策略名称”只能输入中英文、数字、“\_”，长度2-64，“策略名称”不能重复。
 
@@ -1138,17 +1138,17 @@ Unit分布，磁盘空间得到充分使用，卷的性能得到最大化的发�
 
 1. 在左侧导航栏选择“存储”--\>“QoS策略”，选择“负载均衡”，查看负载均衡详细信息。
 
-<img src="https://zdbs.io/manual/media/image134.png" />
+<img src="/manual/media/image134.png" />
 
 - **修改负载均衡策略**
 
 1. 在左侧导航栏选择“存储”--\>“QoS策略”，选择“负载均衡”，选择策略名称，选择“操作”，选择“修改”，修改相关参数，选择“修改”。
 
-<img src="https://zdbs.io/manual/media/image135.png" />
+<img src="/manual/media/image135.png" />
 
-<img src="https://zdbs.io/manual/media/image136.png" />
+<img src="/manual/media/image136.png" />
 
-<img src="https://zdbs.io/manual/media/image5.png" />
+<img src="/manual/media/image5.png" />
 
 1. 负载均衡策略支持修改“策略名称”和“相对时间”。
 
@@ -1158,27 +1158,27 @@ Unit分布，磁盘空间得到充分使用，卷的性能得到最大化的发�
 
 1. 在左侧导航栏选择“存储”--\>“QoS策略”，选择“负载均衡”，选择策略名称“操作”，选择“关联设置”。
 
-<img src="https://zdbs.io/manual/media/image137.png" />
+<img src="/manual/media/image137.png" />
 
 2. 选择“存储池名”，选择“应用”或“撤销”，关联存储池或撤销关联，选择“完成”。
 
-<img src="https://zdbs.io/manual/media/image138.png" />
+<img src="/manual/media/image138.png" />
 
 - **开启或关闭负载均衡策略**
 
 1. 在左侧导航栏选择“存储”--\>“QoS策略”，选择“负载均衡”，选择右上角开关，开启或关闭QoS策略。
 
-<img src="https://zdbs.io/manual/media/image139.png" />
+<img src="/manual/media/image139.png" />
 
-<img src="https://zdbs.io/manual/media/image140.png" />
+<img src="/manual/media/image140.png" />
 
 - **删除负载均衡策略**
 
 1. 在左侧导航栏选择“存储”--\>“QoS策略”，选择“负载均衡”，勾选策略名称，选择“删除”，选择“删除”，删除QoS策略。
 
-<img src="https://zdbs.io/manual/media/image141.png" />
+<img src="/manual/media/image141.png" />
 
-<img src="https://zdbs.io/manual/media/image142.png" />
+<img src="/manual/media/image142.png" />
 
 ## 七、硬件管理
 
@@ -1191,13 +1191,13 @@ Unit分布，磁盘空间得到充分使用，卷的性能得到最大化的发�
 
 1. 在左侧导航栏选择“硬件”--\>“存储磁盘”。
 
-<img src="https://zdbs.io/manual/media/image143.png" />
+<img src="/manual/media/image143.png" />
 
 2. 在右侧查询栏选择“状态”和“存储类型”，选择“查询”。
 
-<img src="https://zdbs.io/manual/media/image144.png" />
+<img src="/manual/media/image144.png" />
 
-<img src="https://zdbs.io/manual/media/image5.png" />
+<img src="/manual/media/image5.png" />
 
 1. “状态”分为“所有状态”、“健康”、“错误”。
 
@@ -1209,15 +1209,15 @@ Unit分布，磁盘空间得到充分使用，卷的性能得到最大化的发�
 
 #### 服务界面
 
-服务界面向用户展示系统当前所有服务器上的服务列表及服务状态，包括DataNode、DIH、DriverContainer、InfoCenter等服务。<img src="https://zdbs.io/manual/media/image145.png"
-alt="Screenshot from 2019-01-08 18-04-03" />代表服务是正常状态，<img src="https://zdbs.io/manual/media/image146.png"
-alt="Screenshot from 2019-01-08 18-05-50" />代表服务是告警状态，<img src="https://zdbs.io/manual/media/image147.png"
-alt="Screenshot from 2019-01-08 18-05-05" />代表服务是异常状态，<img src="https://zdbs.io/manual/media/image148.png"
+服务界面向用户展示系统当前所有服务器上的服务列表及服务状态，包括DataNode、DIH、DriverContainer、InfoCenter等服务。<img src="/manual/media/image145.png"
+alt="Screenshot from 2019-01-08 18-04-03" />代表服务是正常状态，<img src="/manual/media/image146.png"
+alt="Screenshot from 2019-01-08 18-05-50" />代表服务是告警状态，<img src="/manual/media/image147.png"
+alt="Screenshot from 2019-01-08 18-05-05" />代表服务是异常状态，<img src="/manual/media/image148.png"
 alt="Screenshot from 2019-01-08 18-03-15" />代表服务是挂起状态。
 
 1. 在左侧导航栏选择“系统”--\>“服务”，查看服务。
 
-<img src="https://zdbs.io/manual/media/image149.png" />
+<img src="/manual/media/image149.png" />
 
 #### 服务管理
 
@@ -1225,15 +1225,15 @@ alt="Screenshot from 2019-01-08 18-03-15" />代表服务是挂起状态。
 
 1. 在左侧导航栏选择“系统”--\>“服务”，选择“管理”，查看所有服务的服务名称、状态、所在组编号、主机IP和端口，其中服务状态包括正常、挂起、停止、失败、丢失、未知。
 
-<img src="https://zdbs.io/manual/media/image150.png" />
+<img src="/manual/media/image150.png" />
 
 #### 查询服务
 
 1. 在左侧导航栏选择“系统”--\>“服务”，选择“管理”，输入“查询服务名称”、“状态”，自动列出查询服务，其中状态包括所有状态、健康、告警、错误。
 
-<img src="https://zdbs.io/manual/media/image151.png" />
+<img src="/manual/media/image151.png" />
 
-<img src="https://zdbs.io/manual/media/image5.png" />
+<img src="/manual/media/image5.png" />
 
 查询服务名称支持模糊查询。
 
@@ -1243,11 +1243,11 @@ alt="Screenshot from 2019-01-08 18-03-15" />代表服务是挂起状态。
 
 1. 在左侧导航栏选择“系统”--\>“组件”，选择“zookeeper”，查看zookeeper组件。
 
-<img src="https://zdbs.io/manual/media/image152.png" />
+<img src="/manual/media/image152.png" />
 
 2. zookeeper列表包含“节点IP”和“服务状态”。
 
-<img src="https://zdbs.io/manual/media/image153.png" />
+<img src="/manual/media/image153.png" />
 
 ### 操作日志管理
 
@@ -1257,11 +1257,11 @@ ZettaStor分布式块设备存储系统中用户所有操作都记录在操作�
 
 1. 在左侧导航栏选择“系统”--\>“操作日志”，查看操作日志。
 
-<img src="https://zdbs.io/manual/media/image154.png" />
+<img src="/manual/media/image154.png" />
 
 2. 输入用户名、操作目标、操作类型、目标类型、状态、开始时间和结束时间，选择“查询”。
 
-<img src="https://zdbs.io/manual/media/image155.png" />
+<img src="/manual/media/image155.png" />
 
 ## 九、用户管理
 
@@ -1273,59 +1273,59 @@ ZettaStor分布式块设备存储系统支持角色管理，管理员可以给�
 
 1. 在左侧导航栏选择“用户”--\>“角色”。
 
-<img src="https://zdbs.io/manual/media/image156.png" />
+<img src="/manual/media/image156.png" />
 
 2. 选择角色名称，查看权限分配和详细信息。
 
-<img src="https://zdbs.io/manual/media/image157.png" />
+<img src="/manual/media/image157.png" />
 
 - **创建角色**
 
 1. 在左侧导航栏选择“用户”--\>“角色”。
 
-<img src="https://zdbs.io/manual/media/image158.png" />
+<img src="/manual/media/image158.png" />
 
 2. 选择“创建”，输入“角色名”、“描述”，勾选相关权限，选择“创建”。
 
-<img src="https://zdbs.io/manual/media/image159.png" /><img src="https://zdbs.io/manual/media/image160.png" />
+<img src="/manual/media/image159.png" /><img src="/manual/media/image160.png" />
 
-<img src="https://zdbs.io/manual/media/image161.png" />
+<img src="/manual/media/image161.png" />
 
 3. 查看角色信息。
 
-<img src="https://zdbs.io/manual/media/image162.png" />
+<img src="/manual/media/image162.png" />
 
 - **修改角色**
 
 1. 在左侧导航栏选择“用户”--\>“角色”，勾选角色名称。
 
-<img src="https://zdbs.io/manual/media/image163.png" />
+<img src="/manual/media/image163.png" />
 
 2. 选择“修改”，修改“角色名”、“描述”，勾选相关权限，选择“更新角色”。
 
-<img src="https://zdbs.io/manual/media/image164.png" /><img src="https://zdbs.io/manual/media/image165.png" />
+<img src="/manual/media/image164.png" /><img src="/manual/media/image165.png" />
 
-<img src="https://zdbs.io/manual/media/image166.png" />
+<img src="/manual/media/image166.png" />
 
 3. 查看角色信息。
 
-<img src="https://zdbs.io/manual/media/image167.png" />
+<img src="/manual/media/image167.png" />
 
 - **删除角色**
 
 1. 在左侧导航栏选择“用户”--\>“角色”，勾选角色名称。
 
-<img src="https://zdbs.io/manual/media/image168.png" />
+<img src="/manual/media/image168.png" />
 
 2. 选择“删除”，选择“删除”。
 
-<img src="https://zdbs.io/manual/media/image169.png" />
+<img src="/manual/media/image169.png" />
 
 3. 查看角色信息。
 
-<img src="https://zdbs.io/manual/media/image170.png" />
+<img src="/manual/media/image170.png" />
 
-<img src="https://zdbs.io/manual/media/image5.png" />
+<img src="/manual/media/image5.png" />
 
 admin和user是系统内建角色，无法删除。
 
@@ -1337,37 +1337,37 @@ admin和user是系统内建角色，无法删除。
 
 1. 在左侧导航栏选择“用户”--\>“用户”。
 
-<img src="https://zdbs.io/manual/media/image171.png" />
+<img src="/manual/media/image171.png" />
 
 2. 选择用户名称，查看资源分配和详细信息。
 
-<img src="https://zdbs.io/manual/media/image172.png" />
+<img src="/manual/media/image172.png" />
 
 - **创建用户**
 
 1. 在左侧导航栏选择“用户”--\>“用户”。
 
-<img src="https://zdbs.io/manual/media/image173.png" />
+<img src="/manual/media/image173.png" />
 
 2. 选择“创建”，输入用户名、密码、确认密码、角色分配，选择“创建”。
 
-<img src="https://zdbs.io/manual/media/image174.png" />
+<img src="/manual/media/image174.png" />
 
 3. 查看用户信息。
 
-<img src="https://zdbs.io/manual/media/image175.png" />
+<img src="/manual/media/image175.png" />
 
 - **重置密码**
 
 1. 在左侧导航栏选择“用户”--\>“用户”，勾选用户名称。
 
-<img src="https://zdbs.io/manual/media/image176.png" />
+<img src="/manual/media/image176.png" />
 
 2. 选择“重置密码”，选择“重置”。
 
-<img src="https://zdbs.io/manual/media/image177.png" />
+<img src="/manual/media/image177.png" />
 
-<img src="https://zdbs.io/manual/media/image5.png" />
+<img src="/manual/media/image5.png" />
 
 重置后的密码为admin。
 
@@ -1375,36 +1375,36 @@ admin和user是系统内建角色，无法删除。
 
 1. 在左侧导航栏选择“用户”--\>“用户”，勾选用户名称。
 
-<img src="https://zdbs.io/manual/media/image176.png" />
+<img src="/manual/media/image176.png" />
 
 2. 选择“更新角色”，通过“+”和“-”重新分配角色，选择“更新”。
 
-<img src="https://zdbs.io/manual/media/image178.png" />
+<img src="/manual/media/image178.png" />
 
 3. 查看用户信息。
 
-<img src="https://zdbs.io/manual/media/image179.png" />
+<img src="/manual/media/image179.png" />
 
 - **资源分配**
 
 1. 在左侧导航栏选择“用户”--\>“用户”，勾选用户名称。
 
-<img src="https://zdbs.io/manual/media/image176.png" />
+<img src="/manual/media/image176.png" />
 
 2. 选择“资源分配”，勾选相关资源，选择“确定”。
 
-<img src="https://zdbs.io/manual/media/image180.png" />
+<img src="/manual/media/image180.png" />
 
 3. 选择用户名称，查看资源分配和详细信息。
 
-<img src="https://zdbs.io/manual/media/image181.png" />
+<img src="/manual/media/image181.png" />
 
 - **删除用户**
 
 1. 在左侧导航栏选择“用户”--\>“用户”，勾选用户名称。
 
-<img src="https://zdbs.io/manual/media/image176.png" />
+<img src="/manual/media/image176.png" />
 
 2. 选择“删除”，选择“删除”。
 
-<img src="https://zdbs.io/manual/media/image182.png" />
+<img src="/manual/media/image182.png" />

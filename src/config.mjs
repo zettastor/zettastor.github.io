@@ -40,7 +40,7 @@ export const SIDEBAR = {
     'Developers': [
       { text: 'How to Compile', link: SITE.basePathname + 'compile' },
       { text: 'Developer\'s Guide', link: SITE.basePathname + 'devguide' },
-      { text: 'Coding Standard', link: SITE.basePathname + 'codingstyle' },
+      { text: 'How to Contribute', link: SITE.basePathname + 'contributing' },
       { text: 'License', link: SITE.basePathname + 'agpl' },
     ],
   },
@@ -54,7 +54,7 @@ export const SIDEBAR = {
     '开发文档': [
       { text: '编译说明', link: SITE.basePathname + 'compile' },
       { text: '开发指南', link: SITE.basePathname + 'devguide' },
-      { text: '编码规范', link: SITE.basePathname + 'codingstyle' },
+      { text: '贡献代码', link: SITE.basePathname + 'contributing' },
       { text: '许可证', link: SITE.basePathname + 'agpl' },
     ],
   },
