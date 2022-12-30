@@ -7,38 +7,38 @@ layout: ~/layouts/DocLayout.astro
 ## I. Downloading the Source
 The repositories of ZettaStor DBS must be organized in a hierarchy structure, use the following commands to download the source code:
 ```bash
-ROOT_PATH=$1
+export ROOT_PATH=git@github.com
 
-git clone -b 1.0-OS $ROOT_PATH/pengyun-root
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-root
 pushd pengyun-root
 
-git clone -b 1.0-OS $ROOT_PATH/pengyun-root/pengyun-lib
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-lib
 pushd pengyun-lib
-git clone -b 1.0-OS $ROOT_PATH:main/pengyun-core
-git clone -b 1.0-OS $ROOT_PATH:database/pengyun-database_core
-git clone -b 1.0-OS $ROOT_PATH:main/pengyun-models
-git clone -b 1.0-OS $ROOT_PATH:main/pengyun-dih_model
-git clone -b 1.0-OS $ROOT_PATH:main/pengyun-dih_client
-git clone -b 1.0-OS $ROOT_PATH:monitor/pengyun-query_log
-git clone -b 1.0-OS $ROOT_PATH:main/pengyun-configuration
-git clone -b 1.0-OS $ROOT_PATH:monitor/pengyun-monitor_common
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-core
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-database_core
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-models
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-dih_model
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-dih_client
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-query_log
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-configuration_common
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-monitor_common
 popd
 
-git clone -b 1.0-OS $ROOT_PATH/pengyun-root/pengyun-dbs
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-dbs
 pushd pengyun-dbs
-git clone -b 1.0-OS $ROOT_PATH:dbs/dbs-dnmodel
-git clone -b 1.0-OS $ROOT_PATH:dbs/dbs-models_related
-git clone -b 1.0-OS $ROOT_PATH:main/pengyun-driver_core
-git clone -b 1.0-OS $ROOT_PATH:main/pengyun-coordinator
-git clone -b 1.0-OS $ROOT_PATH:main/pengyun-infocenter
-git clone -b 1.0-OS $ROOT_PATH:main/pengyun-drivercontainer
-git clone -b 1.0-OS $ROOT_PATH:main/pengyun-deployment_daemon
-git clone -b 1.0-OS $ROOT_PATH:main/pengyun-datanode_core
-git clone -b 1.0-OS $ROOT_PATH:datanode/pengyun-datanode_service
-git clone -b 1.0-OS $ROOT_PATH:main/pengyun-datanode
-git clone -b 1.0-OS $ROOT_PATH:main/pengyun-webservice_adapter
-git clone -b 1.0-OS $ROOT_PATH:main/pengyun-utils
-git clone -b 1.0-OS $ROOT_PATH:main/pengyun-console
+git clone -b 1.0-OS $ROOT_PATH:zettastor/dbs-dnmodel
+git clone -b 1.0-OS $ROOT_PATH:zettastor/dbs-models_related
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-driver_core
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-coordinator
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-infocenter
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-drivercontainer
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-deployment_daemon
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-datanode_core
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-datanode_service
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-datanode
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-webservice_adapter
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-utils
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-console
 popd
 
 popd
@@ -168,3 +168,14 @@ It is also possible to run maven with multiple threads and skip test to speed up
 ```bash
 mvn -T 1C clean install -DskipTests
 ```
+
+## IV. Build Installation Package
+
+When compilation finishes, use the following command in the `pengyun-root/pengyun-dbs/` directory to make a new installation package:
+
+```bash
+mkdir -p /opt/deploy/
+perl bin/CreateDeployPackage.pl -d /opt/deploy
+```
+
+When the packaging process finishes, a new installation package will be saved in the `/opt/deploy` directory. For more detailed use of the installation package, please refer to [Getting Started](/en/install).

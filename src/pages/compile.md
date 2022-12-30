@@ -7,38 +7,38 @@ layout: ~/layouts/DocLayout.astro
 ## 一、下载代码
 ZettaStor DBS 的仓库必须按特定的层次结构组织目录，请使用下列命令下载源代码：
 ```bash
-ROOT_PATH=$1
+export ROOT_PATH=git@github.com
 
-git clone -b 1.0-OS $ROOT_PATH/pengyun-root
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-root
 pushd pengyun-root
 
-git clone -b 1.0-OS $ROOT_PATH/pengyun-root/pengyun-lib
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-lib
 pushd pengyun-lib
-git clone -b 1.0-OS $ROOT_PATH:main/pengyun-core
-git clone -b 1.0-OS $ROOT_PATH:database/pengyun-database_core
-git clone -b 1.0-OS $ROOT_PATH:main/pengyun-models
-git clone -b 1.0-OS $ROOT_PATH:main/pengyun-dih_model
-git clone -b 1.0-OS $ROOT_PATH:main/pengyun-dih_client
-git clone -b 1.0-OS $ROOT_PATH:monitor/pengyun-query_log
-git clone -b 1.0-OS $ROOT_PATH:main/pengyun-configuration
-git clone -b 1.0-OS $ROOT_PATH:monitor/pengyun-monitor_common
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-core
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-database_core
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-models
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-dih_model
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-dih_client
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-query_log
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-configuration_common
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-monitor_common
 popd
 
-git clone -b 1.0-OS $ROOT_PATH/pengyun-root/pengyun-dbs
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-dbs
 pushd pengyun-dbs
-git clone -b 1.0-OS $ROOT_PATH:dbs/dbs-dnmodel
-git clone -b 1.0-OS $ROOT_PATH:dbs/dbs-models_related
-git clone -b 1.0-OS $ROOT_PATH:main/pengyun-driver_core
-git clone -b 1.0-OS $ROOT_PATH:main/pengyun-coordinator
-git clone -b 1.0-OS $ROOT_PATH:main/pengyun-infocenter
-git clone -b 1.0-OS $ROOT_PATH:main/pengyun-drivercontainer
-git clone -b 1.0-OS $ROOT_PATH:main/pengyun-deployment_daemon
-git clone -b 1.0-OS $ROOT_PATH:main/pengyun-datanode_core
-git clone -b 1.0-OS $ROOT_PATH:datanode/pengyun-datanode_service
-git clone -b 1.0-OS $ROOT_PATH:main/pengyun-datanode
-git clone -b 1.0-OS $ROOT_PATH:main/pengyun-webservice_adapter
-git clone -b 1.0-OS $ROOT_PATH:main/pengyun-utils
-git clone -b 1.0-OS $ROOT_PATH:main/pengyun-console
+git clone -b 1.0-OS $ROOT_PATH:zettastor/dbs-dnmodel
+git clone -b 1.0-OS $ROOT_PATH:zettastor/dbs-models_related
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-driver_core
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-coordinator
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-infocenter
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-drivercontainer
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-deployment_daemon
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-datanode_core
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-datanode_service
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-datanode
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-webservice_adapter
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-utils
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-console
 popd
 
 popd
@@ -70,7 +70,7 @@ unzip protoc-3.5.1-linux-x86_64.zip -d /usr/local
 ### RHEL/CentOS 8
 ```bash
 yum install epel-release
-yum install net-tools maven compat-openssl10 protobuf-compiler
+yum install maven compat-openssl10 protobuf-compiler
 yum install https://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/t/thrift-0.9.1-15.el7.x86_64.rpm
 ```
 
@@ -168,3 +168,13 @@ mvn clean install
 ```bash
 mvn -T 1C clean install -DskipTests
 ```
+
+## 四、制作安装包
+
+编译完成后，在`pengyun-root/pengyun-dbs/`目录，使用下列命令制作安装包：
+```bash
+mkdir -p /opt/deploy/
+perl bin/CreateDeployPackage.pl -d /opt/deploy
+```
+
+打包完成后，新的安装包将保存在 `/opt/deploy` 目录，安装包的具体使用请参考 [快速配置与部署](/install)。
