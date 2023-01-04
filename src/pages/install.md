@@ -21,25 +21,31 @@ layout: ~/layouts/DocLayout.astro
 
 ## 配置与部署
 
+>**注意**  
+下列命令假设您已经具有足够权限，关于使用 `su` 或 `sudo` 等提权操作不再赘述。
+
 ### 一、准备安装包
 
-DBS 安装包通常包含如下两个文件：  
-`Installation-3.0.0.tar.gz`  
+ZettaStor DBS [下载页面](/download) 提供的安装包通常包含如下两个文件：  
+`Installation-1.0.0-OS-*.tar.gz`  
 `pengyun-deploy-1.0.0-OS-*.tar.gz`
 
-1. 将上述安装包放到部署节点（例如集群的第1个节点）的 `/opt/deploy/` 目录
+1. 将 `Installation-1.0.0-OS-*.tar.gz` 安装工具放到部署节点（例如集群的第1个节点）的 `~` 目录并解压
 ```bash
-cd /opt/deploy
-# 列出/opt/deploy目录文件
+cd ~
 ls
-Installation-3.0.0.tar.gz  pengyun-deploy-1.0.0-OS-[2023-01-01_00-00-00].tar.gz
+Installation-1.0.0-OS-[2023-01-03].tar.gz
+
+mkdir -p /opt/deploy && tar -zxf Installation-1.0.0-OS-[2023-01-03].tar.gz -C /opt/deploy
+# 列出/opt/deploy目录文件
+ls /opt/deploy/
+Installation
 ```
 
-2. 解压 `Installation` 安装工具
+2. 将 `pengyun-deploy-1.0.0-OS-*.tar.gz` 放到部署节点（例如集群的第1个节点）的 `/opt/deploy/` 目录
 ```bash
-tar -zxf Installation-3.0.0.tar.gz && rm Installation-3.0.0.tar.gz
 # 列出/opt/deploy目录文件
-ls
+ls /opt/deploy/
 Installation  pengyun-deploy-1.0.0-OS-[2023-01-01_00-00-00].tar.gz
 ```
 
