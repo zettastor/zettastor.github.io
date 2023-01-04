@@ -54,7 +54,7 @@ popd
 ### RHEL/CentOS 7
 ```bash
 yum install epel-release
-yum -y install java-1.8.0-openjdk-devel thrift curl unzip
+yum -y install java-1.8.0-openjdk-devel thrift curl unzip wget perl-Data-Dumper perl-XML-Simple
 
 # 安装新版 Apache Maven
 curl -LO https://downloads.apache.org/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.tar.gz
@@ -164,12 +164,12 @@ libprotoc 3.5.1
 # 根据系统环境更新版本号
 mvn versions:set-property -Dproperty=libthrift.version -DnewVersion=$(thrift --version | awk '{print $3}')
 mvn versions:set-property -Dproperty=protobuf.version -DnewVersion=$(protoc --version | awk '{print $2}')
-mvn clean install
+mvn clean install -Dproguard=off
 ```
 
 您可以使用多线程并禁用单元测试来提高编译速度：
 ```bash
-mvn -T 1C clean install -DskipTests
+mvn -T 1C clean install -Dproguard=off -DskipTests
 ```
 
 ## 四、制作安装包

@@ -9,7 +9,7 @@ layout: ~/layouts/DocLayout.astro
 ### Hardware Requirements
 
 - Deployment of Distributed Block Storage (hereinafter "DBS") requires at least 3 nodes. For different usage scenarios and different customer environments, the configuration parameters may vary, please refer to [Advanced Configuration](/en/configuration). A functional demo can be deployed using virtual machines, while performance testing should be deployed on high-performance physical servers.
-- With default configuration, each node requires at least 128 GB of RAM.
+- With default configuration, each node requires at least 128 GB of RAM; for a Proof of Concept deployment, each node requires 8 GB of RAM.
 - In addition to the operating system disk, each storage node requires at least one additional 1TB blank hard disk.
 
 > For the convenience of explanation, the following documents use 3 nodes ( `192.168.1.10`, `192.168.1.11`, `192.168.1.12`) to illustrate the deployment use case.
@@ -20,25 +20,32 @@ For a list of supported operating system and installation requirements, please r
 
 ## Configuration and Deployment
 
+>**Note**  
+The following instructions assume that you already have sufficient privileges, we will not go into details about using `su` or `sudo` and other privilege escalation operations.
+
 ### I. Preparing for Installation
-The installation package of DBS usually consists of the following two files:  
-`Installation-3.0.0.tar.gz`  
+
+The packages provided by ZettaStor DBS [Downloads](/en/download)  usually consist of the following two files:  
+`Installation-1.0.0-OS-*.tar.gz`  
 `pengyun-deploy-1.0.0-OS-*.tar.gz`
 
-1. Put the above packages into the `/opt/deploy/` directory of deployment node (e.g. the first node of the cluster)
+1. Put `Installation-1.0.0-OS-*.tar.gz` toolkit into the `~` directory of the deployment node (e.g. the first node of the cluster) and unzip
 ```bash
-cd /opt/deploy
-# list files in /opt/deploy directory
+cd ~
 ls
-Installation-3.0.0.tar.gz  pengyun-deploy-1.0.0-OS-[2023-01-01_00-00-00].tar.gz
+Installation-1.0.0-OS-20230103.tar.gz
+
+mkdir -p /opt/deploy && tar -zxf Installation-1.0.0-OS-20230103.tar.gz -C /opt/deploy
+# list files in /opt/deploy directory
+ls /opt/deploy/
+Installation
 ```
 
-2. Unzip the `Installation` toolkit
+2. Put the `pengyun-deploy-1.0.0-OS-*.tar.gz` into the `/opt/deploy/` directory of the deployment node (e.g. the first node of the cluster)
 ```bash
-tar -zxf Installation-3.0.0.tar.gz && rm Installation-3.0.0.tar.gz
 # list files in /opt/deploy directory
-ls
-Installation  pengyun-deploy-1.0.0-OS-[2023-01-01_00-00-00].tar.gz
+ls /opt/deploy/
+Installation  pengyun-deploy-1.0.0-OS-20230101.tar.gz
 ```
 
 ### II. Configuration Wizard

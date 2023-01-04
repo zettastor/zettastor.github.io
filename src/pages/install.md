@@ -8,9 +8,9 @@ layout: ~/layouts/DocLayout.astro
 
 ### 硬件需求
 
-- 分布式块存储软件(下称“DBS”)部署至少需要3个节点，针对不同的使用场景以及客户环境不同，配置参数有所不同，请参考 [高级配置与定制](/configuration)。功能展示可以使用虚拟机进行部署，性能测试则应当使用高性能的物理服务器进行部署。
-- 在默认配置下，每个节点需要配置 128 GB 内存。
-- 每个存储节点除了操作系统盘之外，还需要配置至少 1 块 1TB 空白硬盘。
+- 分布式块存储软件(下称“DBS”)部署至少需要 **3个节点**，针对不同的使用场景以及客户环境不同，配置参数有所不同，请参考 [高级配置与定制](/configuration)。功能展示可以使用虚拟机进行部署，性能测试则应当使用高性能的物理服务器进行部署。
+- 在默认配置下，每个节点至少需要 **128GB内存**；最小化验证部署配置下，每个节点需要 **8GB内存**。
+- 每个存储节点除了操作系统盘之外，还需要配置至少 **1块1TB空白硬盘**。
 
 > 为了方便说明，下列文档使用 `192.168.1.10`, `192.168.1.11`, `192.168.1.12` 3 个节点来说明部署用例。
 
@@ -34,9 +34,9 @@ ZettaStor DBS [下载页面](/download) 提供的安装包通常包含如下两�
 ```bash
 cd ~
 ls
-Installation-1.0.0-OS-[2023-01-03].tar.gz
+Installation-1.0.0-OS-20230103.tar.gz
 
-mkdir -p /opt/deploy && tar -zxf Installation-1.0.0-OS-[2023-01-03].tar.gz -C /opt/deploy
+mkdir -p /opt/deploy && tar -zxf Installation-1.0.0-OS-20230103.tar.gz -C /opt/deploy
 # 列出/opt/deploy目录文件
 ls /opt/deploy/
 Installation
@@ -46,7 +46,7 @@ Installation
 ```bash
 # 列出/opt/deploy目录文件
 ls /opt/deploy/
-Installation  pengyun-deploy-1.0.0-OS-[2023-01-01_00-00-00].tar.gz
+Installation  pengyun-deploy-1.0.0-OS-20230101.tar.gz
 ```
 
 ### 二、修改配置
@@ -193,13 +193,13 @@ Web 界面的 IP 地址: 192.168.1.10
 ```
 如果使用虚拟机如 VMware 进行部署，请选择 `false`
 
-至此，修改配置的操作已经全部完成。您可以按Ctrl+C键中止安装向导，或者继续进行交互式部署。
+至此，修改配置的操作已经全部完成，您可以按 `Ctrl+C` 键中止安装向导，并参照下一节进行一键式部署。如果继续安装向导，则会进入交互式部署，涉及的10个步骤与下一节所述一致。
 
 ### 三、部署服务
 1. 部署 DBS，请执行下列命令：
 ```
 cd /opt/deploy/Installation
-LANGUAGE=zh_CN ./install.sh -b
+LANGUAGE=zh_CN ./install.sh --batch
 ```
 2. 部署包括下列 10 个步骤，执行过程无需用户交互。
 

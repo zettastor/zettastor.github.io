@@ -48,6 +48,9 @@ popd
 
 If you're in a UNIX-like environment, the packages required for compilation can be installed by the folowing commands
 
+>**Note**  
+The following instructions assume that you already have sufficient privileges, we will not go into details about using `su` or `sudo` and other privilege escalation operations.
+
 ### RHEL/CentOS 7
 ```bash
 yum install epel-release
@@ -70,13 +73,13 @@ unzip protoc-3.5.1-linux-x86_64.zip -d /usr/local
 ### RHEL/CentOS 8
 ```bash
 yum install epel-release
-yum install maven compat-openssl10 protobuf-compiler perl-Data-Dumper perl-XML-Simple
+yum install maven compat-openssl10 protobuf-compiler
 yum install https://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/t/thrift-0.9.1-15.el7.x86_64.rpm
 ```
 
 ### RHEL 9
 ```bash
-yum install maven unzip perl-Data-Dumper perl-XML-Simple
+yum install maven unzip
 yum install http://mirror.centos.org/centos/8-stream/AppStream/x86_64/os/Packages/compat-openssl10-1.0.2o-3.el8.x86_64.rpm
 yum install https://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/t/thrift-0.9.1-15.el7.x86_64.rpm
 curl -LO https://github.com/protocolbuffers/protobuf/releases/download/v3.5.1/protoc-3.5.1-linux-x86_64.zip
@@ -85,15 +88,15 @@ unzip protoc-3.5.1-linux-x86_64.zip -d /usr/local
 
 ### Debian 10/11, Ubuntu 18/20
 ```bash
-sudo apt-get update
-sudo apt-get install curl openjdk-11-jdk maven protobuf-compiler perl-Data-Dumper perl-XML-Simple
+apt-get update
+apt-get install curl openjdk-11-jdk maven protobuf-compiler
 curl -LO http://ftp.debian.org/debian/pool/main/t/thrift-compiler/thrift-compiler_0.9.1-2.1+b1_amd64.deb
-sudo dpkg -i thrift-compiler_0.9.1-2.1+b1_amd64.deb
+dpkg -i thrift-compiler_0.9.1-2.1+b1_amd64.deb
 ```
 
 ### SUSE/SLES 15
 ```bash
-zypper install curl unzip maven thrift perl-Data-Dumper perl-XML-Simple
+zypper install curl unzip maven thrift
 curl -LO https://github.com/protocolbuffers/protobuf/releases/download/v3.5.1/protoc-3.5.1-linux-x86_64.zip
 unzip protoc-3.5.1-linux-x86_64.zip -d /usr/local
 ```
@@ -105,18 +108,18 @@ unzip protoc-3.5.1-linux-x86_64.zip -d /usr/local
 
 # Install JDK
 brew install openjdk@11
-sudo ln -sfn $(brew --prefix)/opt/openjdk@11/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-11.jdk
+ln -sfn $(brew --prefix)/opt/openjdk@11/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-11.jdk
 
 # Install Apache Maven
 curl -LO https://archive.apache.org/dist/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
 tar -xvf apache-maven-3.6.3-bin.tar.gz
-sudo mv apache-maven-3.6.3 /opt/
+mv apache-maven-3.6.3 /opt/
 export M2_HOME="/opt/apache-maven-3.6.3"
 export PATH="${M2_HOME}/bin:${PATH}"
 
 # Install Protocol Buffers
 curl -LO https://github.com/protocolbuffers/protobuf/releases/download/v3.5.1/protoc-3.5.1-osx-x86_64.zip
-sudo unzip protoc-3.5.1-osx-x86_64.zip -d /usr/local
+unzip protoc-3.5.1-osx-x86_64.zip -d /usr/local
 
 # Install Apache Thrift
 brew install thrift@0.9
@@ -138,7 +141,7 @@ To compile ZettaStor DBS, you need:
 - Java Development Kit (JDK) 11
 - Apache Maven 3.5 or higher
 - Apache Thrift 0.9.x
-- Protocol Buffers 3.5.1 or higher
+- Protocol Buffers 3.5.1
 
 Please make sure that the following command is in the PATH environment variable of the system and returns the correct version number, for example:
 ```
@@ -161,12 +164,12 @@ To build the package, use the following commands in the directory where `pengyun
 # Update version number from system environment
 mvn versions:set-property -Dproperty=libthrift.version -DnewVersion=$(thrift --version | awk '{print $3}')
 mvn versions:set-property -Dproperty=protobuf.version -DnewVersion=$(protoc --version | awk '{print $2}')
-mvn clean install
+mvn clean install -Dproguard=off
 ```
 
 It is also possible to run maven with multiple threads and skip test to speed up the builds
 ```bash
-mvn -T 1C clean install -DskipTests
+mvn -T 1C clean install -Dproguard=off -DskipTests
 ```
 
 ## IV. Build Installation Package
