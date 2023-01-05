@@ -8,9 +8,9 @@ layout: ~/layouts/DocLayout.astro
 
 ### Hardware Requirements
 
-- Deployment of Distributed Block Storage (hereinafter "DBS") requires at least 3 nodes. For different usage scenarios and different customer environments, the configuration parameters may vary, please refer to [Advanced Configuration](/en/configuration). A functional demo can be deployed using virtual machines, while performance testing should be deployed on high-performance physical servers.
-- With default configuration, each node requires at least 128 GB of RAM; for a Proof of Concept deployment, each node requires 8 GB of RAM.
-- In addition to the operating system disk, each storage node requires at least one additional 1TB blank hard disk.
+- Deployment of Distributed Block Storage (hereinafter "DBS") requires at least **3 nodes**. For different usage scenarios and different customer environments, the configuration parameters may vary, please refer to [Advanced Configuration](/en/configuration). A functional demo can be deployed using virtual machines, while performance testing should be deployed on high-performance physical servers.
+- With default configuration, each node requires at least **128 GB of RAM**; for a Proof of Concept deployment, each node requires **8 GB of RAM**.
+- In addition to the operating system disk, each storage node requires at least **one additional 1TB blank hard disk**.
 
 > For the convenience of explanation, the following documents use 3 nodes ( `192.168.1.10`, `192.168.1.11`, `192.168.1.12`) to illustrate the deployment use case.
 
@@ -194,13 +194,13 @@ Press Enter to continue, [M] to modify, [P] to return to the previous step:
 
 Select `false` if deploying in a virtual machine such as VMware.
 
-So far, the Configuration Wizard has been completed. You can press `Ctrl+C` to quit the wizard, or continue with the interactive deployment process.
+So far, the Configuration Wizard has been completed, you can press `Ctrl+C` to quit the Wizard, and refer to the next section for an automated deployment. If you continue with the Wizard, you will enter an interactive deployment process, which involves the same 10 steps as described in the next section.
 
 ### III. Deployment
 1. To deploy the DBS software, execute the following commands:
 ```
 cd /opt/deploy/Installation
-./install.sh -b
+./install.sh --batch
 ```
 2. Deployment requires no user interaction and consists of the following 10 steps:
 
