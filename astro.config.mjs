@@ -7,6 +7,7 @@ import astroI18next from "astro-i18next";
 import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
 import image from "@astrojs/image";
+import mdx from '@astrojs/mdx';
 import partytown from "@astrojs/partytown";
 import subfont from "@ernxst/subfont/astro";
 import preact from '@astrojs/preact';
@@ -31,8 +32,9 @@ export default defineConfig({
       },
     }),
     sitemap(),
-    astroI18next(),
     image(),
+    mdx(),
+    astroI18next(),    
     subfont(),
     vue(),
 

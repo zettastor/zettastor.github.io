@@ -1,0 +1,93 @@
+---
+import { t } from "i18next";
+import i18next from "i18next";
+import { Icon } from "astro-icon";
+
+const {} = Astro.props;
+
+---
+
+<section id="diagram3">
+
+  <div class="grid grid-rows-2 grid-flow-col gap-4 text-xs">
+    <div class="row-span-2 flex items-center">
+      <div class="border m-1 p-1" id="root">pengyun-root</div>
+    </div>
+    <div class="flex items-center">
+      <div class="border m-1 p-1" id="lib">pengyun-lib</div>
+    </div>
+    <div class="flex items-center">
+      <div class="border m-1 p-1" id="dbs">pengyun-dbs</div>
+    </div>
+    
+    <div>
+      <div class="border m-1 p-1" id="database_core">pengyun-database_core</div>
+      <div class="border m-1 p-1" id="core">pengyun-core</div>
+      <div class="border m-1 p-1" id="models">pengyun-models</div>
+      <div class="border m-1 p-1" id="dih_model">pengyun-dih_model</div>
+      <div class="border m-1 p-1" id="dih_client">pengyun-dih_client</div>
+      <div class="border m-1 p-1" id="query_log">pengyun-query_log</div>
+      <div class="border m-1 p-1" id="configuration_common">pengyun-configuration_common</div>
+      <div class="border m-1 p-1" id="monitor_common">pengyun-monitor_common</div>
+    </div>
+    <div>
+      <div class="border m-1 p-1" id="dnmodel">dbs-dnmodel</div>
+      <div class="border m-1 p-1" id="models_related">dbs-models_related</div>
+      <div class="border m-1 p-1" id="driver_core">pengyun-driver_core</div>
+      <div class="border m-1 p-1" id="coordinator">pengyun-coordinator</div>
+      <div class="border m-1 p-1" id="infocenter">pengyun-infocenter</div>
+      <div class="border m-1 p-1" id="drivercontainer">pengyun-drivercontainer</div>
+      <div class="border m-1 p-1" id="deployment_daemon">pengyun-deployment_daemon</div>
+      <div class="border m-1 p-1" id="datanode_core">pengyun-datanode_core</div>
+      <div class="border m-1 p-1" id="datanode_service">pengyun-datanode_service</div>
+      <div class="border m-1 p-1" id="datanode">pengyun-datanode</div>
+      <div class="border m-1 p-1" id="webservice_adapter">pengyun-webservice_adapter</div>
+      <div class="border m-1 p-1" id="utils">pengyun-utils</div>
+      <div class="border m-1 p-1" id="console">pengyun-console</div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import LeaderLine from 'leader-line-new';
+
+  function connectElements(id1, id2, opt) {
+    new LeaderLine(document.getElementById(id1), document.getElementById(id2), opt);
+  }
+
+  let opt1 = {
+    size: 1,
+    startPlugSize: 1,
+    endPlugSize: 1,
+   //dash: true,
+    path: "straight",
+    color: 'rgba(96, 165, 250, 1.0)',
+   };
+
+    connectElements("root", "lib", opt1);
+    connectElements("root", "dbs", opt1);
+
+    connectElements("lib", "database_core", opt1);
+    connectElements("lib", "core", opt1);
+    connectElements("lib", "models", opt1);
+    connectElements("lib", "dih_model", opt1);
+    connectElements("lib", "dih_client", opt1);
+    connectElements("lib", "query_log", opt1);
+    connectElements("lib", "configuration_common", opt1);
+    connectElements("lib", "monitor_common", opt1);
+
+    connectElements("dbs", "dnmodel", opt1);
+    connectElements("dbs", "models_related", opt1);
+    connectElements("dbs", "driver_core", opt1);
+    connectElements("dbs", "coordinator", opt1);
+    connectElements("dbs", "infocenter", opt1);
+    connectElements("dbs", "drivercontainer", opt1);
+    connectElements("dbs", "deployment_daemon", opt1);
+    connectElements("dbs", "datanode_core", opt1);
+    connectElements("dbs", "datanode_service", opt1);
+    connectElements("dbs", "datanode", opt1);
+    connectElements("dbs", "webservice_adapter", opt1);
+    connectElements("dbs", "utils", opt1);
+    connectElements("dbs", "console", opt1);
+
+</script>
