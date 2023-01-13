@@ -28,7 +28,7 @@ layout: ~/layouts/DocLayout.astro
 
 ZettaStor DBS [下载页面](/download) 提供的安装包通常包含如下两个文件：  
 `Installation-1.0.0-OS-*.tar.gz`  
-`pengyun-deploy-1.0.0-OS-*.tar.gz`  
+`pengyun-deploy-1.0.0-OS-*.tar.gz`
 
 1. 将 `Installation-1.0.0-OS-*.tar.gz` 安装工具放到部署节点（例如集群的第1个节点）的 `~` 目录并解压
 ```bash

@@ -25,7 +25,7 @@ The following instructions assume that you already have sufficient privileges, w
 
 ### I. Preparing for Installation
 
-The packages provided by ZettaStor DBS [Downloads](/en/download) usually consist of the following two files:  
+The packages provided by ZettaStor DBS [Downloads](/en/download)  usually consist of the following two files:  
 `Installation-1.0.0-OS-*.tar.gz`  
 `pengyun-deploy-1.0.0-OS-*.tar.gz`
 
