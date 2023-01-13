@@ -12,8 +12,8 @@
     "address2": "苏宁环球E06幢1107-1110",
     "website-label": "网址：",
     "email-label": "电子邮件：",
-    "support1-label": "社区版支持：",
-    "support2-label": "商业版服务："
+    "support1-label": "社区支持：",
+    "support2-label": "商务咨询："
   },
   "hero": {
     "title": "分布式块存储系统",
