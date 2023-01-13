@@ -130,17 +130,19 @@
     "download": "Software Download",
     "kylin": "Kylin OS",
     "uos": "UOS",
-    "desc1": "Pre-compiled setup wizard and deployment packages are provided to save your time. If your system environment is not in the support list below, please obtain the source code of ZettaStor DBS Community Edition from",
-    "desc2": "and follow the instructions in the ",
+    "desc1": "Pre-compiled setup wizard and deployment packages are provided to save your time. If your system environment is not listed in the supported platforms below, please follow the instructions in the",
     "desc3": "How to Compile",
-    "desc4": "documentation.",
+    "desc2": "documentation to obtain the source code of the Community Edition and build it accordingly.",
+    "desc4": "",
     "installer1": "(Setup Wizard)",
     "installer2": "(Deployment Package)",
     "commercial1": "If you use ZettaStor DBS inside your company, you should consider subscribing to ZettaStor DBS Enterprise Edition. Your subscription will give you access to professional support and more features. Please",
     "commercial2": "contact us",
     "commercial3": "for more information.",
     "terms1": "By downloading Pengyun software, you accept the terms and conditions of",
-    "terms2": "License."
+    "terms2": "License.",
+    "terms3": "If you encounter any issues during development or use of ZettaStor DBS, please use",
+    "terms4": "to discuss and resolve them."
   },
   "doc": {
     "overview": "Overview"
