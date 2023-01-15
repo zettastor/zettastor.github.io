@@ -5,9 +5,12 @@ layout: ~/layouts/DocLayout.astro
 ---
 import Diagram3 from "~/components/widgets/Diagram3.astro";
 
-## I. Downloading the Source
-The repositories of ZettaStor DBS must be organized in a hierarchy structure.
+## I. Source Code Overview
+The repositories of ZettaStor DBS must be organized in a hierarchy structure. This project has implemented Continuous Integration (CI) to ensure the quality and stability of the code. Please note that the CI status below may change as new commits are made to the codebase. If you have any questions or concerns, please use the [GitHub Issues](https://github.com/zettastor/dbs/issues) to report problems.
 <Diagram3 />
+
+## II. Downloading the Source
+
 Please use the following commands to download the source code:
 ```bash
 export ROOT_PATH=git@github.com
@@ -47,7 +50,7 @@ popd
 popd
 ```
 
-## II. Setup a development environment
+## III. Setup a development environment
 
 If you're in a UNIX-like environment, the packages required for compilation can be installed by the folowing commands
 
@@ -137,7 +140,7 @@ As a general rule, the simplest way is to download a pre-built binary. If you wo
 
 - __Protocol Buffers (Protobuf)__: First check whether you can download a [Protobuf 3.5.1 pre-built binary](https://github.com/protocolbuffers/protobuf/releases/tag/v3.5.1). If you would like to build protoc binary from source, see the [installation instructions](https://github.com/protocolbuffers/protobuf/blob/main/src/README.md).
 
-## III. Compiling the code
+## IV. Compiling the code
 
 ### Verification of Requirements
 To compile ZettaStor DBS, you need:
@@ -175,7 +178,7 @@ It is also possible to run maven with multiple threads and skip test to speed up
 mvn -T 1C clean install -Dproguard=off -DskipTests
 ```
 
-## IV. Build Installation Package
+## V. Build Installation Package
 
 When compilation finishes, use the following command in the `pengyun-root/pengyun-dbs/` directory to make a new installation package:
 
