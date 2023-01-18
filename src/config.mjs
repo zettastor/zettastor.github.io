@@ -1,7 +1,7 @@
 export const SITE = {
   name: "ZettaStor",
 
-  origin: "https://zettastor.github.io",
+  origin: "https://zdbs.io",
   basePathname: "/",
 
   title: "ZettaStor DBS",
