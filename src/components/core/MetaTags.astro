@@ -1,4 +1,5 @@
 ---
+import { t } from "i18next";
 import { getImage } from "@astrojs/image";
 import { getRelativeUrlByFilePath } from "~/utils/directories";
 
@@ -35,29 +36,29 @@ const image =
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>{title}</title>
-<meta name="description" content={description} />
+<title>{t("meta.title")}</title>
+<meta name="description" content={t("meta.description")} />
 {canonical && <link rel="canonical" href={canonical} />}
 
 <meta name="robots" content={`${noindex ? "noindex" : "index"}, ${nofollow ? "nofollow" : "follow"}`} />
 
 <!-- Google / Search Engine Tags -->
-<meta itemprop="name" content={title} />
-<meta itemprop="description" content={description} />
+<meta itemprop="name" content={t("meta.title")} />
+<meta itemprop="description" content={t("meta.description")} />
 {image && <meta itemprop="image" content={image} />}
 
 <!-- Facebook Meta Tags -->
 {canonical && <meta property="og:url" content={canonical} />}
 <meta property="og:type" content="website" />
-<meta property="og:title" content={title} />
-<meta property="og:description" content={description} />
+<meta property="og:title" content={t("meta.title")} />
+<meta property="og:description" content={t("meta.description")} />
 {image && <meta property="og:image" content={image} />}
 
 <!-- Twitter Meta Tags -->
 {canonical && <meta name="twitter:url" content={canonical} />}
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content={title} />
-<meta name="twitter:description" content={description} />
+<meta name="twitter:title" content={t("meta.title")} />
+<meta name="twitter:description" content={t("meta.description")} />
 {image && <meta name="twitter:image" content={image} />}
 
 <Fonts />

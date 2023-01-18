@@ -8,7 +8,7 @@ export const SITE = {
   description: "ZettaStor DBS is a free and ready to use framework.",
 
   googleAnalyticsId: false, // or "G-XXXXXXXXXX",
-  googleSiteVerificationId: "orcPxI47GSa-cRvY11tUe6iGg2IO_RPvnA1q95iEM3M",
+  googleSiteVerificationId: "-",
 };
 
 export const BLOG = {

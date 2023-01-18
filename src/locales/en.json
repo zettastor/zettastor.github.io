@@ -1,4 +1,9 @@
 {
+  "meta": {
+    "title": "ZettaStor DBS - Distributed Block Storage",
+    "description": "ZettaStor DBS provides enterprise-level business storage solutions with high availability, high performance, easy expansion and easy maintenance.",
+    "keywords": ""
+  },
   "link": {
     "prefix": "en",
     "copyright": "All Rights Reserved."

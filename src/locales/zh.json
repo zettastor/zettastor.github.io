@@ -1,4 +1,9 @@
 {
+  "meta": {
+    "title": "ZettaStor DBS_分布式块存储系统",
+    "description": "ZettaStor DBS 分布式块存储系统为大规模虚拟化、私有云和容器环境，提供高可用、高性能、易扩展、易维护的企业级用户业务存储解决方案。",
+    "keywords": ""
+  },
   "link": {
     "prefix": "",
     "copyright": "版权所有。"
