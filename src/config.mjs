@@ -58,7 +58,7 @@ export const SIDEBAR = {
       { text: '许可证', link: SITE.basePathname + 'agpl' },
     ],
     '应用场景': [
-      { text: 'KVM超融合', link: SITE.basePathname + 'kvm' },
+      { text: 'KVM', link: SITE.basePathname + 'kvm' },
       { text: 'VMware', link: SITE.basePathname + '#' },
       { text: 'Ｈyper-V', link: SITE.basePathname + '#' },
       { text: '华为FusionCompute', link: SITE.basePathname + '#' },
