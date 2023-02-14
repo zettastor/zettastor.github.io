@@ -57,5 +57,13 @@ export const SIDEBAR = {
       { text: '贡献代码', link: SITE.basePathname + 'contributing' },
       { text: '许可证', link: SITE.basePathname + 'agpl' },
     ],
+    '应用场景': [
+      { text: 'KVM超融合', link: SITE.basePathname + 'kvm' },
+      { text: 'VMware', link: SITE.basePathname + '#' },
+      { text: 'Ｈyper-V', link: SITE.basePathname + '#' },
+      { text: '华为FusionCompute', link: SITE.basePathname + '#' },
+      { text: 'OpenStack', link: SITE.basePathname + '#' },
+      { text: '文件共享', link: SITE.basePathname + '#' },
+    ],
   },
 };
