@@ -4,115 +4,110 @@ description: Docs intro
 layout: ~/layouts/DocLayout.astro
 ---
 
-在 KVM 虚拟服务器上部署 ZettaStor DBS 比在物理服务器上部署有很多优势，尤其是在 RAM 和 CPU 等资源的使用方面。KVM 属于1类（裸机）虚拟机管理程序，可以进一步提升 DBS 的性能和可扩展性。随着超融合基础设施（HCI）概念的加入，计算、存储和网络资源被组合到一个软件定义的基础设施中，作为一个实体进行管理，从而实现高效的资源分配，并可以在虚拟机之间提供高级别的隔离。
+ZettaStor 软件定义的分布式存储平台，通过聚合标准 x86 服务器的存储资源及 IO 处理能力，针对桌面虚拟化环境中不同类型的数据，提供全面的解决方案：面向桌面客户机的操作系统映像，推荐采用全闪存配置，基于块设备接口访问，以提供具备高 IOPS、低访问延迟的高性能存储资源；面向桌面客户机的用户数据，则推荐采用大容量磁盘，辅以可选的 SSD 缓存，基于 iSCSI 接口访问， 以提供具备高吞吐能力、高性价比的海量存储空间。
 
-## 在 KVM 上部署的优势
+ZettaStor 凭借高性能、高扩展性、高可靠性的特点，以更为优化的总体成本，确保用户的桌面虚拟化项目顺利实施，实现良好用户体验，并发挥最大效力。
 
-1. 资源效率：KVM 虚拟化允许多个虚拟机在单个物理服务器上运行。 这意味着可以在多个虚拟机之间共享相同的资源（例如 RAM 和 CPU），从而充分利用硬件。 而对于物理服务器，每个服务器都需要自己的专用资源。在 KVM 上部署当前版本的 DBS 软件需要 1 个虚拟 CPU 核心和 128 GB RAM。 
+<img src="/vitualization/media/vitualization1.png" width="500" />
 
-2. 可扩展性：KVM 虚拟化在按需扩展或缩减资源方面可以提供更大的灵活性。例如，如果 DBS 需要更多 RAM，经由 HCI 可以轻松将其分配到虚拟机中，而无需购买新硬件。 对于物理服务器，添加更多 RAM 必须在物理上安装额外的内存模块。
+在本文中，我们将介绍在 ZettaStor DBS 中设置 iSCSI 服务并在 CentOS 客户机使用它所需的步骤。我们还将涵盖单路径和多路径配置以及在挂载驱动器空间上部署 KVM 映像的内容。
 
-3. 节省成本：在 KVM 上运行虚拟机与运行多台物理服务器相比可以节省大量资金。 虚拟化消除了对物理硬件的需求，并降低了与硬件维护、功耗和冷却相关的成本。
+## 0. KVM 安装检查
+### 硬件要求
+1. 在开始安装 KVM 之前，请通过 egrep 命令检查您的 CPU 是否支持硬件虚拟化：
+```bash
+egrep -c '(vmx|svm)' /proc/cpuinfo
+```
+如果该命令返回值为0，则表示您的处理器不支持运行 KVM，其他大于 0 的数字都意味着您可以继续安装。如果你确定你的 CPU 支持虚拟化，请确保在服务器 BIOS 中未禁用此选项，一般位于 Intel Virtualization Technology 或 SVM MODE 选项。
 
-4. 易于管理：KVM 虚拟化提供了一个集中管理界面，可以轻松地从一个位置管理和监控多个虚拟机。 这消除了物理访问每个服务器以执行管理任务的需要。
+2. 接下来，输入以下命令检查您的系统是否支持使用 KVM 加速：
+```
+$ kvm-ok
+INFO: /dev/kvm exists
+KVM acceleration can be used
+```
 
-总之，在 KVM 上部署 DBS 与物理服务器相比具有多项优势，包括更好的资源分配、灵活性和可扩展性。
+### 软件要求
+- 1 套 ZettaStor DBS 分布式存储设备（下文简称“DBS”）  
+为了方便说明，假设 IP 为 192.168.142.128
+- 1 台具有网络连接的 Linux 客户机（下文简称“客户机”）  
+为了方便说明，假设 IP 为 192.168.142.140
 
-## KVM 配置
+>**注意**  
+下列命令假设您已经具有足够权限，关于使用 `su` 或 `sudo` 等提权操作不再赘述。
 
-检查当前节点是否已经安装所需要的软件以及其它需要的配置。
+## 1. 在客户机上安装 iSCSI Initiator
+### CentOS/RHEL/Fedora
+```bash
+yum install iscsi-initiator-utils
+```
 
-（如果没有安装的话，会调用自动化部署中准备部署环境的脚本来进行所需要软件的安装）
+### Ubuntu/Debian 系统
+```bash
+apt-get install open-iscsi
+```
 
-执行 `bash prepare_deploy_host.sh` 进行环境安装准备。
+接下来，查看客户机 IQN(iSCSI Qualified Name, iSCSI 限定名)
+```
+$ cat /etc/iscsi/initiatorname.iscsi
+InitiatorName=iqn.1994-05.com.redhat:c341717a8db
+```
+这个 IQN 将在 [步骤2.7 创建访问控制并授权](/manual#访问控制管理) 中被使用。
 
-### 环境检查
+## 2. 在 DBS 上配置 iSCSI 服务
+以下业务开通流程是在 DBS 上配置 iSCSI 服务所需的最小设置步骤，列表中提供了该操作在用户手册中对应的链接。有关高级配置选项的详细信息，建议您查阅 [用户手册](/manual) 并进行相应配置以获得最佳性能和安全性。
 
-这部分主要功能是检查物理机是否开启虚拟化支持，软件安装是否成功，网络配置是否正常。这里暂定采用串行的方式进行执行。
-
-执行 `perl quantum_check_required_environment.pl`
-
-这部分预留主要检查如下内容（这里暂定采用串行的方式进行执行）：
-
-（目前这个脚本主要检查当前部署节点是否安装了所需要的软件包，并不涉及其它节点的检查。
-
-下面这些检测有的是在其它脚本中进行的，并没有统一放到此脚本中）
-
-  - 物理机是否开启虚拟化支持，
-
-  - 部署安装所需要的基本软件安装是否成功，
-
-  - 网络配置是否正常。
-
-  - 宿主机物理CPU个数的检查，目前仅支持1颗和2颗物理CPU
-
-### 软件安装
-
-这部分主要是在宿主机上安装创建虚拟机所需要的软件。
-
-这个部分操作使用 `quantum_server_config.xml` 文件中相关参数解释如下：
+### 2.1 [创建存储域](/manual#创建域)
+### 2.2 [添加存储节点](/manual#添加和移除存储节点)
+### 2.3 [创建存储池](/manual#创建存储池)
+### 2.4 [添加存储磁盘](/manual#存储池磁盘扩容和减容)
+### 2.5 [创建存储卷](/manual#创建卷)
+### 2.6 [创建存储驱动](/manual#挂载驱动)
+其中，“驱动类型”选择 iSCSI 驱动
+### 2.7 [创建访问控制并授权](/manual#访问控制管理)
+此步骤需要填写 [步骤1 在客户机上安装 iSCSI Initiator](#1-在客户机上安装-iscsi-initiator) 中客户机的 IQN
 
 
-|  属性名称   |     取值说明     |
-| ------------- |:-------------:|
-| kvm-拷贝创建    |              |
-| login.name     | 登录服务器节点的用户名，通常是root  |
-| login.password | 登录服务器节点的用户名对应的密码     |
-| kvm.host.range | 需要安装创建虚拟机所需要软件的宿主机范围 |
+## 4. 在客户机上安装 KVM
+### 4.1 安装KVM及相关软件包：
+```
+yum install qemu-kvm libvirt libvirt-python libguestfs-tools virt-install
+```
 
-节点之间采用并行的方式，为了防止读操作对本地硬盘压力过大，限制并行的节点数量为4.
+Ubuntu
+```
+apt install qemu-kvm libvirt-clients libvirt-daemon-system bridge-utils virt-manager
+```
 
-执行 `perl quantum_kvm_software_installation.pl`
+启动并检查 libvirtd 服务：
+```
+systemctl enable libvirtd
+systemctl start libvirtd
+systemctl status libvirtd
+```
+如果一切正常运行，输出将返回 `active (running)` 状态。
 
-### 安装创建
+### 4.2 创建 CentOS 7 虚拟机 
 
-这部分主要是准备虚拟机的创建脚本或者创建命令，然后根据提示，执行脚本并完成虚拟机操作系统的安装。
+运行 Virtual Machine Manager 创建一个虚拟机：
+```
+virt-manager
+```
+<img src="/vitualization/media/kvm01.png" width="50%" />
 
-修改 `quantum_server_config.xml` 文件中的相关部分参数。
+点击 `New Virtual Machine`
 
-执行 `perl quantum_kvm_creation.pl` 进行虚拟机的创建脚本或者命令准备。
+<img src="/vitualization/media/kvm02.png" width="50%" />
+<img src="/vitualization/media/kvm03.png" width="50%" />
 
-（在执行之前，需要将ISO镜像文件放到部署节点的 `/opt/deploy` 目录下，并且该目录下只能有一个iso文件）
+在打开的对话框中，选择使用 ISO 镜像安装 VM 的选项。然后点击 `Forward`。
 
-这个部分操作使用 `quantum_server_config.xml` 文件中相关参数解释如下：
+<img src="/vitualization/media/kvm04.png" width="50%" />
 
-|  属性名称   |     取值说明     |
-| ------------- |:-------------:|
-| login.name             | 登录服务器节点的用户名，通常是root                                                                                                         |
-| login.password         | 登录服务器节点的用户名对应的密码                                                                                                            |
-| kvm.host.range         | 需要创建的虚拟机的宿主机范围                                                                                                              |
-| kvm.host.name.interval | 虚拟机名称与宿主机ip地址最后一个字段的数值间隔。比如宿主机的ip地址为192.168.12.34， 间隔为20，虚拟机的名称为计算方法为34+20=54，固定为3位整数就是054，加上虚拟机名称前缀vm。在此宿主机上创建的虚拟机名称为vm054 |
-| kvm.location.path      | 创建的虚拟机系统盘文件存放位置，取值为“default”表示为默认位置“/var/lib/libvirt/images”                                                                |
-| kvm.system.size.gb     | 虚拟机的系统盘大小，单位为GB                                                                                                             |
-| kvm.memory.size.gb     | 虚拟机的内存大小，单位为GB                                                                                                              |
-| kvm.cpu.percentage     | 单个虚拟机占用的CPU资源占宿主机CPU资源的比例。这里的比例是以单颗物理CPU为基准计算的。取值范围在\[5,80\]之间。                                                             |
-| kvm.bridge.base.name   | 虚拟机可以使用的基础网桥信息。宿主机上必须要存在对应的网桥设备。                                                                                            |
-| kvm.prefix.string      | 虚拟机的名称前缀                                                                                                                    |
-|                        |                                                                                                                             |
+输入希望分配给虚拟机的 RAM 数量和 CPU 数量，然后点击 `Forward`。
 
-脚本执行结束后，每个宿主机节点手动执行 `bash /tmp/create_kvm.sh` 进行虚拟机的创建工作。
+<img src="/vitualization/media/kvm05.png" width="50%" />
 
-### 资源配置
+请为您的虚拟机指定名称，然后单击 `Finish` 以完成设置。
 
-这部分主要功能是完成虚拟机资源的配置（包括CPU、内存、网卡、磁盘等）。VNC端口配置和开机自启动，以及其它一些配置和检查。这里暂定采用串行的方式进行执行。
-
-执行 `perl quantum_kvm_configuration.pl` 完成虚拟机的配置。
-
-这个部分操作使用 `quantum_server_config.xml` 文件中相关参数解释如下：
-
-（有些配置参数与创建时使用的参数是共用的，需要读取创建时使用的信息来获取宿主机上虚拟机的名称等内容）
-
-|  属性名称   |     取值说明     |
-| ------------- |:-------------:|                                                                                                                            |
-| login.name             | 登录服务器节点的用户名，通常是root                                                                                                         |
-| login.password         | 登录服务器节点的用户名对应的密码                                                                                                            |
-| kvm.host.range         | 需要创建的虚拟机的宿主机范围                                                                                                              |
-| kvm.host.name.interval | 虚拟机名称与宿主机ip地址最后一个字段的数值间隔。比如宿主机的ip地址为192.168.12.34， 间隔为20，虚拟机的名称为计算方法为34+20=54，固定为3位整数就是054，加上虚拟机名称前缀vm。在此宿主机上创建的虚拟机名称为vm054 |
-| kvm.memory.size.gb     | 虚拟机的内存大小，单位为GB                                                                                                              |
-| kvm.cpu.percentage     | 单个虚拟机占用的CPU资源占宿主机CPU资源的比例。这里的比例是以单颗物理CPU为基准计算的。取值范围在\[5,80\]之间。                                                             |
-| kvm.prefix.string      | 虚拟机的名称前缀                                                                                                                    |
-| kvm.network.number     | 虚拟机规划配置的网络数量。                                                                                                               |
-| kvm.bridge.index1.name | 虚拟机可以使用的网桥信息之一。宿主机上必须要存在对应的网桥设备。                                                                                            |
-| kvm.bridge.index2.name | 虚拟机可以使用的网桥信息之一。宿主机上必须要存在对应的网桥设备。（跟配置的网络数量有关系）                                                                               |
-|                        |                                                                                                                             |
-|                        |                                                                                                                             |
+虚拟机会自动启动，并提示您开始安装 ISO 文件中的操作系统。

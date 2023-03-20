@@ -57,13 +57,23 @@ export const SIDEBAR = {
       { text: '贡献代码', link: SITE.basePathname + 'contributing' },
       { text: '许可证', link: SITE.basePathname + 'agpl' },
     ],
-    '应用场景': [
-      { text: 'KVM', link: SITE.basePathname + 'kvm' },
-      { text: 'VMware', link: SITE.basePathname + '#' },
+    '分离部署': [
+      { text: 'iSCSI 挂载', link: SITE.basePathname + 'iscsiadm' },
+      { text: 'KVM 方案', link: SITE.basePathname + 'kvm' },
+      { text: 'VMware 方案', link: SITE.basePathname + '#' },
+      { text: '文件共享', link: SITE.basePathname + '#' },
+    ],
+    '超融合部署': [
+      { text: 'KVM 方案', link: SITE.basePathname + '#' },
+      { text: 'VMware 方案', link: SITE.basePathname + '#' },
+      /*
+      { text: '超融合部署 - 分离部署', link: SITE.basePathname + 'hci' },
+      { text: '单路径 - 多路径', link: SITE.basePathname + 'mpio' },
       { text: 'Ｈyper-V', link: SITE.basePathname + '#' },
       { text: '华为FusionCompute', link: SITE.basePathname + '#' },
       { text: 'OpenStack', link: SITE.basePathname + '#' },
-      { text: '文件共享', link: SITE.basePathname + '#' },
+      
+      //*/
     ],
   },
 };
