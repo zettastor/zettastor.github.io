@@ -59,13 +59,13 @@ export const SIDEBAR = {
     ],
     '分离部署': [
       { text: 'iSCSI 挂载', link: SITE.basePathname + 'iscsiadm' },
-      { text: 'KVM 方案', link: SITE.basePathname + 'kvm' },
-      { text: 'VMware 方案', link: SITE.basePathname + '#' },
-      { text: '文件共享', link: SITE.basePathname + '#' },
+      { text: 'KVM 虚拟化方案', link: SITE.basePathname + 'kvm' },
+      { text: 'VMware 虚拟化方案', link: SITE.basePathname + '#' },
+      { text: '文件共享方案', link: SITE.basePathname + '#' },
     ],
     '超融合部署': [
-      { text: 'KVM 方案', link: SITE.basePathname + '#' },
-      { text: 'VMware 方案', link: SITE.basePathname + '#' },
+      { text: 'KVM 虚拟化方案', link: SITE.basePathname + '#' },
+      { text: 'VMware 虚拟化方案', link: SITE.basePathname + '#' },
       /*
       { text: '超融合部署 - 分离部署', link: SITE.basePathname + 'hci' },
       { text: '单路径 - 多路径', link: SITE.basePathname + 'mpio' },
