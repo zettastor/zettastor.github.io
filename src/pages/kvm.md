@@ -1,33 +1,16 @@
 ---
-title: KVM (基于内核的虚拟机)
+title: KVM 分离部署
 description: Docs intro
 layout: ~/layouts/DocLayout.astro
 ---
 
-ZettaStor 软件定义的分布式存储平台，通过聚合标准 x86 服务器的存储资源及 IO 处理能力，针对桌面虚拟化环境中不同类型的数据，提供全面的解决方案：面向桌面客户机的操作系统映像，推荐采用全闪存配置，基于块设备接口访问，以提供具备高 IOPS、低访问延迟的高性能存储资源；面向桌面客户机的用户数据，则推荐采用大容量磁盘，辅以可选的 SSD 缓存，基于 iSCSI 接口访问， 以提供具备高吞吐能力、高性价比的海量存储空间。
+在 KVM 分离部署方案中，使用多台物理机设备仅部署 Zettastor DBS，分布式存储对接的应用软件由其它的节点进行部署。这样就做到存储和计算之间的分离。这种方式下计算和存储之间相对独立，各自软件可以单独部署、扩容，技术上也相对简单。Zettastor DBS通过标准的 iSCSI 协议与各类软件进行对接。
 
-ZettaStor 凭借高性能、高扩展性、高可靠性的特点，以更为优化的总体成本，确保用户的桌面虚拟化项目顺利实施，实现良好用户体验，并发挥最大效力。
-
-<img src="/vitualization/media/vitualization1.png" width="500" />
+<img src="/vitualization/media/hci2.png" width="65%" />
 
 在本文中，我们将介绍在 ZettaStor DBS 中设置 iSCSI 服务并在客户机中使用其中的存储空间来部署 KVM 映像。
 
-## 0. 客户机环境检查
-### 硬件要求
-1. 在开始安装 KVM 之前，请通过 egrep 命令检查您的 CPU 是否支持硬件虚拟化：
-```bash
-egrep -c '(vmx|svm)' /proc/cpuinfo
-```
-如果该命令返回值为0，则表示您的处理器不支持运行 KVM，其他大于 0 的数字都意味着您可以继续安装。如果你确定你的 CPU 支持虚拟化，请确保在服务器 BIOS 中未禁用此选项，一般位于 Intel Virtualization Technology 或 SVM MODE 选项。
-
-2. 接下来，输入以下命令检查您的系统是否支持使用 KVM 加速：
-```
-$ kvm-ok
-INFO: /dev/kvm exists
-KVM acceleration can be used
-```
-
-### 软件要求
+## 0. 环境要求
 - 1 套 ZettaStor DBS 分布式存储设备（下文简称“DBS”）  
 为了方便说明，假设 IP 为 192.168.142.128
 - 1 台具有网络连接的 Linux 客户机（下文简称“客户机”）
@@ -75,7 +58,7 @@ InitiatorName=iqn.1994-05.com.redhat:c341717a8db
 
 ## 3. 在客户机上使用 iSCSI 服务
 ### 3.1 发现 iSCSI 服务
-现在，我们需要在客户机上发现iSCSI服务：
+现在，我们需要在客户机上发现 iSCSI 服务：
 ```
 $ iscsiadm -m discovery -t st -p 192.168.142.128
 192.168.142.128:3260,1 iqn.2017-08.zettastor.iqn:1227055989086196745-0
@@ -103,7 +86,21 @@ systemctl status libvirtd
 ```
 如果一切正常运行，输出将返回 `active (running)` 状态。
 
-### 4.2 创建 CentOS 7 虚拟机 
+### 4.2 检查硬件要求
+1. 在开始安装 KVM 之前，请通过 egrep 命令检查您的 CPU 是否支持硬件虚拟化：
+```bash
+egrep -c '(vmx|svm)' /proc/cpuinfo
+```
+如果该命令返回值为0，则表示您的处理器不支持运行 KVM，其他大于 0 的数字都意味着您可以继续安装。如果你确定你的 CPU 支持虚拟化，请确保在服务器 BIOS 中未禁用此选项，一般位于 Intel Virtualization Technology 或 SVM MODE 选项。
+
+2. 接下来，输入以下命令检查您的系统是否支持使用 KVM 加速：
+```
+$ kvm-ok
+INFO: /dev/kvm exists
+KVM acceleration can be used
+```
+
+### 4.3 创建 CentOS 7 虚拟机 
 1. 运行 Virtual Machine Manager 创建一个虚拟机：
 ```
 virt-manager

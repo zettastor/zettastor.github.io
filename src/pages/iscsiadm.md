@@ -4,8 +4,8 @@ description: Docs intro
 layout: ~/layouts/DocLayout.astro
 ---
 
-iSCSI协议是一种将SCSI协议扩展到TCP/IP网络的技术，可以实现在IP网络上运行块存储设备。在本文中，我们将使用 ZettaStor DBS 搭建一个 iSCSI 共享存储环境：
-- 在 ZettaStor DBS中安装并配置 iSCSI Target 服务，创建虚拟磁盘并分配给目标
+iSCSI 协议是一种将 SCSI 协议扩展到 TCP/IP 网络的技术，可以实现在 IP 网络上运行块存储设备。在本文中，我们将使用 ZettaStor DBS 搭建一个 iSCSI 共享存储环境：
+- 在 ZettaStor DBS 中安装并配置 iSCSI Target 服务，创建虚拟磁盘并分配给目标
 - 在访问存储空间的设备上安装并配置 iSCSI Initiator 服务，发现并连接到目标，并将虚拟磁盘格式化为本地分区或文件系统
 
 ## 0. 环境要求
@@ -56,7 +56,7 @@ InitiatorName=iqn.1994-05.com.redhat:c341717a8db
 
 ## 3. 在客户机上使用 iSCSI 服务
 ### 3.1 连接 iSCSI 服务
-现在，我们需要在客户机上发现iSCSI服务：
+现在，我们需要在客户机上发现 iSCSI 服务：
 ```
 $ iscsiadm -m discovery -t st -p 192.168.142.128
 192.168.142.128:3260,1 iqn.2017-08.zettastor.iqn:1227055989086196745-0

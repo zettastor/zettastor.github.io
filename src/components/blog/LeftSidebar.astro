@@ -23,14 +23,19 @@ const sidebar = SIDEBAR[langCode];
 					<h2>{header}</h2>
 					<ul>
 						{children.map((child) => {
-							const url = getPermalink(child.link);
-							return (
-								<li class="nav-link">
-									<a href={url} aria-current={currentPageMatch.endsWith(child.link.slice(1)) ? 'page' : false}>
-										{child.text}
-									</a>
-								</li>
-							);
+							if (child.link.length === 0) {
+								return (<li class="nav-link"><a style="color:lightgray">{child.text}</a></li>)
+							}
+							else {
+								const url = getPermalink(child.link);
+								return (
+									<li class="nav-link">
+										<a href={url} aria-current={currentPageMatch.endsWith(child.link.slice(1)) ? 'page' : false}>
+											{child.text}
+										</a>
+									</li>
+								);
+							}
 						})}
 					</ul>
 				</div>
