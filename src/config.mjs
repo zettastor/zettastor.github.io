@@ -57,17 +57,17 @@ export const SIDEBAR = {
       { text: '贡献代码', link: SITE.basePathname + 'contributing' },
       { text: '许可证', link: SITE.basePathname + 'agpl' },
     ],
-    '分离部署': [
+    '应用场景': [
       { text: 'iSCSI 挂载', link: SITE.basePathname + 'iscsiadm' },
-      { text: 'KVM 虚拟化', link: SITE.basePathname + 'kvm' },
-      { text: 'VMware 虚拟化', link: '' },
+      { text: 'KVM 分离部署', link: SITE.basePathname + 'kvm' },
+      { text: 'KVM 超融合部署', link: 'kvmhci' },
+      { text: 'VMware 分离部署', link: '' },
+      { text: 'VMware 超融合部署', link: '' },
+      { text: 'Ｈyper-V', link: '' },
       { text: '文件共享', link: '' },
-    ],
-    '超融合部署': [
-      { text: 'KVM 虚拟化', link: 'kvmhci' },
-      { text: 'VMware 虚拟化', link: '' },
+
       /*
-      { text: 'Ｈyper-V', link: SITE.basePathname + '#' },
+      
       { text: '华为FusionCompute', link: SITE.basePathname + '#' },
       { text: 'OpenStack', link: SITE.basePathname + '#' },
       //*/
