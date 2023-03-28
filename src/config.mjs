@@ -64,7 +64,7 @@ export const SIDEBAR = {
       { text: 'VMware 分离部署', link: '' },
       { text: 'VMware 超融合部署', link: '' },
       { text: 'Ｈyper-V', link: '' },
-      { text: '文件共享', link: '' },
+      { text: '文件共享', link: 'nfs' },
 
       /*
       
