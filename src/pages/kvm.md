@@ -100,7 +100,7 @@ INFO: /dev/kvm exists
 KVM acceleration can be used
 ```
 
-### 4.3 创建 CentOS 7 虚拟机 
+### 4.3 创建虚拟机 
 1. 运行 Virtual Machine Manager 创建一个虚拟机：
 ```
 virt-manager
@@ -109,7 +109,7 @@ virt-manager
 
 <img src="/vitualization/media/kvm01.png" width="50%" />
 
-3. 在打开的对话框中，选择使用 ISO 镜像安装 VM 的选项。然后点击 `Forward`。
+3. 在打开的对话框中，选择使用 ISO 镜像安装 VM 的选项，此处使用 CentOS 7 安装盘。然后点击 `Forward`。
 
 <img src="/vitualization/media/kvm02.png" width="50%" />
 <img src="/vitualization/media/kvm03.png" width="50%" />

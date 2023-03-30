@@ -58,16 +58,14 @@ export const SIDEBAR = {
       { text: '许可证', link: SITE.basePathname + 'agpl' },
     ],
     '应用场景': [
-      { text: 'iSCSI 挂载', link: SITE.basePathname + 'iscsiadm' },
+      { text: 'iSCSI 挂载 (Linux)', link: SITE.basePathname + 'iscsiadm' },
+      { text: 'iSCSI 挂载 (Windows)', link: SITE.basePathname + 'iscsiwin' },
+      { text: 'NFS 文件共享', link: 'nfs' },
       { text: 'KVM 分离部署', link: SITE.basePathname + 'kvm' },
       { text: 'KVM 超融合部署', link: 'kvmhci' },
+      { text: 'Hyper-V', link: '' },
       { text: 'VMware 分离部署', link: '' },
-      { text: 'VMware 超融合部署', link: '' },
-      { text: 'Ｈyper-V', link: '' },
-      { text: '文件共享', link: 'nfs' },
-
       /*
-      
       { text: '华为FusionCompute', link: SITE.basePathname + '#' },
       { text: 'OpenStack', link: SITE.basePathname + '#' },
       //*/
