@@ -4,7 +4,7 @@ description: Docs intro
 layout: ~/layouts/DocLayout.astro
 ---
 
-在 KVM 分离部署方案中，使用多台物理机设备仅部署 Zettastor DBS，分布式存储对接的应用软件由其它的节点进行部署。这样就做到存储和计算之间的分离。这种方式下计算和存储之间相对独立，各自软件可以单独部署、扩容，技术上也相对简单。Zettastor DBS通过标准的 iSCSI 协议与各类软件进行对接。
+在分离部署方案中，使用多台物理机设备仅部署 Zettastor DBS，分布式存储对接的应用软件由其它的节点进行部署。这样就做到存储和计算之间的分离。这种方式下计算和存储之间相对独立，各自软件可以单独部署、扩容，技术上也相对简单。Zettastor DBS通过标准的 iSCSI 协议与各类软件进行对接。
 
 <img src="/vitualization/media/hci2.png" width="65%" />
 
@@ -13,7 +13,7 @@ layout: ~/layouts/DocLayout.astro
 ## 0. 环境要求
 - 1 套 ZettaStor DBS 分布式存储设备（下文简称“DBS”）  
 为了方便说明，假设 IP 为 192.168.142.128
-- 1 台具有网络连接的 Linux 客户机（下文简称“客户机”）
+- 1 台具有局域网连接的 Linux 客户机（下文简称“客户机”）
 
 >**注意**  
 下列命令假设您已经具有足够权限，关于使用 `su` 或 `sudo` 等提权操作不再赘述。

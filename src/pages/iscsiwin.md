@@ -69,6 +69,6 @@ iSCSI 协议是一种将 SCSI 协议扩展到 TCP/IP 网络的技术，可以实
 
 4. 在接下来所有操作中全部点击“下一步”，直到出现 “完成新的简单卷向导” 对话框，检查所有设置并单击 “完成” 以创建新卷
 
-<img src="/vitualization/media/iscsiwin18_zh.png" width="80%" />
+<img src="/vitualization/media/iscsiwin18_zh.png" />
 
 5. 完成创建后可以从 Windows 资源管理器中访问该磁盘

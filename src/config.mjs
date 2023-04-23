@@ -60,10 +60,10 @@ export const SIDEBAR = {
     '应用场景': [
       { text: 'iSCSI 挂载 (Linux)', link: SITE.basePathname + 'iscsiadm' },
       { text: 'iSCSI 挂载 (Windows)', link: SITE.basePathname + 'iscsiwin' },
-      { text: 'NFS 文件共享', link: 'nfs' },
+      { text: 'NFS 文件共享', link: SITE.basePathname + 'nfs' },
       { text: 'KVM 分离部署', link: SITE.basePathname + 'kvm' },
       { text: 'KVM 超融合部署', link: 'kvmhci' },
-      { text: 'Hyper-V', link: '' },
+      { text: 'Hyper-V 分离部署', link: SITE.basePathname + 'hyperv' },
       { text: 'VMware 分离部署', link: '' },
       /*
       { text: '华为FusionCompute', link: SITE.basePathname + '#' },
