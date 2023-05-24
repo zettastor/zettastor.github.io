@@ -15,7 +15,7 @@ layout: ~/layouts/DocLayout.astro
 ### 硬件要求
 - 支持二级地址转换（SLAT）的64位 CPU
 - 支持虚拟机监视器模式扩展（Intel CPU 上的VT-c）
-- 至少 4 GB 内存。
+- 至少 4 GB 内存
 
 ### 软件要求
 - 1 套 ZettaStor DBS 分布式存储设备（下文简称“DBS”）  
@@ -25,7 +25,7 @@ layout: ~/layouts/DocLayout.astro
 >**注意**  
 下列命令假设您已经具有管理权限。
 
-## 1. 在客户机上进行 iSCSI 挂载
+## 1. 在客户机上挂载 iSCSI
 在客户机上，完成 [Windows 环境 iSCSI 挂载](/iscsiwin) 中描述的所有操作。
 
 ## 2. 在客户机上安装 Hyper-V

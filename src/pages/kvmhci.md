@@ -78,7 +78,7 @@ virt-manager
 
 <img src="/vitualization/media/kvm04.png" width="50%" />
 
-5. 调整系统盘空间为 `40GB`，然后点击 `Forward`。
+5. 输入希望分配给虚拟机的系统盘空间，然后点击 `Forward`。
 
 <img src="/vitualization/media/kvm05.png" width="50%" />
 
