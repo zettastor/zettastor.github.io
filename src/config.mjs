@@ -41,7 +41,7 @@ export const SIDEBAR = {
       { text: 'How to Compile', link: SITE.basePathname + 'compile' },
       { text: 'Developer\'s Guide', link: SITE.basePathname + 'devguide' },
       { text: 'How to Contribute', link: SITE.basePathname + 'contributing' },
-      { text: 'License', link: SITE.basePathname + 'agpl' },
+      { text: 'License', link: SITE.basePathname + 'license' },
     ],
   },
   zh: {
@@ -55,7 +55,7 @@ export const SIDEBAR = {
       { text: '编译说明', link: SITE.basePathname + 'compile' },
       { text: '开发指南', link: SITE.basePathname + 'devguide' },
       { text: '贡献代码', link: SITE.basePathname + 'contributing' },
-      { text: '许可证', link: SITE.basePathname + 'agpl' },
+      { text: '许可证', link: SITE.basePathname + 'license' },
     ],
     '应用场景': [
       { text: 'iSCSI 挂载 (Linux)', link: SITE.basePathname + 'iscsiadm' },
